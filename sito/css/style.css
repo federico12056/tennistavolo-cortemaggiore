@@ -240,3 +240,99 @@ body {
     display: inline-block;
     margin-top: 10px;
 }
+/* PAGINA CHI SIAMO */
+
+#chi-siamo > .hero {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+#chi-siamo > .section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#chi-siamo > .section p {
+    max-width: 900px;
+    font-size: 16px;
+    line-height: 1.85;
+    color: #566174;
+}
+
+#chi-siamo > .section h2 {
+    color: #173c70;
+    margin-bottom: 24px;
+}
+
+#chi-siamo > .sponsors {
+    max-width: none;
+    padding: 60px 8%;
+    background: #e9eef5;
+    border-top: 1px solid #dce3ed;
+    border-bottom: 1px solid #dce3ed;
+}
+
+#chi-siamo > .sponsors h2 {
+    font-size: 32px;
+}
+
+#chi-siamo > .sponsors strong {
+    color: #173c70;
+}
+
+/* ALBO STORICO DEGLI ALLENATORI */
+
+#chi-siamo .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 20px;
+}
+
+#chi-siamo .card {
+    border-radius: 10px;
+    border-top: 4px solid #173c70;
+    box-shadow: 0 3px 12px rgba(23, 60, 112, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#chi-siamo .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(23, 60, 112, 0.12);
+}
+
+#chi-siamo .card h3 {
+    color: #d83a42;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+#chi-siamo .card p {
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+/* ADATTAMENTO A TABLET E SMARTPHONE */
+
+@media (max-width: 800px) {
+    #chi-siamo .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    #chi-siamo .cards {
+        grid-template-columns: 1fr;
+    }
+
+    #chi-siamo > .hero {
+        padding: 55px 7%;
+    }
+
+    #chi-siamo > .section {
+        padding: 40px 7%;
+    }
+
+    #chi-siamo > .sponsors {
+        padding: 45px 7%;
+    }
+}
