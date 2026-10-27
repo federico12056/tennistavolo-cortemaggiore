@@ -8,12 +8,28 @@
     "trasferta": "Tennistavolo Montichiari"
   },
   {
+    "giornata": "8^ Giornata",
+    "data": "16/01/2027",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "Tennistavolo Montichiari",
+    "trasferta": "RUNTHEONS - TT MARCO POLO"
+  },
+  {
     "giornata": "1^ Giornata",
     "data": "10/10/2026",
     "ora": "16.00",
     "risultato": "5 - 2",
     "casa": "ASD US VILLA ROMANO'",
     "trasferta": "PREMIX TENNISTAVOLO S. POLO"
+  },
+  {
+    "giornata": "8^ Giornata",
+    "data": "16/01/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "PREMIX TENNISTAVOLO S. POLO",
+    "trasferta": "ASD US VILLA ROMANO'"
   },
   {
     "giornata": "1^ Giornata",
@@ -24,12 +40,28 @@
     "trasferta": "AON - VITTORIA _MILANO SPORT"
   },
   {
+    "giornata": "8^ Giornata",
+    "data": "16/01/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "AON - VITTORIA _MILANO SPORT",
+    "trasferta": "VITANUOVA - TT MARCO POLO"
+  },
+  {
     "giornata": "1^ Giornata",
     "data": "10/10/2026",
     "ora": "16.00",
     "risultato": "3 - 4",
     "casa": "TECO-CATTINA CORTEMAGGIORE",
     "trasferta": "TT - ARSENAL - GARDEN HOTEL"
+  },
+  {
+    "giornata": "8^ Giornata",
+    "data": "16/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TT - ARSENAL - GARDEN HOTEL",
+    "trasferta": "TECO-CATTINA CORTEMAGGIORE"
   },
   {
     "giornata": "2^ Giornata",
@@ -40,12 +72,28 @@
     "trasferta": "Tennistavolo Montichiari"
   },
   {
+    "giornata": "9^ Giornata",
+    "data": "30/01/2027",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "Tennistavolo Montichiari",
+    "trasferta": "ASD US VILLA ROMANO'"
+  },
+  {
     "giornata": "2^ Giornata",
     "data": "17/10/2026",
     "ora": "15.30",
     "risultato": "5 - 2",
     "casa": "AON - VITTORIA _MILANO SPORT",
     "trasferta": "RUNTHEONS - TT MARCO POLO"
+  },
+  {
+    "giornata": "9^ Giornata",
+    "data": "31/01/2027",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "RUNTHEONS - TT MARCO POLO",
+    "trasferta": "AON - VITTORIA _MILANO SPORT"
   },
   {
     "giornata": "2^ Giornata",
@@ -56,6 +104,14 @@
     "trasferta": "TECO-CATTINA CORTEMAGGIORE"
   },
   {
+    "giornata": "9^ Giornata",
+    "data": "30/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO-CATTINA CORTEMAGGIORE",
+    "trasferta": "PREMIX TENNISTAVOLO S. POLO"
+  },
+  {
     "giornata": "2^ Giornata",
     "data": "17/10/2026",
     "ora": "16.00",
@@ -64,12 +120,28 @@
     "trasferta": "VITANUOVA - TT MARCO POLO"
   },
   {
+    "giornata": "9^ Giornata",
+    "data": "31/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "VITANUOVA - TT MARCO POLO",
+    "trasferta": "TT - ARSENAL - GARDEN HOTEL"
+  },
+  {
     "giornata": "3^ Giornata",
     "data": "07/11/2026",
     "ora": "15.30",
     "risultato": "-",
     "casa": "PREMIX TENNISTAVOLO S. POLO",
     "trasferta": "Tennistavolo Montichiari"
+  },
+  {
+    "giornata": "10^ Giornata",
+    "data": "06/02/2027",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "Tennistavolo Montichiari",
+    "trasferta": "PREMIX TENNISTAVOLO S. POLO"
   },
   {
     "giornata": "3^ Giornata",
@@ -80,12 +152,28 @@
     "trasferta": "VITANUOVA - TT MARCO POLO"
   },
   {
+    "giornata": "10^ Giornata",
+    "data": "25/01/2027",
+    "ora": "19.30",
+    "risultato": "-",
+    "casa": "VITANUOVA - TT MARCO POLO",
+    "trasferta": "RUNTHEONS - TT MARCO POLO"
+  },
+  {
     "giornata": "3^ Giornata",
     "data": "07/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "TT - ARSENAL - GARDEN HOTEL",
     "trasferta": "ASD US VILLA ROMANO'"
+  },
+  {
+    "giornata": "10^ Giornata",
+    "data": "06/02/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASD US VILLA ROMANO'",
+    "trasferta": "TT - ARSENAL - GARDEN HOTEL"
   },
   {
     "giornata": "3^ Giornata",
@@ -96,12 +184,28 @@
     "trasferta": "AON - VITTORIA _MILANO SPORT"
   },
   {
+    "giornata": "10^ Giornata",
+    "data": "06/02/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "AON - VITTORIA _MILANO SPORT",
+    "trasferta": "TECO-CATTINA CORTEMAGGIORE"
+  },
+  {
     "giornata": "4^ Giornata",
     "data": "14/11/2026",
     "ora": "15.30",
     "risultato": "-",
     "casa": "AON - VITTORIA _MILANO SPORT",
     "trasferta": "PREMIX TENNISTAVOLO S. POLO"
+  },
+  {
+    "giornata": "11^ Giornata",
+    "data": "20/02/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "PREMIX TENNISTAVOLO S. POLO",
+    "trasferta": "AON - VITTORIA _MILANO SPORT"
   },
   {
     "giornata": "4^ Giornata",
@@ -112,12 +216,28 @@
     "trasferta": "TT - ARSENAL - GARDEN HOTEL"
   },
   {
+    "giornata": "11^ Giornata",
+    "data": "20/02/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TT - ARSENAL - GARDEN HOTEL",
+    "trasferta": "RUNTHEONS - TT MARCO POLO"
+  },
+  {
     "giornata": "4^ Giornata",
     "data": "14/11/2026",
     "ora": "15.00",
     "risultato": "-",
     "casa": "VITANUOVA - TT MARCO POLO",
     "trasferta": "Tennistavolo Montichiari"
+  },
+  {
+    "giornata": "11^ Giornata",
+    "data": "20/02/2027",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "Tennistavolo Montichiari",
+    "trasferta": "VITANUOVA - TT MARCO POLO"
   },
   {
     "giornata": "4^ Giornata",
@@ -128,12 +248,28 @@
     "trasferta": "ASD US VILLA ROMANO'"
   },
   {
+    "giornata": "11^ Giornata",
+    "data": "20/02/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASD US VILLA ROMANO'",
+    "trasferta": "TECO-CATTINA CORTEMAGGIORE"
+  },
+  {
     "giornata": "5^ Giornata",
     "data": "21/11/2026",
     "ora": "15.00",
     "risultato": "-",
     "casa": "Tennistavolo Montichiari",
     "trasferta": "TT - ARSENAL - GARDEN HOTEL"
+  },
+  {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TT - ARSENAL - GARDEN HOTEL",
+    "trasferta": "Tennistavolo Montichiari"
   },
   {
     "giornata": "5^ Giornata",
@@ -144,12 +280,28 @@
     "trasferta": "TECO-CATTINA CORTEMAGGIORE"
   },
   {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO-CATTINA CORTEMAGGIORE",
+    "trasferta": "RUNTHEONS - TT MARCO POLO"
+  },
+  {
     "giornata": "5^ Giornata",
     "data": "21/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "ASD US VILLA ROMANO'",
     "trasferta": "AON - VITTORIA _MILANO SPORT"
+  },
+  {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "AON - VITTORIA _MILANO SPORT",
+    "trasferta": "ASD US VILLA ROMANO'"
   },
   {
     "giornata": "5^ Giornata",
@@ -160,12 +312,28 @@
     "trasferta": "PREMIX TENNISTAVOLO S. POLO"
   },
   {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "PREMIX TENNISTAVOLO S. POLO",
+    "trasferta": "VITANUOVA - TT MARCO POLO"
+  },
+  {
     "giornata": "6^ Giornata",
     "data": "12/12/2026",
     "ora": "15.30",
     "risultato": "-",
     "casa": "AON - VITTORIA _MILANO SPORT",
     "trasferta": "TT - ARSENAL - GARDEN HOTEL"
+  },
+  {
+    "giornata": "13^ Giornata",
+    "data": "10/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TT - ARSENAL - GARDEN HOTEL",
+    "trasferta": "AON - VITTORIA _MILANO SPORT"
   },
   {
     "giornata": "6^ Giornata",
@@ -176,12 +344,28 @@
     "trasferta": "RUNTHEONS - TT MARCO POLO"
   },
   {
+    "giornata": "13^ Giornata",
+    "data": "11/04/2027",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "RUNTHEONS - TT MARCO POLO",
+    "trasferta": "PREMIX TENNISTAVOLO S. POLO"
+  },
+  {
     "giornata": "6^ Giornata",
     "data": "12/12/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "ASD US VILLA ROMANO'",
     "trasferta": "VITANUOVA - TT MARCO POLO"
+  },
+  {
+    "giornata": "13^ Giornata",
+    "data": "11/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "VITANUOVA - TT MARCO POLO",
+    "trasferta": "ASD US VILLA ROMANO'"
   },
   {
     "giornata": "6^ Giornata",
@@ -192,12 +376,28 @@
     "trasferta": "Tennistavolo Montichiari"
   },
   {
+    "giornata": "13^ Giornata",
+    "data": "10/04/2027",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "Tennistavolo Montichiari",
+    "trasferta": "TECO-CATTINA CORTEMAGGIORE"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "19/12/2026",
     "ora": "15.00",
     "risultato": "-",
     "casa": "Tennistavolo Montichiari",
     "trasferta": "AON - VITTORIA _MILANO SPORT"
+  },
+  {
+    "giornata": "14^ Giornata",
+    "data": "17/04/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "AON - VITTORIA _MILANO SPORT",
+    "trasferta": "Tennistavolo Montichiari"
   },
   {
     "giornata": "7^ Giornata",
@@ -208,6 +408,14 @@
     "trasferta": "PREMIX TENNISTAVOLO S. POLO"
   },
   {
+    "giornata": "14^ Giornata",
+    "data": "17/04/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "PREMIX TENNISTAVOLO S. POLO",
+    "trasferta": "TT - ARSENAL - GARDEN HOTEL"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "20/12/2026",
     "ora": "15.00",
@@ -216,11 +424,27 @@
     "trasferta": "ASD US VILLA ROMANO'"
   },
   {
+    "giornata": "14^ Giornata",
+    "data": "17/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASD US VILLA ROMANO'",
+    "trasferta": "RUNTHEONS - TT MARCO POLO"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "* 19/12/2026",
     "ora": "15.00",
     "risultato": "-",
     "casa": "VITANUOVA - TT MARCO POLO",
     "trasferta": "TECO-CATTINA CORTEMAGGIORE"
+  },
+  {
+    "giornata": "14^ Giornata",
+    "data": "17/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO-CATTINA CORTEMAGGIORE",
+    "trasferta": "VITANUOVA - TT MARCO POLO"
   }
 ]

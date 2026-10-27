@@ -8,12 +8,28 @@
     "trasferta": "ZAZZI IMPIANTI - VITTORINO DA FELTRE"
   },
   {
+    "giornata": "8^ Giornata",
+    "data": "17/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "ZAZZI IMPIANTI - VITTORINO DA FELTRE",
+    "trasferta": "TT SALSO - FORLINI OPTICAL"
+  },
+  {
     "giornata": "1^ Giornata",
     "data": "11/10/2026",
     "ora": "10.30",
     "risultato": "2 - 5",
     "casa": "GS VIRTUS CASALGRANDE TECNOAUTO",
     "trasferta": "SIDITEC S. POLO"
+  },
+  {
+    "giornata": "8^ Giornata",
+    "data": "17/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "SIDITEC S. POLO",
+    "trasferta": "GS VIRTUS CASALGRANDE TECNOAUTO"
   },
   {
     "giornata": "1^ Giornata",
@@ -24,12 +40,28 @@
     "trasferta": "VITTORIO LONGI S. POLO"
   },
   {
+    "giornata": "8^ Giornata",
+    "data": "17/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "VITTORIO LONGI S. POLO",
+    "trasferta": "VALNURE PERETTI LONGHI"
+  },
+  {
     "giornata": "1^ Giornata",
     "data": "10/10/2026",
     "ora": "16.00",
     "risultato": "2 - 5",
     "casa": "TECO COSTANTINI",
     "trasferta": "AUDAX Verix"
+  },
+  {
+    "giornata": "8^ Giornata",
+    "data": "16/01/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "AUDAX Verix",
+    "trasferta": "TECO COSTANTINI"
   },
   {
     "giornata": "2^ Giornata",
@@ -40,6 +72,14 @@
     "trasferta": "GS VIRTUS CASALGRANDE TECNOAUTO"
   },
   {
+    "giornata": "9^ Giornata",
+    "data": "31/01/2027",
+    "ora": "10.30",
+    "risultato": "-",
+    "casa": "GS VIRTUS CASALGRANDE TECNOAUTO",
+    "trasferta": "ZAZZI IMPIANTI - VITTORINO DA FELTRE"
+  },
+  {
     "giornata": "2^ Giornata",
     "data": "18/10/2026",
     "ora": "10.00",
@@ -48,12 +88,28 @@
     "trasferta": "TT SALSO - FORLINI OPTICAL"
   },
   {
+    "giornata": "9^ Giornata",
+    "data": "31/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "TT SALSO - FORLINI OPTICAL",
+    "trasferta": "VITTORIO LONGI S. POLO"
+  },
+  {
     "giornata": "2^ Giornata",
     "data": "18/10/2026",
     "ora": "10.00",
     "risultato": "3 - 4",
     "casa": "SIDITEC S. POLO",
     "trasferta": "TECO COSTANTINI"
+  },
+  {
+    "giornata": "9^ Giornata",
+    "data": "30/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO COSTANTINI",
+    "trasferta": "SIDITEC S. POLO"
   },
   {
     "giornata": "2^ Giornata",
@@ -64,12 +120,28 @@
     "trasferta": "VALNURE PERETTI LONGHI"
   },
   {
+    "giornata": "9^ Giornata",
+    "data": "30/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "VALNURE PERETTI LONGHI",
+    "trasferta": "AUDAX Verix"
+  },
+  {
     "giornata": "3^ Giornata",
     "data": "08/11/2026",
     "ora": "10.00",
     "risultato": "-",
     "casa": "SIDITEC S. POLO",
     "trasferta": "ZAZZI IMPIANTI - VITTORINO DA FELTRE"
+  },
+  {
+    "giornata": "10^ Giornata",
+    "data": "07/02/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "ZAZZI IMPIANTI - VITTORINO DA FELTRE",
+    "trasferta": "SIDITEC S. POLO"
   },
   {
     "giornata": "3^ Giornata",
@@ -80,12 +152,28 @@
     "trasferta": "VALNURE PERETTI LONGHI"
   },
   {
+    "giornata": "10^ Giornata",
+    "data": "06/02/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "VALNURE PERETTI LONGHI",
+    "trasferta": "TT SALSO - FORLINI OPTICAL"
+  },
+  {
     "giornata": "3^ Giornata",
     "data": "08/11/2026",
     "ora": "10.30",
     "risultato": "-",
     "casa": "GS VIRTUS CASALGRANDE TECNOAUTO",
     "trasferta": "AUDAX Verix"
+  },
+  {
+    "giornata": "10^ Giornata",
+    "data": "06/02/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "AUDAX Verix",
+    "trasferta": "GS VIRTUS CASALGRANDE TECNOAUTO"
   },
   {
     "giornata": "3^ Giornata",
@@ -96,12 +184,28 @@
     "trasferta": "VITTORIO LONGI S. POLO"
   },
   {
+    "giornata": "10^ Giornata",
+    "data": "07/02/2027 *",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "VITTORIO LONGI S. POLO",
+    "trasferta": "TECO COSTANTINI"
+  },
+  {
     "giornata": "4^ Giornata",
     "data": "* 14/10/2026",
     "ora": "19.00",
     "risultato": "1 - 6",
     "casa": "VITTORIO LONGI S. POLO",
     "trasferta": "SIDITEC S. POLO"
+  },
+  {
+    "giornata": "11^ Giornata",
+    "data": "27/01/2027",
+    "ora": "19.00",
+    "risultato": "-",
+    "casa": "SIDITEC S. POLO",
+    "trasferta": "VITTORIO LONGI S. POLO"
   },
   {
     "giornata": "4^ Giornata",
@@ -112,12 +216,28 @@
     "trasferta": "TT SALSO - FORLINI OPTICAL"
   },
   {
+    "giornata": "11^ Giornata",
+    "data": "21/02/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "TT SALSO - FORLINI OPTICAL",
+    "trasferta": "AUDAX Verix"
+  },
+  {
     "giornata": "4^ Giornata",
     "data": "14/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "VALNURE PERETTI LONGHI",
     "trasferta": "ZAZZI IMPIANTI - VITTORINO DA FELTRE"
+  },
+  {
+    "giornata": "11^ Giornata",
+    "data": "21/02/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "ZAZZI IMPIANTI - VITTORINO DA FELTRE",
+    "trasferta": "VALNURE PERETTI LONGHI"
   },
   {
     "giornata": "4^ Giornata",
@@ -128,12 +248,28 @@
     "trasferta": "GS VIRTUS CASALGRANDE TECNOAUTO"
   },
   {
+    "giornata": "11^ Giornata",
+    "data": "21/02/2027",
+    "ora": "10.30",
+    "risultato": "-",
+    "casa": "GS VIRTUS CASALGRANDE TECNOAUTO",
+    "trasferta": "TECO COSTANTINI"
+  },
+  {
     "giornata": "5^ Giornata",
     "data": "22/11/2026",
     "ora": "10.00",
     "risultato": "-",
     "casa": "ZAZZI IMPIANTI - VITTORINO DA FELTRE",
     "trasferta": "AUDAX Verix"
+  },
+  {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "AUDAX Verix",
+    "trasferta": "ZAZZI IMPIANTI - VITTORINO DA FELTRE"
   },
   {
     "giornata": "5^ Giornata",
@@ -144,12 +280,28 @@
     "trasferta": "TECO COSTANTINI"
   },
   {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO COSTANTINI",
+    "trasferta": "TT SALSO - FORLINI OPTICAL"
+  },
+  {
     "giornata": "5^ Giornata",
     "data": "22/11/2026",
     "ora": "10.30",
     "risultato": "-",
     "casa": "GS VIRTUS CASALGRANDE TECNOAUTO",
     "trasferta": "VITTORIO LONGI S. POLO"
+  },
+  {
+    "giornata": "12^ Giornata",
+    "data": "07/03/2027 *",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "VITTORIO LONGI S. POLO",
+    "trasferta": "GS VIRTUS CASALGRANDE TECNOAUTO"
   },
   {
     "giornata": "5^ Giornata",
@@ -160,12 +312,28 @@
     "trasferta": "SIDITEC S. POLO"
   },
   {
+    "giornata": "12^ Giornata",
+    "data": "07/03/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "SIDITEC S. POLO",
+    "trasferta": "VALNURE PERETTI LONGHI"
+  },
+  {
     "giornata": "6^ Giornata",
     "data": "13/12/2026",
     "ora": "10.00",
     "risultato": "-",
     "casa": "VITTORIO LONGI S. POLO",
     "trasferta": "AUDAX Verix"
+  },
+  {
+    "giornata": "13^ Giornata",
+    "data": "10/04/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "AUDAX Verix",
+    "trasferta": "VITTORIO LONGI S. POLO"
   },
   {
     "giornata": "6^ Giornata",
@@ -176,12 +344,28 @@
     "trasferta": "TT SALSO - FORLINI OPTICAL"
   },
   {
+    "giornata": "13^ Giornata",
+    "data": "11/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "TT SALSO - FORLINI OPTICAL",
+    "trasferta": "SIDITEC S. POLO"
+  },
+  {
     "giornata": "6^ Giornata",
     "data": "13/12/2026",
     "ora": "10.30",
     "risultato": "-",
     "casa": "GS VIRTUS CASALGRANDE TECNOAUTO",
     "trasferta": "VALNURE PERETTI LONGHI"
+  },
+  {
+    "giornata": "13^ Giornata",
+    "data": "10/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "VALNURE PERETTI LONGHI",
+    "trasferta": "GS VIRTUS CASALGRANDE TECNOAUTO"
   },
   {
     "giornata": "6^ Giornata",
@@ -192,12 +376,28 @@
     "trasferta": "ZAZZI IMPIANTI - VITTORINO DA FELTRE"
   },
   {
+    "giornata": "13^ Giornata",
+    "data": "11/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "ZAZZI IMPIANTI - VITTORINO DA FELTRE",
+    "trasferta": "TECO COSTANTINI"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "20/12/2026",
     "ora": "10.00",
     "risultato": "-",
     "casa": "ZAZZI IMPIANTI - VITTORINO DA FELTRE",
     "trasferta": "VITTORIO LONGI S. POLO"
+  },
+  {
+    "giornata": "14^ Giornata",
+    "data": "18/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "VITTORIO LONGI S. POLO",
+    "trasferta": "ZAZZI IMPIANTI - VITTORINO DA FELTRE"
   },
   {
     "giornata": "7^ Giornata",
@@ -208,6 +408,14 @@
     "trasferta": "SIDITEC S. POLO"
   },
   {
+    "giornata": "14^ Giornata",
+    "data": "18/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "SIDITEC S. POLO",
+    "trasferta": "AUDAX Verix"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "20/12/2026",
     "ora": "10.00",
@@ -216,11 +424,27 @@
     "trasferta": "GS VIRTUS CASALGRANDE TECNOAUTO"
   },
   {
+    "giornata": "14^ Giornata",
+    "data": "18/04/2027",
+    "ora": "10.30",
+    "risultato": "-",
+    "casa": "GS VIRTUS CASALGRANDE TECNOAUTO",
+    "trasferta": "TT SALSO - FORLINI OPTICAL"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "19/12/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "VALNURE PERETTI LONGHI",
     "trasferta": "TECO COSTANTINI"
+  },
+  {
+    "giornata": "14^ Giornata",
+    "data": "17/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO COSTANTINI",
+    "trasferta": "VALNURE PERETTI LONGHI"
   }
 ]

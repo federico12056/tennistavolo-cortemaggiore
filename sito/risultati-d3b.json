@@ -8,12 +8,28 @@
     "trasferta": "ASD VELOSPORT CARPI"
   },
   {
+    "giornata": "8^ Giornata",
+    "data": "16/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASD VELOSPORT CARPI",
+    "trasferta": "CDR GIOVANI"
+  },
+  {
     "giornata": "1^ Giornata",
     "data": "11/10/2026",
     "ora": "10.00",
     "risultato": "0 - 7",
     "casa": "TT ARSENAL - TRANSCOOP",
     "trasferta": "PREMIX S. POLO"
+  },
+  {
+    "giornata": "8^ Giornata",
+    "data": "17/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "PREMIX S. POLO",
+    "trasferta": "TT ARSENAL - TRANSCOOP"
   },
   {
     "giornata": "1^ Giornata",
@@ -24,12 +40,28 @@
     "trasferta": "AUDAX Noleggio Eventi"
   },
   {
+    "giornata": "8^ Giornata",
+    "data": "16/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "AUDAX Noleggio Eventi",
+    "trasferta": "TECO CORTEMAGGIORE"
+  },
+  {
     "giornata": "2^ Giornata",
     "data": "18/10/2026",
     "ora": "10.00",
     "risultato": "4 - 3",
     "casa": "PREMIX S. POLO",
     "trasferta": "CDR GIOVANI"
+  },
+  {
+    "giornata": "9^ Giornata",
+    "data": "31/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "CDR GIOVANI",
+    "trasferta": "PREMIX S. POLO"
   },
   {
     "giornata": "2^ Giornata",
@@ -40,12 +72,28 @@
     "trasferta": "TECO CORTEMAGGIORE"
   },
   {
+    "giornata": "9^ Giornata",
+    "data": "30/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO CORTEMAGGIORE",
+    "trasferta": "SIDEMAC S. POLO"
+  },
+  {
     "giornata": "2^ Giornata",
     "data": "17/10/2026",
     "ora": "16.00",
     "risultato": "7 - 0",
     "casa": "AUDAX Noleggio Eventi",
     "trasferta": "TT ARSENAL - TRANSCOOP"
+  },
+  {
+    "giornata": "9^ Giornata",
+    "data": "30/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TT ARSENAL - TRANSCOOP",
+    "trasferta": "AUDAX Noleggio Eventi"
   },
   {
     "giornata": "3^ Giornata",
@@ -56,12 +104,28 @@
     "trasferta": "ASD VELOSPORT CARPI"
   },
   {
+    "giornata": "10^ Giornata",
+    "data": "06/02/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASD VELOSPORT CARPI",
+    "trasferta": "SIDEMAC S. POLO"
+  },
+  {
     "giornata": "3^ Giornata",
     "data": "08/11/2026",
     "ora": "10.00",
     "risultato": "-",
     "casa": "CDR GIOVANI",
     "trasferta": "TT ARSENAL - TRANSCOOP"
+  },
+  {
+    "giornata": "10^ Giornata",
+    "data": "06/02/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TT ARSENAL - TRANSCOOP",
+    "trasferta": "CDR GIOVANI"
   },
   {
     "giornata": "3^ Giornata",
@@ -72,6 +136,14 @@
     "trasferta": "PREMIX S. POLO"
   },
   {
+    "giornata": "10^ Giornata",
+    "data": "07/02/2027 *",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "PREMIX S. POLO",
+    "trasferta": "TECO CORTEMAGGIORE"
+  },
+  {
     "giornata": "4^ Giornata",
     "data": "* 14/10/2026",
     "ora": "19.00",
@@ -80,12 +152,28 @@
     "trasferta": "SIDEMAC S. POLO"
   },
   {
+    "giornata": "11^ Giornata",
+    "data": "27/01/2027",
+    "ora": "19.00",
+    "risultato": "-",
+    "casa": "SIDEMAC S. POLO",
+    "trasferta": "PREMIX S. POLO"
+  },
+  {
     "giornata": "4^ Giornata",
     "data": "14/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "AUDAX Noleggio Eventi",
     "trasferta": "CDR GIOVANI"
+  },
+  {
+    "giornata": "11^ Giornata",
+    "data": "21/02/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "CDR GIOVANI",
+    "trasferta": "AUDAX Noleggio Eventi"
   },
   {
     "giornata": "4^ Giornata",
@@ -96,12 +184,28 @@
     "trasferta": "TT ARSENAL - TRANSCOOP"
   },
   {
+    "giornata": "11^ Giornata",
+    "data": "21/02/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "TT ARSENAL - TRANSCOOP",
+    "trasferta": "ASD VELOSPORT CARPI"
+  },
+  {
     "giornata": "5^ Giornata",
     "data": "21/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "ASD VELOSPORT CARPI",
     "trasferta": "AUDAX Noleggio Eventi"
+  },
+  {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "AUDAX Noleggio Eventi",
+    "trasferta": "ASD VELOSPORT CARPI"
   },
   {
     "giornata": "5^ Giornata",
@@ -112,12 +216,28 @@
     "trasferta": "TECO CORTEMAGGIORE"
   },
   {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO CORTEMAGGIORE",
+    "trasferta": "CDR GIOVANI"
+  },
+  {
     "giornata": "5^ Giornata",
     "data": "21/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "TT ARSENAL - TRANSCOOP",
     "trasferta": "SIDEMAC S. POLO"
+  },
+  {
+    "giornata": "12^ Giornata",
+    "data": "07/03/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "SIDEMAC S. POLO",
+    "trasferta": "TT ARSENAL - TRANSCOOP"
   },
   {
     "giornata": "6^ Giornata",
@@ -128,12 +248,28 @@
     "trasferta": "AUDAX Noleggio Eventi"
   },
   {
+    "giornata": "13^ Giornata",
+    "data": "10/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "AUDAX Noleggio Eventi",
+    "trasferta": "PREMIX S. POLO"
+  },
+  {
     "giornata": "6^ Giornata",
     "data": "13/12/2026",
     "ora": "10.00",
     "risultato": "-",
     "casa": "SIDEMAC S. POLO",
     "trasferta": "CDR GIOVANI"
+  },
+  {
+    "giornata": "13^ Giornata",
+    "data": "11/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "CDR GIOVANI",
+    "trasferta": "SIDEMAC S. POLO"
   },
   {
     "giornata": "6^ Giornata",
@@ -144,12 +280,28 @@
     "trasferta": "ASD VELOSPORT CARPI"
   },
   {
+    "giornata": "13^ Giornata",
+    "data": "10/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASD VELOSPORT CARPI",
+    "trasferta": "TECO CORTEMAGGIORE"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "19/12/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "ASD VELOSPORT CARPI",
     "trasferta": "PREMIX S. POLO"
+  },
+  {
+    "giornata": "14^ Giornata",
+    "data": "18/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "PREMIX S. POLO",
+    "trasferta": "ASD VELOSPORT CARPI"
   },
   {
     "giornata": "7^ Giornata",
@@ -160,11 +312,27 @@
     "trasferta": "SIDEMAC S. POLO"
   },
   {
+    "giornata": "14^ Giornata",
+    "data": "18/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "SIDEMAC S. POLO",
+    "trasferta": "AUDAX Noleggio Eventi"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "19/12/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "TT ARSENAL - TRANSCOOP",
     "trasferta": "TECO CORTEMAGGIORE"
+  },
+  {
+    "giornata": "14^ Giornata",
+    "data": "17/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO CORTEMAGGIORE",
+    "trasferta": "TT ARSENAL - TRANSCOOP"
   }
 ]

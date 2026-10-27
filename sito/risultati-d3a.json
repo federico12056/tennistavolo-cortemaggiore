@@ -8,12 +8,28 @@
     "trasferta": "AGRIT. POGGIO CAMINATA - V. DA FELTRE"
   },
   {
+    "giornata": "8^ Giornata",
+    "data": "16/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "AGRIT. POGGIO CAMINATA - V. DA FELTRE",
+    "trasferta": "TT SALSO - CALTABELLOTTA TRASPORTI"
+  },
+  {
     "giornata": "1^ Giornata",
     "data": "11/10/2026",
     "ora": "10.30",
     "risultato": "5 - 2",
     "casa": "GS VIRTUS CASALGRANDE NOTTEDI'",
     "trasferta": "SIDITEC \"IL CALDERONE\" FSP"
+  },
+  {
+    "giornata": "8^ Giornata",
+    "data": "17/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "SIDITEC \"IL CALDERONE\" FSP",
+    "trasferta": "GS VIRTUS CASALGRANDE NOTTEDI'"
   },
   {
     "giornata": "1^ Giornata",
@@ -24,12 +40,28 @@
     "trasferta": "AUDAX Olio 2 Torri"
   },
   {
+    "giornata": "8^ Giornata",
+    "data": "17/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "AUDAX Olio 2 Torri",
+    "trasferta": "TECO"
+  },
+  {
     "giornata": "2^ Giornata",
     "data": "17/10/2026",
     "ora": "16.00",
     "risultato": "2 - 5",
     "casa": "AGRIT. POGGIO CAMINATA - V. DA FELTRE",
     "trasferta": "GS VIRTUS CASALGRANDE NOTTEDI'"
+  },
+  {
+    "giornata": "9^ Giornata",
+    "data": "31/01/2027",
+    "ora": "10.30",
+    "risultato": "-",
+    "casa": "GS VIRTUS CASALGRANDE NOTTEDI'",
+    "trasferta": "AGRIT. POGGIO CAMINATA - V. DA FELTRE"
   },
   {
     "giornata": "2^ Giornata",
@@ -40,12 +72,28 @@
     "trasferta": "TT SALSO - CALTABELLOTTA TRASPORTI"
   },
   {
+    "giornata": "9^ Giornata",
+    "data": "31/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "TT SALSO - CALTABELLOTTA TRASPORTI",
+    "trasferta": "DAVIDE LUNARDINI S. POLO"
+  },
+  {
     "giornata": "2^ Giornata",
     "data": "18/10/2026",
     "ora": "10.00",
     "risultato": "1 - 6",
     "casa": "SIDITEC \"IL CALDERONE\" FSP",
     "trasferta": "TECO"
+  },
+  {
+    "giornata": "9^ Giornata",
+    "data": "30/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO",
+    "trasferta": "SIDITEC \"IL CALDERONE\" FSP"
   },
   {
     "giornata": "3^ Giornata",
@@ -56,12 +104,28 @@
     "trasferta": "AGRIT. POGGIO CAMINATA - V. DA FELTRE"
   },
   {
+    "giornata": "10^ Giornata",
+    "data": "06/02/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "AGRIT. POGGIO CAMINATA - V. DA FELTRE",
+    "trasferta": "SIDITEC \"IL CALDERONE\" FSP"
+  },
+  {
     "giornata": "3^ Giornata",
     "data": "08/11/2026",
     "ora": "10.30",
     "risultato": "-",
     "casa": "GS VIRTUS CASALGRANDE NOTTEDI'",
     "trasferta": "AUDAX Olio 2 Torri"
+  },
+  {
+    "giornata": "10^ Giornata",
+    "data": "07/02/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "AUDAX Olio 2 Torri",
+    "trasferta": "GS VIRTUS CASALGRANDE NOTTEDI'"
   },
   {
     "giornata": "3^ Giornata",
@@ -72,12 +136,28 @@
     "trasferta": "DAVIDE LUNARDINI S. POLO"
   },
   {
+    "giornata": "10^ Giornata",
+    "data": "07/02/2027 *",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "DAVIDE LUNARDINI S. POLO",
+    "trasferta": "TECO"
+  },
+  {
     "giornata": "4^ Giornata",
     "data": "* 14/10/2026",
     "ora": "19.00",
     "risultato": "4 - 3",
     "casa": "DAVIDE LUNARDINI S. POLO",
     "trasferta": "SIDITEC \"IL CALDERONE\" FSP"
+  },
+  {
+    "giornata": "11^ Giornata",
+    "data": "27/01/2027",
+    "ora": "19.00",
+    "risultato": "-",
+    "casa": "SIDITEC \"IL CALDERONE\" FSP",
+    "trasferta": "DAVIDE LUNARDINI S. POLO"
   },
   {
     "giornata": "4^ Giornata",
@@ -88,12 +168,28 @@
     "trasferta": "TT SALSO - CALTABELLOTTA TRASPORTI"
   },
   {
+    "giornata": "11^ Giornata",
+    "data": "21/02/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "TT SALSO - CALTABELLOTTA TRASPORTI",
+    "trasferta": "AUDAX Olio 2 Torri"
+  },
+  {
     "giornata": "4^ Giornata",
     "data": "14/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "TECO",
     "trasferta": "GS VIRTUS CASALGRANDE NOTTEDI'"
+  },
+  {
+    "giornata": "11^ Giornata",
+    "data": "21/02/2027",
+    "ora": "10.30",
+    "risultato": "-",
+    "casa": "GS VIRTUS CASALGRANDE NOTTEDI'",
+    "trasferta": "TECO"
   },
   {
     "giornata": "5^ Giornata",
@@ -104,12 +200,28 @@
     "trasferta": "AUDAX Olio 2 Torri"
   },
   {
+    "giornata": "12^ Giornata",
+    "data": "07/03/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "AUDAX Olio 2 Torri",
+    "trasferta": "AGRIT. POGGIO CAMINATA - V. DA FELTRE"
+  },
+  {
     "giornata": "5^ Giornata",
     "data": "22/11/2026",
     "ora": "10.00",
     "risultato": "-",
     "casa": "TT SALSO - CALTABELLOTTA TRASPORTI",
     "trasferta": "TECO"
+  },
+  {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO",
+    "trasferta": "TT SALSO - CALTABELLOTTA TRASPORTI"
   },
   {
     "giornata": "5^ Giornata",
@@ -120,12 +232,28 @@
     "trasferta": "DAVIDE LUNARDINI S. POLO"
   },
   {
+    "giornata": "12^ Giornata",
+    "data": "07/03/2027 *",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "DAVIDE LUNARDINI S. POLO",
+    "trasferta": "GS VIRTUS CASALGRANDE NOTTEDI'"
+  },
+  {
     "giornata": "6^ Giornata",
     "data": "13/12/2026",
     "ora": "10.00",
     "risultato": "-",
     "casa": "DAVIDE LUNARDINI S. POLO",
     "trasferta": "AUDAX Olio 2 Torri"
+  },
+  {
+    "giornata": "13^ Giornata",
+    "data": "11/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "AUDAX Olio 2 Torri",
+    "trasferta": "DAVIDE LUNARDINI S. POLO"
   },
   {
     "giornata": "6^ Giornata",
@@ -136,12 +264,28 @@
     "trasferta": "TT SALSO - CALTABELLOTTA TRASPORTI"
   },
   {
+    "giornata": "13^ Giornata",
+    "data": "11/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "TT SALSO - CALTABELLOTTA TRASPORTI",
+    "trasferta": "SIDITEC \"IL CALDERONE\" FSP"
+  },
+  {
     "giornata": "6^ Giornata",
     "data": "12/12/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "TECO",
     "trasferta": "AGRIT. POGGIO CAMINATA - V. DA FELTRE"
+  },
+  {
+    "giornata": "13^ Giornata",
+    "data": "10/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "AGRIT. POGGIO CAMINATA - V. DA FELTRE",
+    "trasferta": "TECO"
   },
   {
     "giornata": "7^ Giornata",
@@ -152,6 +296,14 @@
     "trasferta": "DAVIDE LUNARDINI S. POLO"
   },
   {
+    "giornata": "14^ Giornata",
+    "data": "18/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "DAVIDE LUNARDINI S. POLO",
+    "trasferta": "AGRIT. POGGIO CAMINATA - V. DA FELTRE"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "20/12/2026",
     "ora": "10.00",
@@ -160,11 +312,27 @@
     "trasferta": "SIDITEC \"IL CALDERONE\" FSP"
   },
   {
+    "giornata": "14^ Giornata",
+    "data": "18/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "SIDITEC \"IL CALDERONE\" FSP",
+    "trasferta": "AUDAX Olio 2 Torri"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "20/12/2026",
     "ora": "10.00",
     "risultato": "-",
     "casa": "TT SALSO - CALTABELLOTTA TRASPORTI",
     "trasferta": "GS VIRTUS CASALGRANDE NOTTEDI'"
+  },
+  {
+    "giornata": "14^ Giornata",
+    "data": "18/04/2027",
+    "ora": "10.30",
+    "risultato": "-",
+    "casa": "GS VIRTUS CASALGRANDE NOTTEDI'",
+    "trasferta": "TT SALSO - CALTABELLOTTA TRASPORTI"
   }
 ]

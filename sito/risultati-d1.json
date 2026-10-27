@@ -8,12 +8,28 @@
     "trasferta": "NICOLA SALENTO - VITTORINO DA FELTRE"
   },
   {
+    "giornata": "8^ Giornata",
+    "data": "17/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "NICOLA SALENTO - VITTORINO DA FELTRE",
+    "trasferta": "BANDINI SRL - ASD TT VILLA D'ORO MODENA"
+  },
+  {
     "giornata": "1^ Giornata",
     "data": "10/10/2026",
     "ora": "16.00",
     "risultato": "2 - 5",
     "casa": "ASS. DYNAMIS TOPSOLID \"B\"",
     "trasferta": "SIDEMAC S. POLO"
+  },
+  {
+    "giornata": "8^ Giornata",
+    "data": "17/01/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "SIDEMAC S. POLO",
+    "trasferta": "ASS. DYNAMIS TOPSOLID \"B\""
   },
   {
     "giornata": "1^ Giornata",
@@ -24,12 +40,28 @@
     "trasferta": "TT REGGIO EMILIA OMIG"
   },
   {
+    "giornata": "8^ Giornata",
+    "data": "16/01/2027",
+    "ora": "16.30",
+    "risultato": "-",
+    "casa": "TT REGGIO EMILIA OMIG",
+    "trasferta": "ASD CITTA' DEI RAGAZZI TT"
+  },
+  {
     "giornata": "1^ Giornata",
     "data": "10/10/2026",
     "ora": "16.00",
     "risultato": "2 - 5",
     "casa": "TECO  DEVOTI",
     "trasferta": "AUDAX  Quantik"
+  },
+  {
+    "giornata": "8^ Giornata",
+    "data": "16/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "AUDAX  Quantik",
+    "trasferta": "TECO  DEVOTI"
   },
   {
     "giornata": "2^ Giornata",
@@ -40,12 +72,28 @@
     "trasferta": "ASS. DYNAMIS TOPSOLID \"B\""
   },
   {
+    "giornata": "9^ Giornata",
+    "data": "30/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASS. DYNAMIS TOPSOLID \"B\"",
+    "trasferta": "NICOLA SALENTO - VITTORINO DA FELTRE"
+  },
+  {
     "giornata": "2^ Giornata",
     "data": "17/10/2026",
     "ora": "16.30",
     "risultato": "3 - 4",
     "casa": "TT REGGIO EMILIA OMIG",
     "trasferta": "BANDINI SRL - ASD TT VILLA D'ORO MODENA"
+  },
+  {
+    "giornata": "9^ Giornata",
+    "data": "30/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "BANDINI SRL - ASD TT VILLA D'ORO MODENA",
+    "trasferta": "TT REGGIO EMILIA OMIG"
   },
   {
     "giornata": "2^ Giornata",
@@ -56,12 +104,28 @@
     "trasferta": "TECO  DEVOTI"
   },
   {
+    "giornata": "9^ Giornata",
+    "data": "30/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO  DEVOTI",
+    "trasferta": "SIDEMAC S. POLO"
+  },
+  {
     "giornata": "2^ Giornata",
     "data": "17/10/2026",
     "ora": "16.00",
     "risultato": "4 - 3",
     "casa": "AUDAX  Quantik",
     "trasferta": "ASD CITTA' DEI RAGAZZI TT"
+  },
+  {
+    "giornata": "9^ Giornata",
+    "data": "30/01/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASD CITTA' DEI RAGAZZI TT",
+    "trasferta": "AUDAX  Quantik"
   },
   {
     "giornata": "3^ Giornata",
@@ -72,12 +136,28 @@
     "trasferta": "NICOLA SALENTO - VITTORINO DA FELTRE"
   },
   {
+    "giornata": "10^ Giornata",
+    "data": "07/02/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "NICOLA SALENTO - VITTORINO DA FELTRE",
+    "trasferta": "SIDEMAC S. POLO"
+  },
+  {
     "giornata": "3^ Giornata",
     "data": "07/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "BANDINI SRL - ASD TT VILLA D'ORO MODENA",
     "trasferta": "ASD CITTA' DEI RAGAZZI TT"
+  },
+  {
+    "giornata": "10^ Giornata",
+    "data": "06/02/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASD CITTA' DEI RAGAZZI TT",
+    "trasferta": "BANDINI SRL - ASD TT VILLA D'ORO MODENA"
   },
   {
     "giornata": "3^ Giornata",
@@ -88,12 +168,28 @@
     "trasferta": "AUDAX  Quantik"
   },
   {
+    "giornata": "10^ Giornata",
+    "data": "06/02/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "AUDAX  Quantik",
+    "trasferta": "ASS. DYNAMIS TOPSOLID \"B\""
+  },
+  {
     "giornata": "3^ Giornata",
     "data": "07/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "TECO  DEVOTI",
     "trasferta": "TT REGGIO EMILIA OMIG"
+  },
+  {
+    "giornata": "10^ Giornata",
+    "data": "06/02/2027",
+    "ora": "16.30",
+    "risultato": "-",
+    "casa": "TT REGGIO EMILIA OMIG",
+    "trasferta": "TECO  DEVOTI"
   },
   {
     "giornata": "4^ Giornata",
@@ -104,12 +200,28 @@
     "trasferta": "SIDEMAC S. POLO"
   },
   {
+    "giornata": "11^ Giornata",
+    "data": "21/02/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "SIDEMAC S. POLO",
+    "trasferta": "TT REGGIO EMILIA OMIG"
+  },
+  {
     "giornata": "4^ Giornata",
     "data": "14/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "AUDAX  Quantik",
     "trasferta": "BANDINI SRL - ASD TT VILLA D'ORO MODENA"
+  },
+  {
+    "giornata": "11^ Giornata",
+    "data": "20/02/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "BANDINI SRL - ASD TT VILLA D'ORO MODENA",
+    "trasferta": "AUDAX  Quantik"
   },
   {
     "giornata": "4^ Giornata",
@@ -120,12 +232,28 @@
     "trasferta": "NICOLA SALENTO - VITTORINO DA FELTRE"
   },
   {
+    "giornata": "11^ Giornata",
+    "data": "21/02/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "NICOLA SALENTO - VITTORINO DA FELTRE",
+    "trasferta": "ASD CITTA' DEI RAGAZZI TT"
+  },
+  {
     "giornata": "4^ Giornata",
     "data": "14/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "TECO  DEVOTI",
     "trasferta": "ASS. DYNAMIS TOPSOLID \"B\""
+  },
+  {
+    "giornata": "11^ Giornata",
+    "data": "20/02/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASS. DYNAMIS TOPSOLID \"B\"",
+    "trasferta": "TECO  DEVOTI"
   },
   {
     "giornata": "5^ Giornata",
@@ -136,12 +264,28 @@
     "trasferta": "AUDAX  Quantik"
   },
   {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "AUDAX  Quantik",
+    "trasferta": "NICOLA SALENTO - VITTORINO DA FELTRE"
+  },
+  {
     "giornata": "5^ Giornata",
     "data": "21/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "BANDINI SRL - ASD TT VILLA D'ORO MODENA",
     "trasferta": "TECO  DEVOTI"
+  },
+  {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO  DEVOTI",
+    "trasferta": "BANDINI SRL - ASD TT VILLA D'ORO MODENA"
   },
   {
     "giornata": "5^ Giornata",
@@ -152,12 +296,28 @@
     "trasferta": "TT REGGIO EMILIA OMIG"
   },
   {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "16.30",
+    "risultato": "-",
+    "casa": "TT REGGIO EMILIA OMIG",
+    "trasferta": "ASS. DYNAMIS TOPSOLID \"B\""
+  },
+  {
     "giornata": "5^ Giornata",
     "data": "21/11/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "ASD CITTA' DEI RAGAZZI TT",
     "trasferta": "SIDEMAC S. POLO"
+  },
+  {
+    "giornata": "12^ Giornata",
+    "data": "06/03/2027",
+    "ora": "15.30",
+    "risultato": "-",
+    "casa": "SIDEMAC S. POLO",
+    "trasferta": "ASD CITTA' DEI RAGAZZI TT"
   },
   {
     "giornata": "6^ Giornata",
@@ -168,12 +328,28 @@
     "trasferta": "AUDAX  Quantik"
   },
   {
+    "giornata": "13^ Giornata",
+    "data": "10/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "AUDAX  Quantik",
+    "trasferta": "TT REGGIO EMILIA OMIG"
+  },
+  {
     "giornata": "6^ Giornata",
     "data": "13/12/2026",
     "ora": "10.00",
     "risultato": "-",
     "casa": "SIDEMAC S. POLO",
     "trasferta": "BANDINI SRL - ASD TT VILLA D'ORO MODENA"
+  },
+  {
+    "giornata": "13^ Giornata",
+    "data": "10/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "BANDINI SRL - ASD TT VILLA D'ORO MODENA",
+    "trasferta": "SIDEMAC S. POLO"
   },
   {
     "giornata": "6^ Giornata",
@@ -184,12 +360,28 @@
     "trasferta": "ASD CITTA' DEI RAGAZZI TT"
   },
   {
+    "giornata": "13^ Giornata",
+    "data": "10/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASD CITTA' DEI RAGAZZI TT",
+    "trasferta": "ASS. DYNAMIS TOPSOLID \"B\""
+  },
+  {
     "giornata": "6^ Giornata",
     "data": "12/12/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "TECO  DEVOTI",
     "trasferta": "NICOLA SALENTO - VITTORINO DA FELTRE"
+  },
+  {
+    "giornata": "13^ Giornata",
+    "data": "11/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "NICOLA SALENTO - VITTORINO DA FELTRE",
+    "trasferta": "TECO  DEVOTI"
   },
   {
     "giornata": "7^ Giornata",
@@ -200,12 +392,28 @@
     "trasferta": "TT REGGIO EMILIA OMIG"
   },
   {
+    "giornata": "14^ Giornata",
+    "data": "17/04/2027",
+    "ora": "16.30",
+    "risultato": "-",
+    "casa": "TT REGGIO EMILIA OMIG",
+    "trasferta": "NICOLA SALENTO - VITTORINO DA FELTRE"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "19/12/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "AUDAX  Quantik",
     "trasferta": "SIDEMAC S. POLO"
+  },
+  {
+    "giornata": "14^ Giornata",
+    "data": "18/04/2027",
+    "ora": "10.00",
+    "risultato": "-",
+    "casa": "SIDEMAC S. POLO",
+    "trasferta": "AUDAX  Quantik"
   },
   {
     "giornata": "7^ Giornata",
@@ -216,11 +424,27 @@
     "trasferta": "ASS. DYNAMIS TOPSOLID \"B\""
   },
   {
+    "giornata": "14^ Giornata",
+    "data": "17/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASS. DYNAMIS TOPSOLID \"B\"",
+    "trasferta": "BANDINI SRL - ASD TT VILLA D'ORO MODENA"
+  },
+  {
     "giornata": "7^ Giornata",
     "data": "19/12/2026",
     "ora": "16.00",
     "risultato": "-",
     "casa": "ASD CITTA' DEI RAGAZZI TT",
     "trasferta": "TECO  DEVOTI"
+  },
+  {
+    "giornata": "14^ Giornata",
+    "data": "17/04/2027",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO  DEVOTI",
+    "trasferta": "ASD CITTA' DEI RAGAZZI TT"
   }
 ]
