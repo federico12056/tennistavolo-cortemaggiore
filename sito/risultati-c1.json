@@ -1,0 +1,226 @@
+[
+  {
+    "giornata": "1^ Giornata",
+    "data": "10/10/2026",
+    "ora": "15.00",
+    "risultato": "3 - 4",
+    "casa": "ASD TT SARONNO CAREPHARM",
+    "trasferta": "U.S. OLIMPIA ASD B"
+  },
+  {
+    "giornata": "1^ Giornata",
+    "data": "10/10/2026",
+    "ora": "16.00",
+    "risultato": "2 - 5",
+    "casa": "VISIONOTTICA NEW TT PIEVE EMANUELE",
+    "trasferta": "ASD POLISPORTIVA TREZZANO"
+  },
+  {
+    "giornata": "1^ Giornata",
+    "data": "10/10/2026",
+    "ora": "16.00",
+    "risultato": "2 - 5",
+    "casa": "TT SILVER LINING ASD",
+    "trasferta": "CUS BERGAMO ASD"
+  },
+  {
+    "giornata": "1^ Giornata",
+    "data": "10/10/2026",
+    "ora": "16.00",
+    "risultato": "5 - 2",
+    "casa": "TECO-METE CORTEMAGGIORE",
+    "trasferta": "TT VALLECAMONICA"
+  },
+  {
+    "giornata": "2^ Giornata",
+    "data": "17/10/2026",
+    "ora": "15.15",
+    "risultato": "2 - 5",
+    "casa": "U.S. OLIMPIA ASD B",
+    "trasferta": "VISIONOTTICA NEW TT PIEVE EMANUELE"
+  },
+  {
+    "giornata": "2^ Giornata",
+    "data": "18/10/2026",
+    "ora": "10.15",
+    "risultato": "3 - 4",
+    "casa": "CUS BERGAMO ASD",
+    "trasferta": "ASD TT SARONNO CAREPHARM"
+  },
+  {
+    "giornata": "2^ Giornata",
+    "data": "17/10/2026",
+    "ora": "16.00",
+    "risultato": "1 - 6",
+    "casa": "ASD POLISPORTIVA TREZZANO",
+    "trasferta": "TECO-METE CORTEMAGGIORE"
+  },
+  {
+    "giornata": "2^ Giornata",
+    "data": "17/10/2026",
+    "ora": "15.00",
+    "risultato": "6 - 1",
+    "casa": "TT VALLECAMONICA",
+    "trasferta": "TT SILVER LINING ASD"
+  },
+  {
+    "giornata": "3^ Giornata",
+    "data": "07/11/2026",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASD POLISPORTIVA TREZZANO",
+    "trasferta": "U.S. OLIMPIA ASD B"
+  },
+  {
+    "giornata": "3^ Giornata",
+    "data": "07/11/2026",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "ASD TT SARONNO CAREPHARM",
+    "trasferta": "TT SILVER LINING ASD"
+  },
+  {
+    "giornata": "3^ Giornata",
+    "data": "07/11/2026",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "VISIONOTTICA NEW TT PIEVE EMANUELE",
+    "trasferta": "TT VALLECAMONICA"
+  },
+  {
+    "giornata": "3^ Giornata",
+    "data": "07/11/2026",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO-METE CORTEMAGGIORE",
+    "trasferta": "CUS BERGAMO ASD"
+  },
+  {
+    "giornata": "4^ Giornata",
+    "data": "15/11/2026",
+    "ora": "10.15",
+    "risultato": "-",
+    "casa": "CUS BERGAMO ASD",
+    "trasferta": "ASD POLISPORTIVA TREZZANO"
+  },
+  {
+    "giornata": "4^ Giornata",
+    "data": "14/11/2026",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "TT VALLECAMONICA",
+    "trasferta": "ASD TT SARONNO CAREPHARM"
+  },
+  {
+    "giornata": "4^ Giornata",
+    "data": "14/11/2026",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TT SILVER LINING ASD",
+    "trasferta": "U.S. OLIMPIA ASD B"
+  },
+  {
+    "giornata": "4^ Giornata",
+    "data": "14/11/2026",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO-METE CORTEMAGGIORE",
+    "trasferta": "VISIONOTTICA NEW TT PIEVE EMANUELE"
+  },
+  {
+    "giornata": "5^ Giornata",
+    "data": "21/11/2026",
+    "ora": "15.15",
+    "risultato": "-",
+    "casa": "U.S. OLIMPIA ASD B",
+    "trasferta": "TT VALLECAMONICA"
+  },
+  {
+    "giornata": "5^ Giornata",
+    "data": "21/11/2026",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "ASD TT SARONNO CAREPHARM",
+    "trasferta": "TECO-METE CORTEMAGGIORE"
+  },
+  {
+    "giornata": "5^ Giornata",
+    "data": "21/11/2026",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "VISIONOTTICA NEW TT PIEVE EMANUELE",
+    "trasferta": "CUS BERGAMO ASD"
+  },
+  {
+    "giornata": "5^ Giornata",
+    "data": "21/11/2026",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TT SILVER LINING ASD",
+    "trasferta": "ASD POLISPORTIVA TREZZANO"
+  },
+  {
+    "giornata": "6^ Giornata",
+    "data": "13/12/2026",
+    "ora": "10.15",
+    "risultato": "-",
+    "casa": "CUS BERGAMO ASD",
+    "trasferta": "TT VALLECAMONICA"
+  },
+  {
+    "giornata": "6^ Giornata",
+    "data": "12/12/2026",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "ASD POLISPORTIVA TREZZANO",
+    "trasferta": "ASD TT SARONNO CAREPHARM"
+  },
+  {
+    "giornata": "6^ Giornata",
+    "data": "12/12/2026",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "VISIONOTTICA NEW TT PIEVE EMANUELE",
+    "trasferta": "TT SILVER LINING ASD"
+  },
+  {
+    "giornata": "6^ Giornata",
+    "data": "12/12/2026",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TECO-METE CORTEMAGGIORE",
+    "trasferta": "U.S. OLIMPIA ASD B"
+  },
+  {
+    "giornata": "7^ Giornata",
+    "data": "19/12/2026",
+    "ora": "15.15",
+    "risultato": "-",
+    "casa": "U.S. OLIMPIA ASD B",
+    "trasferta": "CUS BERGAMO ASD"
+  },
+  {
+    "giornata": "7^ Giornata",
+    "data": "19/12/2026",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "TT VALLECAMONICA",
+    "trasferta": "ASD POLISPORTIVA TREZZANO"
+  },
+  {
+    "giornata": "7^ Giornata",
+    "data": "19/12/2026",
+    "ora": "15.00",
+    "risultato": "-",
+    "casa": "ASD TT SARONNO CAREPHARM",
+    "trasferta": "VISIONOTTICA NEW TT PIEVE EMANUELE"
+  },
+  {
+    "giornata": "7^ Giornata",
+    "data": "19/12/2026",
+    "ora": "16.00",
+    "risultato": "-",
+    "casa": "TT SILVER LINING ASD",
+    "trasferta": "TECO-METE CORTEMAGGIORE"
+  }
+]

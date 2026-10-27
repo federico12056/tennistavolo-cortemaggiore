@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risultati | Tennistavolo Cortemaggiore</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .risultati-intro {
+            margin-bottom: 28px;
+        }
+
+        .risultati-filtri {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .risultati-filtri button {
+            padding: 10px 16px;
+            border: 1px solid #173b67;
+            border-radius: 8px;
+            background: white;
+            color: #173b67;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .risultati-filtri button.attivo {
+            background: #173b67;
+            color: white;
+        }
+
+        .lista-risultati {
+            display: grid;
+            gap: 14px;
+        }
+
+        .risultato-card {
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #0000000d;
+        }
+
+        .risultato-giornata {
+            margin-bottom: 14px;
+            color: #24558a;
+            font-weight: bold;
+        }
+
+        .risultato-squadre {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+            align-items: center;
+            gap: 12px;
+        }
+
+        .risultato-squadra {
+            font-weight: bold;
+            overflow-wrap: anywhere;
+        }
+
+        .risultato-trasferta {
+            text-align: right;
+        }
+
+        .risultato-punteggio {
+            font-size: 1.2rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .risultato-data {
+            margin-top: 12px;
+            color: #687386;
+            font-size: 0.9rem;
+        }
+
+        .risultato-vuoto {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 550px) {
+    .risultato-card {
+        padding: 14px;
+    }
+
+    .risultato-squadre {
+        gap: 7px;
+    }
+
+    .risultato-squadra {
+        font-size: 0.88rem;
+    }
+
+    .risultato-punteggio {
+        font-size: 1rem;
+    }
+}
+
+.risultato-card.vittoria {
+    border-left: 5px solid #2e9d62;
+    background-color: #f0faf4;
+}
+
+.risultato-card.sconfitta {
+    border-left: 5px solid #d9534f;
+    background-color: #fff4f3;
+}
+
+.risultato-card.sconfitta {
+    border-left: 5px solid #d9534f;
+    background-color: #fff4f3;
+}
+        
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a class="logo" href="index.html">
+            TT <span>CORTEMAGGIORE</span>
+        </a>
+
+        <nav class="menu">
+            <a href="index.html">Home</a>
+
+            <div class="dropdown">
+                <button class="dropdown-button">La società ▾</button>
+                <div class="dropdown-content">
+                    <a href="societa.html">Chi siamo</a>
+                    <a href="sponsor.html">Sponsor</a>
+                    <a href="contatti.html">Contatti</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-button">Squadre e giocatori ▾</button>
+                <div class="dropdown-content">
+                    <a href="squadre.html">Le squadre</a>
+                    <a href="giocatori.html">I giocatori</a>
+                </div>
+            </div>
+
+            <a href="risultati.html">Risultati</a>
+            <a href="galleria.html">Galleria</a>
+            <a href="lezioni.html">Lezioni private</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="risultati-intro">
+                    <h1>Risultati e calendario</h1>
+                    <p>Segui le partite del Tennistavolo Cortemaggiore.</p>
+                    <p id="descrizione-campionato">Campionato regionale D1 · TECO DEVOTI</p>
+                </div>
+
+                
+<div class="risultati-filtri">
+  <button type="button" class="attivo" data-campionato="B2">B2</button>
+  <button type="button" data-campionato="C1">C1</button>
+  <button type="button" data-campionato="D1">D1</button>
+  <button type="button" data-campionato="D2">D2</button>
+  <button type="button" data-campionato="D3A">D3A</button>
+  <button type="button" data-campionato="D3B">D3B</button>
+  <button type="button" data-campionato="CF">CF</button>
+</div>
+
+<div class="risultati-filtri">
+    <button type="button" class="attivo" data-filtro="tutte">
+        Tutte
+    </button>
+    <button type="button" data-filtro="giocate">
+        Disputate
+    </button>
+    <button type="button" data-filtro="future">
+        In programma
+    </button>
+</div>
+
+
+                <p id="conteggio-risultati"></p>
+
+                <div id="elenco-partite" class="lista-risultati">
+                    <p>Caricamento dei risultati...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© Tennistavolo Cortemaggiore</p>
+            <p>Passione, sport e comunità dal 1989.</p>
+        </div>
+    </footer>
+
+    <script>
+        
+
+let partiteCortemaggiore = [];
+let filtroAttivo = "tutte";
+let campionatoAttivo = "B2";
+
+const campionati = {
+    B2: {
+        file: "risultati-b2.json",
+        squadra: "TECO-CATTINA CORTEMAGGIORE",
+        descrizione: "Campionato nazionale B2 · TECO-CATTINA CORTEMAGGIORE"
+    },
+    C1: {
+        file: "risultati-c1.json",
+        squadra: "TECO-METE CORTEMAGGIORE",
+        descrizione: "Campionato nazionale C1 · TECO-METE CORTEMAGGIORE"
+    },
+    D1: {
+        file: "risultati-d1.json",
+        squadra: "TECO DEVOTI",
+        descrizione: "Campionato regionale D1 · TECO DEVOTI"
+    },
+    D2: {
+        file: "risultati-d2.json",
+        squadra: "TECO COSTANTINI",
+        descrizione: "Campionato regionale D2 · TECO COSTANTINI"
+    },
+    D3A: {
+        file: "risultati-d3a.json",
+        squadra: "TECO",
+        descrizione: "Campionato regionale D3/A · TECO"
+    },
+    D3B: {
+        file: "risultati-d3b.json",
+        squadra: "TECO CORTEMAGGIORE",
+        descrizione: "Campionato regionale D3/B · TECO CORTEMAGGIORE"
+    },
+    CF: {
+        file: "risultati-cf.json",
+        squadra: "TECO CATTINA",
+        descrizione: "Campionato femminile · TECO CATTINA"
+    }
+};
+
+function normalizza(testo) {
+    return (testo || "")
+        .trim()
+        .toUpperCase()
+        .replace(/\s+/g, " ");
+}
+
+async function caricaPartite() {
+    const contenitore = document.getElementById("elenco-partite");
+    const descrizione = document.getElementById("descrizione-campionato");
+    const configurazione = campionati[campionatoAttivo];
+
+    contenitore.innerHTML = "<p>Caricamento dei risultati...</p>";
+    descrizione.textContent = configurazione.descrizione;
+
+    try {
+        const risposta = await fetch(configurazione.file);
+
+        if (!risposta.ok) {
+            throw new Error("Impossibile caricare " + configurazione.file);
+        }
+
+        const partite = await risposta.json();
+        const squadra = normalizza(configurazione.squadra);
+
+        partiteCortemaggiore = partite.filter(partita =>
+            normalizza(partita.casa).includes(squadra) ||
+            normalizza(partita.trasferta).includes(squadra)
+        );
+
+        mostraPartite();
+    } catch (errore) {
+        contenitore.innerHTML =
+            '<p class="risultato-vuoto">Non riesco a caricare i risultati. Controlla che il file JSON sia presente nella cartella principale.</p>';
+
+        document.getElementById("conteggio-risultati").textContent = "";
+        console.error(errore);
+    }
+}
+
+function mostraPartite() {
+    const contenitore = document.getElementById("elenco-partite");
+    const conteggio = document.getElementById("conteggio-risultati");
+    const squadra = normalizza(campionati[campionatoAttivo].squadra);
+
+    const partiteFiltrate = partiteCortemaggiore.filter(partita => {
+        const risultato = (partita.risultato || "").trim();
+        const giocata = risultato !== "" && risultato !== "-";
+
+        if (filtroAttivo === "giocate") return giocata;
+        if (filtroAttivo === "future") return !giocata;
+        return true;
+    });
+
+    conteggio.textContent = partiteFiltrate.length + " partite trovate";
+
+    if (partiteFiltrate.length === 0) {
+        contenitore.innerHTML =
+            '<p class="risultato-vuoto">Nessuna partita trovata per questa squadra e questo filtro.</p>';
+        return;
+    }
+
+    contenitore.innerHTML = "";
+
+    partiteFiltrate.forEach(partita => {
+        const elemento = document.createElement("article");
+        elemento.className = "risultato-card";
+
+        const punteggioMatch = (partita.risultato || "")
+            .match(/(\d+)\s*-\s*(\d+)/);
+
+        if (punteggioMatch) {
+            const puntiCasa = Number(punteggioMatch[1]);
+            const puntiTrasferta = Number(punteggioMatch[2]);
+
+            const squadraInCasa =
+                normalizza(partita.casa).includes(squadra);
+
+            const squadraInTrasferta =
+                normalizza(partita.trasferta).includes(squadra);
+
+            const vittoria = squadraInCasa
+                ? puntiCasa > puntiTrasferta
+                : squadraInTrasferta && puntiTrasferta > puntiCasa;
+
+            const sconfitta = squadraInCasa
+                ? puntiCasa < puntiTrasferta
+                : squadraInTrasferta && puntiTrasferta < puntiCasa;
+
+            if (vittoria) {
+                elemento.classList.add("vittoria");
+            } else if (sconfitta) {
+                elemento.classList.add("sconfitta");
+            }
+        }
+
+        const risultato = (partita.risultato || "").trim();
+        const giocata = risultato !== "" && risultato !== "-";
+
+        const giornata = document.createElement("div");
+        giornata.className = "risultato-giornata";
+        giornata.textContent = partita.giornata || "Campionato";
+
+        const squadre = document.createElement("div");
+        squadre.className = "risultato-squadre";
+
+        const casa = document.createElement("div");
+        casa.className = "risultato-squadra";
+        casa.textContent = partita.casa;
+
+        const punteggio = document.createElement("div");
+        punteggio.className = "risultato-punteggio";
+        punteggio.textContent = giocata ? risultato : "VS";
+
+        const trasferta = document.createElement("div");
+        trasferta.className = "risultato-squadra risultato-trasferta";
+        trasferta.textContent = partita.trasferta;
+
+        const data = document.createElement("div");
+        data.className = "risultato-data";
+        data.textContent = [
+            partita.data,
+            partita.ora ? "Ore " + partita.ora : ""
+        ].filter(Boolean).join(" · ");
+
+        squadre.append(casa, punteggio, trasferta);
+        elemento.append(giornata, squadre, data);
+        contenitore.appendChild(elemento);
+    });
+}
+
+document.querySelectorAll("[data-campionato]").forEach(pulsante => {
+    pulsante.addEventListener("click", () => {
+        campionatoAttivo = pulsante.dataset.campionato;
+
+        document.querySelectorAll("[data-campionato]").forEach(bottone => {
+            bottone.classList.toggle("attivo", bottone === pulsante);
+        });
+
+        caricaPartite();
+    });
+});
+
+document.querySelectorAll("[data-filtro]").forEach(pulsante => {
+    pulsante.addEventListener("click", () => {
+        filtroAttivo = pulsante.dataset.filtro;
+
+        document.querySelectorAll("[data-filtro]").forEach(bottone => {
+            bottone.classList.toggle("attivo", bottone === pulsante);
+        });
+
+        mostraPartite();
+    });
+});
+
+caricaPartite();
+
+
+    </script>
+</body>
+</html>

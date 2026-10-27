@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I nostri giocatori | Tennistavolo Cortemaggiore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <a class="logo" href="index.html">
+            TT <span>CORTEMAGGIORE</span>
+        </a>
+
+        <nav class="menu">
+            <a href="index.html">Home</a>
+
+            <div class="dropdown">
+                <button class="dropdown-button">La società ▾</button>
+                <div class="dropdown-content">
+                    <a href="societa.html">Chi siamo</a>
+                    <a href="sponsor.html">Sponsor</a>
+                    <a href="contatti.html">Contatti</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-button">Squadre e giocatori ▾</button>
+                <div class="dropdown-content">
+                    <a href="squadre.html">Le squadre</a>
+                    <a href="giocatori.html">I giocatori</a>
+                </div>
+            </div>
+
+            <a href="risultati.html">Risultati</a>
+            <a href="galleria.html">Galleria</a>
+            <a href="lezioni.html">Lezioni private</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1>I nostri giocatori</h1>
+                <p>Scopri gli atleti del Tennistavolo Cortemaggiore.</p>
+
+                <div id="elenco-giocatori" class="cards-grid">
+                    <p>Caricamento dei giocatori...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© Tennistavolo Cortemaggiore</p>
+            <p>Passione, sport e comunità dal 1989.</p>
+        </div>
+    </footer>
+
+    <script src="js/squadre-data.js"></script>
+    <script src="js/giocatori.js"></script>
+</body>
+</html>

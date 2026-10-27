@@ -1,0 +1,26 @@
+[
+  {
+    "giornata": "1^ Giornata",
+    "data": "25/10/2026",
+    "ora": "14.30",
+    "risultato": "5 - 0",
+    "casa": "TECO CATTINA",
+    "trasferta": "PASTICCERIA BATTISTINI S. POLO"
+  },
+  {
+    "giornata": "2^ Giornata",
+    "data": "25/10/2026",
+    "ora": "16.30",
+    "risultato": "0 - 5",
+    "casa": "GS VIRTUS CASALGRANDE",
+    "trasferta": "TECO CATTINA"
+  },
+  {
+    "giornata": "3^ Giornata",
+    "data": "25/10/2026",
+    "ora": "18.30",
+    "risultato": "3 - 2",
+    "casa": "PASTICCERIA BATTISTINI S. POLO",
+    "trasferta": "GS VIRTUS CASALGRANDE"
+  }
+]
