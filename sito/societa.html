@@ -1,72 +1,325 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Chi siamo | Tennistavolo Cortemaggiore</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta name="description" content="La storia del Tennistavolo Cortemaggiore dal 1989: le origini all'Oratorio don Bosco, i valori della società e l'albo storico degli allenatori.">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <header class="header">
+        <a class="logo" href="index.html">
+            TT <span>CORTEMAGGIORE</span>
+        </a>
 
-    <header>
-        <nav>
+        <nav class="menu">
             <a href="index.html">Home</a>
 
             <div class="dropdown">
-                <a class="dropdown-button" href="societa.html">La società ▾</a>
+                <button class="dropdown-button" type="button">La società ▾</button>
                 <div class="dropdown-content">
-                    <a href="societa.html#chi-siamo">Chi siamo</a>
+                    <a href="societa.html">Chi siamo</a>
                     <a href="sponsor.html">Sponsor</a>
                     <a href="contatti.html">Contatti</a>
                 </div>
             </div>
+
+            <div class="dropdown">
+                <button class="dropdown-button" type="button">Squadre e giocatori ▾</button>
+                <div class="dropdown-content">
+                    <a href="squadre.html">Le squadre</a>
+                    <a href="giocatori.html">I giocatori</a>
+                </div>
+            </div>
+
+            <a href="risultati.html">Risultati</a>
+            <a href="galleria.html">Galleria</a>
+            <a href="lezioni.html">Lezioni private</a>
         </nav>
     </header>
 
-    <main>
-        <section id="chi-siamo" class="storia-societa">
-            <h1>La storia del Tennistavolo Cortemaggiore</h1>
+    <main id="chi-siamo">
 
-            <p>
-                Il Tennistavolo Cortemaggiore nasce nel 1989, grazie all'iniziativa
-                di un gruppo di appassionati legati all'ambiente dell'Oratorio
-                Don Bosco. Da questa realtà prende forma un percorso sportivo
-                destinato a crescere negli anni, mantenendo al centro la passione
-                per il tennistavolo e il legame con il territorio.
+        <!-- INTRODUZIONE -->
+        <section class="hero">
+            <p class="eyebrow">DAL 1989 · STORIA · PASSIONE</p>
+
+            <h1>Una storia che nasce all'Oratorio.</h1>
+
+            <p class="intro">
+                Il Tennistavolo Cortemaggiore nasce nel 1989
+                all'interno dell'Oratorio don Bosco. Una storia
+                costruita da persone, volontariato e passione,
+                cresciuta nel tempo senza perdere il legame
+                con le proprie origini.
             </p>
-
-            <h2>Le origini</h2>
-
-            <p>
-                Nei primi anni, la società si sviluppa grazie all'impegno dei
-                fondatori, dei volontari e degli atleti, costruendo progressivamente
-                una realtà sportiva riconosciuta e partecipata.
-            </p>
-
-            <h2>Una società in crescita</h2>
-
-            <p>
-                Nel corso degli anni, il Tennistavolo Cortemaggiore ha ampliato
-                la propria attività, partecipando ai campionati e alle competizioni
-                nazionali e valorizzando atleti di diverse categorie. La crescita
-                della società è stata accompagnata dal lavoro dei tecnici,
-                dei dirigenti, dei collaboratori e degli sponsor.
-            </p>
-
-            <h2>I nostri valori</h2>
-
-            <p>
-                Passione, impegno, rispetto e spirito di squadra rappresentano
-                i valori che guidano la società. L'obiettivo è promuovere il
-                tennistavolo, sostenere la crescita degli atleti e mantenere
-                vivo il legame con la comunità.
-            </p>
-
-            <!-- Inserisci qui anche l'archivio degli allenatori 1989–2026
-                 e gli altri contenuti storici già presenti nel tuo codice. -->
         </section>
+
+        <!-- LE ORIGINI -->
+        <section class="section">
+            <h2>Le nostre radici: l'Oratorio don Bosco</h2>
+
+            <p>
+                Per raccontare la storia del Tennistavolo Cortemaggiore
+                è doveroso partire dall'Oratorio don Bosco, una struttura
+                fortemente voluta da don Domenico Pozzi e realizzata
+                con il fondamentale aiuto di Alcide De Gasperi
+                ed Enrico Mattei.
+            </p>
+
+            <p>
+                L'Oratorio rappresenta un pezzo importante della storia
+                del paese. È stato per generazioni di magiostrini un luogo
+                di incontro, di tempo libero e di attività sportive.
+                Pensare alla sua storia significa anche ricordare le
+                persone che hanno contribuito a costruirlo e a renderlo
+                un punto di riferimento per la comunità.
+            </p>
+
+            <p>
+                Il legame tra il Tennistavolo Cortemaggiore e l'Oratorio
+                don Bosco è stato un percorso condiviso, fondato sulla
+                passione, sul volontariato e sulla voglia di migliorarsi.
+                Senza calcoli o convenienze, questa collaborazione ha
+                contribuito alla nascita di una realtà sportiva e sociale
+                capace di portare il nome di Cortemaggiore anche oltre
+                i confini nazionali.
+            </p>
+
+            <p>
+                Il tennistavolo è nato all'interno dell'Oratorio,
+                che lo ha accolto e accompagnato nella sua crescita,
+                fino alla formazione di una struttura sportiva dotata
+                di una propria identità e autonomia. Un percorso
+                sviluppatosi nel tempo anche con il sostegno dei
+                parroci che si sono succeduti.
+            </p>
+        </section>
+
+        <!-- LA NASCITA DELLA SOCIETÀ -->
+        <section class="section">
+            <h2>Dal ping pong alla società sportiva</h2>
+
+            <p>
+                Erano anni di fermento. Si voleva dare nuova vita
+                all'Oratorio e don Giancarlo Biolzi e don Serafino
+                Coppellotti puntarono molto su un gruppo di giovani.
+                Tra le attività organizzate c'erano tombole, gite
+                sulla neve, feste di Capodanno e di Carnevale e,
+                soprattutto, tornei di calcetto che coinvolgevano
+                moltissimi ragazzi del paese.
+            </p>
+
+            <p>
+                Tra le iniziative non mancavano i tradizionali tornei
+                di ping pong: tantissimi appassionati, sfide continue
+                e una sala giochi frequentata da tanti giovani.
+                Da qui nacque una domanda semplice, ma decisiva:
+                perché non sviluppare il ping pong come una vera
+                attività sportiva?
+            </p>
+
+            <p>
+                L'Oratorio sembrava avere le caratteristiche giuste.
+                L'idea venne proposta a don Serafino e il consiglio
+                del circolo ANSPI la accolse. Furono quindi convocati
+                i ragazzi e i loro genitori per proporre la fondazione
+                di una vera società sportiva di tennistavolo.
+            </p>
+
+            <p>
+                Da quella riunione nacque la società. Chi aveva
+                promosso l'iniziativa si ritrovò presidente quasi
+                senza rendersene conto, senza aver cercato una carica
+                e senza sapere ancora pienamente cosa comportasse
+                quel ruolo.
+            </p>
+
+            <p>
+                Arrivarono così i primi tavoli omologati, i primi corsi,
+                i primi atleti, la prima squadra, il primo campionato
+                e i primi tornei. Il primo tavolo fu regalato da
+                Giovanni Balestra. L'affiliazione alla FITeT fu
+                realizzata tramite il delegato CONI, il professor
+                Luigi Fogliazza di Bettola, presidente del Tennistavolo
+                Valnure.
+            </p>
+
+            <p>
+                La conoscenza con l'ambiente del tennistavolo di Parma
+                permise alla società di avvicinarsi progressivamente
+                al movimento pongistico di livello più alto. Dalla sala
+                giochi si passò alla condivisione della palestra,
+                superando pregiudizi e difficoltà, fino a diventare
+                una realtà importante nel panorama sportivo non
+                soltanto piacentino.
+            </p>
+        </section>
+
+        <!-- I VALORI -->
+        <section class="section sponsors">
+            <p class="eyebrow">IL NOSTRO MOTTO</p>
+
+            <h2>Con i giovani per i giovani</h2>
+
+            <p>
+                <strong>
+                    CON I GIOVANI PER I GIOVANI, UNA VERA SOCIETÀ
+                    SPORTIVA MA SEMPRE LEGATA ALLA TRADIZIONE INIZIALE.
+                </strong>
+            </p>
+
+            <p>
+                Passo dopo passo, senza fare mai il passo più lungo
+                della gamba. Con la voglia di confrontarsi e collaborare
+                con tutti e per tutti, conservando quei valori storici
+                che appartenevano all'Oratorio di allora.
+            </p>
+        </section>
+
+        <!-- ALBO ALLENATORI -->
+        <section class="section">
+            <h2>I nostri allenatori dal 1989</h2>
+
+            <p>
+                Nel corso della sua storia, il Tennistavolo
+                Cortemaggiore è cresciuto anche grazie al contributo
+                degli allenatori che hanno accompagnato gli atleti
+                e lo sviluppo tecnico della società.
+            </p>
+
+            <div class="cards">
+
+                <article class="card">
+                    <h3>1989 – 1999</h3>
+                    <p>Joze Urh e Andreja Ojstersek (Slovenia)</p>
+                </article>
+
+                <article class="card">
+                    <h3>1999 – 2001</h3>
+                    <p>Andreja Ojstersek (Slovenia)</p>
+                </article>
+
+                <article class="card">
+                    <h3>2001 – 2004</h3>
+                    <p>Loustenko Vladimir (Russia)</p>
+                </article>
+
+                <article class="card">
+                    <h3>2004 – 2008</h3>
+                    <p>Liang Bin (Repubblica Popolare Cinese)</p>
+                </article>
+
+                <article class="card">
+                    <h3>2008 – 2009</h3>
+                    <p>Zhang Jun (Repubblica Popolare Cinese)</p>
+                </article>
+
+                <article class="card">
+                    <h3>2008 – 2011</h3>
+                    <p>Jiang Feng (Repubblica Popolare Cinese)</p>
+                </article>
+
+                <article class="card">
+                    <h3>2011 – 2012</h3>
+                    <p>Aida Steshenko, Chen Ja</p>
+                </article>
+
+                <article class="card">
+                    <h3>2012 – 2013</h3>
+                    <p>Aida Steshenko, Chen Ja, Olga Dzelinska</p>
+                </article>
+
+                <article class="card">
+                    <h3>2013 – 2014</h3>
+                    <p>Chen Ja, Oyebode Micheal, Olga Dzelinska</p>
+                </article>
+
+                <article class="card">
+                    <h3>2014 – 2016</h3>
+                    <p>
+                        Negrisoli Laura, Oyebode Micheal,
+                        Chen Ja, Olga Dzelinska
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>2016 – 2017</h3>
+                    <p>
+                        Oyebode Micheal, Chen Ja, Olga Dzelinska,
+                        Nataliia Riabchenko
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>2017 – 2018</h3>
+                    <p>
+                        Polyakova Svetlana, Vesna Ojstersek,
+                        Olga Dzelinska, Nataliia Riabchenko
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>2018 – 2019</h3>
+                    <p>
+                        Crotti Mattia, Olga Dzelinska,
+                        Polyakova Svetlana, Nataliia Riabchenko
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>2019 – 2020</h3>
+                    <p>
+                        Polyakova Svetlana, Olga Dzelinska,
+                        Nataliia Riabchenko, Crotti Mattia
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>2021 – 2023</h3>
+                    <p>Heis Nicholas</p>
+                </article>
+
+                <article class="card">
+                    <h3>2024 – 2026</h3>
+                    <p>Sazonov Alexandr, Nataliia Riabchenko</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CONCLUSIONE -->
+        <section class="section">
+            <h2>Una storia che continua</h2>
+
+            <p>
+                Dal primo tavolo nella sala giochi alle competizioni
+                di alto livello, il percorso del Tennistavolo
+                Cortemaggiore è fatto di persone che hanno dedicato
+                tempo, energie e passione alla società.
+            </p>
+
+            <p>
+                Le origini restano un punto di riferimento:
+                una tradizione costruita insieme ai giovani,
+                attraverso lo sport, il volontariato e la voglia
+                di crescere senza dimenticare da dove tutto è iniziato.
+            </p>
+
+            <a class="button" href="squadre.html">Scopri le nostre squadre</a>
+        </section>
+
     </main>
 
+    <footer class="footer">
+        <p>© 2026 Tennistavolo Cortemaggiore</p>
+        <a href="contatti.html">Contatti e social</a>
+    </footer>
 </body>
 </html>
