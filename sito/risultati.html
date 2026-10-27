@@ -301,7 +301,27 @@ function mostraPartite() {
         if (filtroAttivo === "future") return !giocata;
         return true;
     });
+    partiteFiltrate.sort((a, b) => {
+        const giornataA = parseInt(a.giornata.match(/\d+/)?.[0] || "0", 10);
+        const giornataB = parseInt(b.giornata.match(/\d+/)?.[0] || "0", 10);
 
+        if (giornataA !== giornataB) {
+            return giornataA - giornataB;
+        }
+
+        // A parità di giornata, ordina per data
+        const dataA = (a.data || "").split("/");
+        const dataB = (b.data || "").split("/");
+
+        if (dataA.length === 3 && dataB.length === 3) {
+            const dataCompletaA = new Date(dataA[2], dataA[1] - 1, dataA[0]);
+            const dataCompletaB = new Date(dataB[2], dataB[1] - 1, dataB[0]);
+
+            return dataCompletaA - dataCompletaB;
+        }
+
+        return 0;
+    });
     conteggio.textContent = partiteFiltrate.length + " partite trovate";
 
     if (partiteFiltrate.length === 0) {
