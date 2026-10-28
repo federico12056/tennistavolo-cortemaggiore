@@ -927,3 +927,9 @@ footer.site-footer p a {
         padding: 7px;
     }
 }
+/* Migliora la leggibilità delle descrizioni delle lezioni */
+.coach-card p,
+.coach-card .description {
+  color: #1a1919;
+  opacity: 1;
+}

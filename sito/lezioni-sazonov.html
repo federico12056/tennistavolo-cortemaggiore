@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lezioni con Alexandr Sazonov | Tennistavolo Cortemaggiore</title>
+  <meta name="description" content="Consulta il calendario delle lezioni individuali con Alexandr Sazonov al Tennistavolo Cortemaggiore.">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .booking-intro {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 45px 22px 20px;
+    }
+
+    .booking-intro h1 {
+      margin: 8px 0 14px;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .booking-panel {
+      padding: 24px;
+      border-radius: 16px;
+    }
+
+    .calendar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .calendar-head h2 {
+      font-size: 1.25rem;
+      text-align: center;
+      text-transform: capitalize;
+    }
+
+    .calendar-head button {
+      border: 1px solid #aaa;
+      border-radius: 9px;
+      padding: 8px 12px;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .weekday {
+      text-align: center;
+      font-size: .8rem;
+      font-weight: 700;
+      padding: 6px 0;
+    }
+
+    .calendar-day {
+      min-height: 43px;
+      border: 1px solid #ddd;
+      border-radius: 9px;
+      background: #f0f1f2;
+      color: #555;
+      cursor: not-allowed;
+    }
+
+    .calendar-day.available {
+      background: #d9f4df;
+      border-color: #62b979;
+      color: #155b2a;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .calendar-day.unavailable {
+      background: #f9dddd;
+      border-color: #e7a0a0;
+      color: #8b2424;
+    }
+
+    .calendar-day.selected {
+      background: #2767d7;
+      border-color: #2767d7;
+      color: white;
+    }
+
+    .calendar-day:disabled {
+      cursor: not-allowed;
+      opacity: .85;
+    }
+
+    .calendar-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+      font-size: .86rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+    }
+
+    .times-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .time-slot {
+      padding: 10px 13px;
+      border: 1px solid #aaa;
+      border-radius: 10px;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .time-slot.selected {
+      background: #2767d7;
+      color: white;
+      border-color: #2767d7;
+    }
+
+    .form-field {
+      display: block;
+      margin: 14px 0;
+    }
+
+    .form-field span {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .form-field input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #aaa;
+      border-radius: 9px;
+      font: inherit;
+    }
+
+    .privacy-field {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      line-height: 1.5;
+      font-size: .9rem;
+      margin: 18px 0;
+    }
+
+    .privacy-field input {
+      margin-top: 5px;
+    }
+
+    .submit-booking {
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 10px;
+      background: #176b4d;
+      color: white;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .submit-booking:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    .booking-message {
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    .booking-message.error {
+      color: #a32626;
+    }
+
+    .booking-message.success {
+      color: #176b35;
+    }
+
+    .muted {
+      opacity: .8;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 760px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-panel {
+        padding: 16px;
+      }
+
+      .calendar-grid {
+        gap: 4px;
+      }
+
+      .calendar-day {
+        min-height: 39px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
+  </a>
+
+  <button class="mobile-menu-toggle" type="button"
+          aria-expanded="false" aria-controls="site-menu">
+    ☰ <span>Menu</span>
+  </button>
+
+  <nav class="menu" id="site-menu" aria-label="Menu principale">
+    <a href="index.html">Home</a>
+    <a href="societa.html">Società</a>
+    <a href="squadre.html">Squadre e giocatori</a>
+    <a href="risultati.html">Risultati</a>
+    <a href="galleria.html">Galleria</a>
+    <a href="lezioni.html">Lezioni</a>
+    <a href="contatti.html">Contatti</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="booking-intro">
+    <p class="eyebrow">LEZIONI INDIVIDUALI</p>
+
+    <h1>Alexandr Sazonov</h1>
+
+    <p>
+      Le lezioni sono dedicate alla lettura del gioco e alla costruzione
+      del punto: riconoscere le abitudini dell'avversario, scegliere le
+      soluzioni tattiche e imparare ad adattarsi alle situazioni della partita.
+    </p>
+
+    <p class="muted">
+      Seleziona un giorno verde per vedere gli orari disponibili.
+      L'invio del modulo è una richiesta, non una prenotazione confermata.
+    </p>
+
+    <p><a href="lezioni.html">← Torna alla pagina delle lezioni</a></p>
+  </section>
+
+  <section class="section booking-layout">
+
+    <div class="card booking-panel">
+
+      <div class="calendar-head">
+        <button type="button" id="prev-month" aria-label="Mese precedente">←</button>
+        <h2 id="month-label">Caricamento…</h2>
+        <button type="button" id="next-month" aria-label="Mese successivo">→</button>
+      </div>
+
+      <div class="calendar-grid" id="calendar-grid"></div>
+
+      <div class="calendar-legend">
+        <span class="legend-item">
+          <i class="legend-dot" style="background:#d9f4df;border:1px solid #62b979"></i>
+          Disponibile
+        </span>
+
+        <span class="legend-item">
+          <i class="legend-dot" style="background:#f9dddd;border:1px solid #e7a0a0"></i>
+          Non disponibile
+        </span>
+
+        <span class="legend-item">
+          <i class="legend-dot" style="background:#2767d7"></i>
+          Selezionato
+        </span>
+      </div>
+
+      <p class="muted" id="calendar-status" role="status">
+        Caricamento delle disponibilità…
+      </p>
+
+    </div>
+
+    <div class="card booking-panel">
+
+      <h2>Richiedi una lezione</h2>
+
+      <p id="selected-date-label" class="muted">
+        Seleziona prima un giorno sul calendario.
+      </p>
+
+      <div id="times-list" class="times-list"></div>
+
+      <form id="booking-form">
+
+        <input type="hidden" name="allenatore" value="Sazonov Alexandr">
+        <input type="hidden" name="data" id="field-date">
+        <input type="hidden" name="oraInizio" id="field-time">
+
+        <label class="form-field">
+          <span>Nome *</span>
+          <input name="nome" autocomplete="given-name" required maxlength="80">
+        </label>
+
+        <label class="form-field">
+          <span>Cognome *</span>
+          <input name="cognome" autocomplete="family-name" required maxlength="80">
+        </label>
+
+        <label class="form-field">
+          <span>Telefono *</span>
+          <input name="telefono" type="tel" autocomplete="tel" required maxlength="40">
+        </label>
+
+        <label class="privacy-field">
+          <input type="checkbox" id="privacy-check" required>
+          <span>
+            Ho letto l'<a href="privacy.html">informativa privacy</a>
+            e acconsento al trattamento dei dati per gestire questa richiesta. *
+          </span>
+        </label>
+
+        <button class="button submit-booking" id="submit-booking" type="submit" disabled>
+          Invia richiesta
+        </button>
+
+        <p class="muted">
+          La richiesta sarà in attesa di conferma da parte dell'allenatore.
+        </p>
+
+        <p id="booking-message" class="booking-message" role="status" aria-live="polite"></p>
+
+      </form>
+
+    </div>
+
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-sponsors">
+    <p class="footer-sponsors-title">I nostri sponsor</p>
+
+    <div class="footer-sponsors-logos">
+      <a href="https://www.metronottevigilanza.it/" target="_blank" rel="noopener noreferrer" aria-label="Metronotte"><img src="img/sponsor/metronotte.svg" alt="Metronotte" loading="lazy"></a>
+      <a href="https://www.fumara.it/" target="_blank" rel="noopener noreferrer" aria-label="Fumara"><img src="img/sponsor/fumara.svg" alt="Fumara" loading="lazy"></a>
+      <a href="https://welcome.quoting24.com/" target="_blank" rel="noopener noreferrer" aria-label="Quoting 24"><img src="img/sponsor/quoting24.svg" alt="Quoting 24" loading="lazy"></a>
+      <a href="https://www.gruppoteco.com/" target="_blank" rel="noopener noreferrer" aria-label="TECO"><img src="img/sponsor/teco.svg" alt="TECO" loading="lazy"></a>
+      <a href="https://www.meteservizi.it/home-page-it" target="_blank" rel="noopener noreferrer" aria-label="Mete"><img src="img/sponsor/mete.svg" alt="Mete" loading="lazy"></a>
+      <a href="https://cattina.info/" target="_blank" rel="noopener noreferrer" aria-label="Cattina"><img src="img/sponsor/cattina.svg" alt="Cattina" loading="lazy"></a>
+      <a href="https://www.gmtermosanitari.it/" target="_blank" rel="noopener noreferrer" aria-label="GM Termosanitari"><img src="img/sponsor/gm-termosanitari.svg" alt="GM Termosanitari" loading="lazy"></a>
+      <span class="footer-sponsor-no-link"><img src="img/sponsor/costantini.svg" alt="Costantini" loading="lazy"></span>
+      <a href="https://www.devoti-ecologia.it/" target="_blank" rel="noopener noreferrer" aria-label="Devoti"><img src="img/sponsor/devoti.svg" alt="Devoti" loading="lazy"></a>
+      <a href="https://www.corteauto.com/" target="_blank" rel="noopener noreferrer" aria-label="Corteauto"><img src="img/sponsor/corteauto.svg" alt="Corteauto" loading="lazy"></a>
+    </div>
+  </div>
+
+  <p>© 2026 Tennistavolo Cortemaggiore SSD a r.l.</p>
+  <p>
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="cookie.html">Cookie Policy</a> |
+    <a href="contatti.html">Contatti</a>
+  </p>
+</footer>
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbz92JluqfV1KTL5KD6yWDRbaB82D85NijMJpfBCBvgFsyKGQJQPhqOch8Tl8TI7fLTg/exec";
+const COACH_NAME = "Sazonov Alexandr";
+
+let allSlots = [];
+let visibleMonth = new Date();
+visibleMonth = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth(), 1);
+let selectedDate = "";
+let selectedTime = "";
+
+function jsonp(url) {
+  return new Promise((resolve, reject) => {
+    const callbackName = "callback_" + Math.random().toString(36).slice(2);
+    const script = document.createElement("script");
+
+    const timer = setTimeout(() => {
+      cleanup();
+      reject(new Error("Tempo scaduto nel caricamento."));
+    }, 12000);
+
+    function cleanup() {
+      clearTimeout(timer);
+      delete window[callbackName];
+      script.remove();
+    }
+
+    window[callbackName] = data => {
+      cleanup();
+      resolve(data);
+    };
+
+    script.onerror = () => {
+      cleanup();
+      reject(new Error("Impossibile leggere le disponibilità."));
+    };
+
+    script.src = url + "?action=disponibilita&callback=" +
+      callbackName + "&t=" + Date.now();
+
+    document.body.appendChild(script);
+  });
+}
+
+function pad(n) {
+  return String(n).padStart(2, "0");
+}
+
+function isoDate(y, m, d) {
+  return `${y}-${pad(m + 1)}-${pad(d)}`;
+}
+
+function monthTitle(date) {
+  return date.toLocaleDateString("it-IT", {
+    month: "long",
+    year: "numeric"
+  });
+}
+
+function slotsForDay(date) {
+  return allSlots.filter(slot =>
+    slot.data === date &&
+    slot.allenatore === COACH_NAME &&
+    String(slot.stato).trim().toLowerCase() === "disponibile"
+  );
+}
+
+function renderCalendar() {
+  const grid = document.getElementById("calendar-grid");
+  grid.innerHTML = "";
+
+  document.getElementById("month-label").textContent = monthTitle(visibleMonth);
+
+  ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"].forEach(day => {
+    const el = document.createElement("div");
+    el.className = "weekday";
+    el.textContent = day;
+    grid.appendChild(el);
+  });
+
+  const year = visibleMonth.getFullYear();
+  const month = visibleMonth.getMonth();
+  const firstDay = (new Date(year, month, 1).getDay() + 6) % 7;
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  for (let i = 0; i < firstDay; i++) {
+    grid.appendChild(document.createElement("span"));
+  }
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const date = isoDate(year, month, day);
+    const dayDate = new Date(year, month, day);
+    const slots = slotsForDay(date);
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "calendar-day";
+    button.textContent = day;
+    button.setAttribute("aria-label", `${day} ${monthTitle(visibleMonth)}`);
+
+    if (slots.length && dayDate >= today) {
+      button.classList.add("available");
+    } else {
+      button.classList.add("unavailable");
+    }
+
+    if (selectedDate === date) {
+      button.classList.add("selected");
+    }
+
+    button.disabled = !slots.length || dayDate < today;
+
+    button.addEventListener("click", () => {
+      selectedDate = date;
+      selectedTime = "";
+
+      document.getElementById("field-date").value = date;
+      document.getElementById("field-time").value = "";
+
+      renderCalendar();
+      renderTimes();
+    });
+
+    grid.appendChild(button);
+  }
+}
+
+function renderTimes() {
+  const list = document.getElementById("times-list");
+  const label = document.getElementById("selected-date-label");
+
+  list.innerHTML = "";
+
+  if (!selectedDate) {
+    label.textContent = "Seleziona prima un giorno sul calendario.";
+    updateSubmit();
+    return;
+  }
+
+  const [year, month, day] = selectedDate.split("-");
+  label.textContent = `Orari disponibili per il ${day}/${month}/${year}:`;
+
+  const slots = slotsForDay(selectedDate)
+    .sort((a, b) => a.oraInizio.localeCompare(b.oraInizio));
+
+  slots.forEach(slot => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "time-slot";
+
+    if (selectedTime === slot.oraInizio) {
+      button.classList.add("selected");
+    }
+
+    button.textContent = `${slot.oraInizio}–${slot.oraFine}`;
+
+    button.addEventListener("click", () => {
+      selectedTime = slot.oraInizio;
+      document.getElementById("field-time").value = selectedTime;
+      renderTimes();
+    });
+
+    list.appendChild(button);
+  });
+
+  if (!slots.length) {
+    list.textContent = "Non ci sono più orari disponibili per questo giorno.";
+  }
+
+  updateSubmit();
+}
+
+function updateSubmit() {
+  document.getElementById("submit-booking").disabled =
+    !(selectedDate && selectedTime);
+}
+
+document.getElementById("prev-month").addEventListener("click", () => {
+  visibleMonth = new Date(
+    visibleMonth.getFullYear(),
+    visibleMonth.getMonth() - 1,
+    1
+  );
+  renderCalendar();
+});
+
+document.getElementById("next-month").addEventListener("click", () => {
+  visibleMonth = new Date(
+    visibleMonth.getFullYear(),
+    visibleMonth.getMonth() + 1,
+    1
+  );
+  renderCalendar();
+});
+
+async function loadSlots() {
+  const status = document.getElementById("calendar-status");
+
+  try {
+    const result = await jsonp(API_URL);
+
+    if (!result || !result.ok || !Array.isArray(result.disponibilita)) {
+      throw new Error("Risposta non valida.");
+    }
+
+    allSlots = result.disponibilita;
+
+    status.textContent = allSlots.some(slot =>
+      slot.allenatore === COACH_NAME &&
+      String(slot.stato).trim().toLowerCase() === "disponibile"
+    )
+      ? "Disponibilità aggiornate dal calendario della società."
+      : "Al momento non risultano orari disponibili per questo allenatore.";
+
+    renderCalendar();
+    renderTimes();
+
+  } catch (error) {
+    status.textContent =
+      "Non riusciamo a caricare il calendario. Riprova più tardi o contatta la società.";
+    console.error(error);
+  }
+}
+
+document.getElementById("booking-form").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const message = document.getElementById("booking-message");
+  const form = event.currentTarget;
+  const submit = document.getElementById("submit-booking");
+
+  if (!selectedDate || !selectedTime) {
+    message.className = "booking-message error";
+    message.textContent = "Seleziona un giorno e un orario.";
+    return;
+  }
+
+  if (!document.getElementById("privacy-check").checked) {
+    return;
+  }
+
+  const data = new URLSearchParams(new FormData(form));
+
+  submit.disabled = true;
+  message.className = "booking-message";
+  message.textContent = "Invio della richiesta in corso…";
+
+  try {
+    /*
+      ATTENZIONE:
+      Questa chiamata non consente al browser di leggere la risposta del server.
+      Prima di utilizzare il modulo con utenti reali, il sistema di invio
+      deve essere testato end-to-end.
+    */
+    await fetch(API_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: data
+    });
+
+    message.className = "booking-message success";
+    message.textContent =
+      "Richiesta trasmessa. È ancora in attesa di conferma: l'allenatore dovrà contattarti.";
+
+    form.reset();
+    selectedDate = "";
+    selectedTime = "";
+
+    document.getElementById("field-date").value = "";
+    document.getElementById("field-time").value = "";
+
+    renderCalendar();
+    renderTimes();
+    await loadSlots();
+
+  } catch (error) {
+    message.className = "booking-message error";
+    message.textContent =
+      "Non è stato possibile inviare la richiesta. Riprova o contatta la società.";
+
+    submit.disabled = false;
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.querySelector(".mobile-menu-toggle");
+  const menu = document.querySelector("#site-menu");
+
+  if (button && menu) {
+    button.addEventListener("click", function () {
+      const isOpen = menu.classList.toggle("is-open");
+
+      button.setAttribute("aria-expanded", String(isOpen));
+
+      button.querySelector("span").textContent =
+        isOpen ? "Chiudi menu" : "Menu";
+    });
+
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function () {
+        menu.classList.remove("is-open");
+        button.setAttribute("aria-expanded", "false");
+        button.querySelector("span").textContent = "Menu";
+      });
+    });
+  }
+
+  loadSlots();
+});
+</script>
+
+</body>
+</html>

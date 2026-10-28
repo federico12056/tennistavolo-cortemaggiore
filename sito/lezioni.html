@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lezioni private | Tennistavolo Cortemaggiore</title>
+  <meta name="description" content="Lezioni individuali di tennistavolo con gli allenatori del Tennistavolo Cortemaggiore.">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .lessons-hero {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 58px 22px 28px;
+      text-align: center;
+    }
+
+    .lessons-hero h1 {
+      margin: 8px 0 16px;
+    }
+
+    .lessons-hero .intro {
+      max-width: 760px;
+      margin: 0 auto 20px;
+    }
+
+    .coach-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .coach-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .coach-card-content {
+      padding: 26px;
+    }
+
+    .coach-tag {
+      display: inline-block;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      opacity: .78;
+      margin-bottom: 8px;
+    }
+
+    .coach-card h2 {
+      margin: 0 0 12px;
+    }
+
+    .coach-card p {
+      line-height: 1.65;
+    }
+
+    .coach-card ul {
+      padding-left: 20px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .coach-card .button {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .lessons-note {
+      max-width: 900px;
+      margin: 30px auto 0;
+      padding: 20px 24px;
+      border-radius: 14px;
+      background: rgba(127, 127, 127, .09);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .coach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lessons-hero {
+        padding-top: 38px;
+      }
+
+      .coach-card-content {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
+  </a>
+
+  <button
+    class="mobile-menu-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="site-menu"
+  >
+    ☰ <span>Menu</span>
+  </button>
+
+  <nav class="menu" id="site-menu" aria-label="Menu principale">
+    <a href="index.html">Home</a>
+    <a href="societa.html">Società</a>
+    <a href="squadre.html">Squadre e giocatori</a>
+    <a href="risultati.html">Risultati</a>
+    <a href="galleria.html">Galleria</a>
+    <a href="lezioni.html" aria-current="page">Lezioni</a>
+    <a href="contatti.html">Contatti</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="lessons-hero">
+    <p class="eyebrow">ALLENAMENTO INDIVIDUALE</p>
+
+    <h1>Fai evolvere il tuo gioco.</h1>
+
+    <p class="intro">
+      Le lezioni individuali sono un'occasione per lavorare sui dettagli,
+      capire meglio il proprio gioco e costruire obiettivi di miglioramento
+      concreti. Scegli l'allenatore più adatto alle tue esigenze e invia
+      una richiesta di disponibilità.
+    </p>
+  </section>
+
+  <section class="section">
+
+    <div class="coach-grid">
+
+      <!-- ALLENATORE 1 -->
+
+      <article class="card coach-card">
+        <div class="coach-card-content">
+
+          <span class="coach-tag">Strategia e tattica</span>
+
+          <h2>Alexandr Sazonov</h2>
+
+          <p>
+            Un lavoro orientato alla lettura della partita e alla scelta
+            delle soluzioni più efficaci nei diversi momenti dello scambio.
+          </p>
+
+          <ul>
+            <li>Lettura dell'avversario e delle sue abitudini</li>
+            <li>Scelte tattiche e gestione del ritmo</li>
+            <li>Costruzione del punto e strategia di gioco</li>
+            <li>Adattamento durante la partita</li>
+          </ul>
+
+          <a class="button" href="lezioni-sazonov.html">
+            Profilo e calendario
+          </a>
+
+        </div>
+      </article>
+
+      <!-- ALLENATRICE 2 -->
+
+      <article class="card coach-card">
+        <div class="coach-card-content">
+
+          <span class="coach-tag">Tecnica e continuità</span>
+
+          <h2>Nataliia Riabchenko</h2>
+
+          <p>
+            Un lavoro focalizzato sulla qualità del gesto tecnico e sulla
+            costruzione di un gioco più stabile, fluido e personale.
+          </p>
+
+          <ul>
+            <li>Tecnica dei colpi e qualità del contatto</li>
+            <li>Spostamenti e posizione al tavolo</li>
+            <li>Regolarità, controllo e continuità</li>
+            <li>Sviluppo di uno stile di gioco personale</li>
+          </ul>
+
+          <a class="button" href="lezioni-riabchenko.html">
+            Profilo e calendario
+          </a>
+
+        </div>
+      </article>
+
+    </div>
+
+    <div class="lessons-note">
+      <strong>Come funziona la richiesta?</strong><br>
+
+      Scegli un giorno e un orario disponibili e inserisci i tuoi recapiti.
+      La richiesta non equivale a una prenotazione confermata:
+      l'allenatore ti contatterà per concordare i dettagli.
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+  <div class="footer-sponsors">
+    <p class="footer-sponsors-title">I nostri sponsor</p>
+
+    <div class="footer-sponsors-logos">
+
+      <a href="https://www.metronottevigilanza.it/"
+         target="_blank" rel="noopener noreferrer" aria-label="Metronotte">
+        <img src="img/sponsor/metronotte.svg" alt="Metronotte" loading="lazy">
+      </a>
+
+      <a href="https://www.fumara.it/"
+         target="_blank" rel="noopener noreferrer" aria-label="Fumara">
+        <img src="img/sponsor/fumara.svg" alt="Fumara" loading="lazy">
+      </a>
+
+      <a href="https://welcome.quoting24.com/"
+         target="_blank" rel="noopener noreferrer" aria-label="Quoting 24">
+        <img src="img/sponsor/quoting24.svg" alt="Quoting 24" loading="lazy">
+      </a>
+
+      <a href="https://www.gruppoteco.com/"
+         target="_blank" rel="noopener noreferrer" aria-label="TECO">
+        <img src="img/sponsor/teco.svg" alt="TECO" loading="lazy">
+      </a>
+
+      <a href="https://www.meteservizi.it/home-page-it"
+         target="_blank" rel="noopener noreferrer" aria-label="Mete">
+        <img src="img/sponsor/mete.svg" alt="Mete" loading="lazy">
+      </a>
+
+      <a href="https://cattina.info/"
+         target="_blank" rel="noopener noreferrer" aria-label="Cattina">
+        <img src="img/sponsor/cattina.svg" alt="Cattina" loading="lazy">
+      </a>
+
+      <a href="https://www.gmtermosanitari.it/"
+         target="_blank" rel="noopener noreferrer" aria-label="GM Termosanitari">
+        <img src="img/sponsor/gm-termosanitari.svg" alt="GM Termosanitari" loading="lazy">
+      </a>
+
+      <span class="footer-sponsor-no-link">
+        <img src="img/sponsor/costantini.svg" alt="Costantini" loading="lazy">
+      </span>
+
+      <a href="https://www.devoti-ecologia.it/"
+         target="_blank" rel="noopener noreferrer" aria-label="Devoti">
+        <img src="img/sponsor/devoti.svg" alt="Devoti" loading="lazy">
+      </a>
+
+      <a href="https://www.corteauto.com/"
+         target="_blank" rel="noopener noreferrer" aria-label="Corteauto">
+        <img src="img/sponsor/corteauto.svg" alt="Corteauto" loading="lazy">
+      </a>
+
+    </div>
+  </div>
+
+  <p>© 2026 Tennistavolo Cortemaggiore SSD a r.l.</p>
+
+  <p>
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="cookie.html">Cookie Policy</a> |
+    <a href="contatti.html">Contatti</a>
+  </p>
+
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const button = document.querySelector(".mobile-menu-toggle");
+  const menu = document.querySelector("#site-menu");
+
+  if (!button || !menu) return;
+
+  button.addEventListener("click", function () {
+
+    const isOpen = menu.classList.toggle("is-open");
+
+    button.setAttribute("aria-expanded", String(isOpen));
+
+    button.querySelector("span").textContent =
+      isOpen ? "Chiudi menu" : "Menu";
+
+  });
+
+  menu.querySelectorAll("a").forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+      menu.classList.remove("is-open");
+
+      button.setAttribute("aria-expanded", "false");
+
+      button.querySelector("span").textContent = "Menu";
+
+    });
+
+  });
+
+});
+</script>
+
+</body>
+</html>
