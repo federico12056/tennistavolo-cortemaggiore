@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti | Tennistavolo Cortemaggiore</title>
+    <meta name="description" content="Contatta il Tennistavolo Cortemaggiore: recapiti dei referenti, e-mail e social ufficiali.">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .contacts-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 24px;
+        }
+
+        .contacts-intro {
+            margin-bottom: 32px;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+            margin-bottom: 36px;
+        }
+
+        .contact-card {
+            padding: 26px;
+            border-radius: 16px;
+            background: #fff;
+            color: #172b45;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-card h2 {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            overflow-wrap: anywhere;
+        }
+
+        .contact-card a,
+        .social-links a {
+            color: #1458a6;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-card a:hover,
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 9px;
+            background: #edf4fc;
+        }
+
+        .contacts-email {
+            margin-top: 30px;
+            padding: 24px;
+            border-radius: 14px;
+            background: #edf4fc;
+        }
+
+        @media (max-width: 600px) {
+            .contacts-section {
+                padding: 32px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+<header class="header">
+    <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
+    </a>
+
+    <button class="mobile-menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-menu">
+        ☰ <span>Menu</span>
+    </button>
+
+    <nav class="menu" id="site-menu" aria-label="Menu principale">
+        <a href="index.html">Home</a>
+        <a href="societa.html">Società</a>
+        <a href="squadre.html">Squadre e giocatori</a>
+        <a href="risultati.html">Risultati</a>
+        <a href="galleria.html">Galleria</a>
+        <a href="lezioni.html">Lezioni</a>
+        <a href="contatti.html">Contatti</a>
+    </nav>
+</header>
+
+
+    <main>
+        <section class="contacts-section">
+            <div class="contacts-intro">
+                <p class="eyebrow">SIAMO A TUA DISPOSIZIONE</p>
+                <h1>Contatti</h1>
+                <p>
+                    Vuoi conoscere la società, ricevere informazioni
+                    sulle squadre o prenotare una lezione?
+                    Contattaci attraverso uno dei nostri recapiti.
+                </p>
+            </div>
+
+            <div class="contacts-grid">
+                <article class="contact-card">
+                    <h2>Colombi Francesco</h2>
+                    <p>Referente</p>
+                    <p>
+                        <a href="tel:+393286447174">
+                            328 644 7174
+                        </a>
+                    </p>
+                </article>
+
+                <article class="contact-card">
+                    <h2>Vacca Federico</h2>
+                    <p>Referente</p>
+                    <p>
+                        <a href="tel:+393409941584">
+                            340 994 1584
+                        </a>
+                    </p>
+                </article>
+            </div>
+
+            <section class="contacts-email">
+                <h2>Scrivici</h2>
+                <p>
+                    Per informazioni generali puoi contattarci via e-mail.
+                </p>
+                <p>
+                    <a href="mailto:ttcortemaggiore1989@gmail.com">
+                        ttcortemaggiore1989@gmail.com
+                    </a>
+                </p>
+            </section>
+
+            <section>
+                <h2>Seguici sui social</h2>
+                <p>
+                    Segui le nostre attività, i risultati e le novità
+                    del Tennistavolo Cortemaggiore.
+                </p>
+
+                
+<div class="social-links">
+    <a href="https://www.facebook.com/tennistavolo.corte/?locale=it_IT"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Visita la pagina Facebook del Tennistavolo Cortemaggiore">
+        <img src="https://cdn.simpleicons.org/facebook/1877F2"
+             alt="Facebook"
+             width="32"
+             height="32">
+    </a>
+
+    <a href="https://www.instagram.com/tennistavolo_corte/"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Visita il profilo Instagram del Tennistavolo Cortemaggiore">
+        <img src="https://cdn.simpleicons.org/instagram/E4405F"
+             alt="Instagram"
+             width="32"
+             height="32">
+    </a>
+</div>
+
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Tennistavolo Cortemaggiore</p>
+        <a href="contatti.html">Contatti e social</a>
+    </footer>
+    
+<footer class="site-footer">
+    <p>© 2026 Tennistavolo Cortemaggiore SSD a r.l.</p>
+    <p>
+        <a href="privacy.html">Privacy Policy</a>
+        <span aria-hidden="true"> | </span>
+        <a href="cookie.html">Cookie Policy</a>
+        <span aria-hidden="true"> | </span>
+        <a href="contatti.html">Contatti</a>
+    </p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const button = document.querySelector(".mobile-menu-toggle");
+    const menu = document.querySelector("#site-menu");
+
+    if (!button || !menu) return;
+
+    button.addEventListener("click", function () {
+        const isOpen = menu.classList.toggle("is-open");
+
+        button.setAttribute("aria-expanded", String(isOpen));
+        button.querySelector("span").textContent =
+            isOpen ? "Chiudi menu" : "Menu";
+    });
+
+    menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            menu.classList.remove("is-open");
+            button.setAttribute("aria-expanded", "false");
+            button.querySelector("span").textContent = "Menu";
+        });
+    });
+});
+</script>
+
+</body>
+</html>

@@ -135,36 +135,30 @@
 </head>
 
 <body>
-    <header class="header">
-        <a class="logo" href="index.html" aria-label="Tennistavolo Cortemaggiore - Home">
-            <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
-        </a>
+    
+<header class="header">
+    <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
+    </a>
 
-        <nav class="menu">
-            <a href="index.html">Home</a>
+    <button class="mobile-menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-menu">
+        ☰ <span>Menu</span>
+    </button>
 
-            <div class="dropdown">
-                <button class="dropdown-button">La società ▾</button>
-                <div class="dropdown-content">
-                    <a href="societa.html">Chi siamo</a>
-                    <a href="sponsor.html">Sponsor</a>
-                    <a href="contatti.html">Contatti</a>
-                </div>
-            </div>
+    <nav class="menu" id="site-menu" aria-label="Menu principale">
+        <a href="index.html">Home</a>
+        <a href="societa.html">Società</a>
+        <a href="squadre.html">Squadre e giocatori</a>
+        <a href="risultati.html">Risultati</a>
+        <a href="galleria.html">Galleria</a>
+        <a href="lezioni.html">Lezioni</a>
+        <a href="contatti.html">Contatti</a>
+    </nav>
+</header>
 
-            <div class="dropdown">
-                <button class="dropdown-button">Squadre e giocatori ▾</button>
-                <div class="dropdown-content">
-                    <a href="squadre.html">Le squadre</a>
-                    <a href="giocatori.html">I giocatori</a>
-                </div>
-            </div>
-
-            <a href="risultati.html">Risultati</a>
-            <a href="galleria.html">Galleria</a>
-            <a href="lezioni.html">Lezioni private</a>
-        </nav>
-    </header>
 
     <main>
         <section class="hero">
@@ -319,5 +313,42 @@
             restartTimer();
         });
     </script>
+    
+<footer class="site-footer">
+    <p>© 2026 Tennistavolo Cortemaggiore SSD a r.l.</p>
+    <p>
+        <a href="privacy.html">Privacy Policy</a>
+        <span aria-hidden="true"> | </span>
+        <a href="cookie.html">Cookie Policy</a>
+        <span aria-hidden="true"> | </span>
+        <a href="contatti.html">Contatti</a>
+    </p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const button = document.querySelector(".mobile-menu-toggle");
+    const menu = document.querySelector("#site-menu");
+
+    if (!button || !menu) return;
+
+    button.addEventListener("click", function () {
+        const isOpen = menu.classList.toggle("is-open");
+
+        button.setAttribute("aria-expanded", String(isOpen));
+        button.querySelector("span").textContent =
+            isOpen ? "Chiudi menu" : "Menu";
+    });
+
+    menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            menu.classList.remove("is-open");
+            button.setAttribute("aria-expanded", "false");
+            button.querySelector("span").textContent = "Menu";
+        });
+    });
+});
+</script>
+
 </body>
 </html>

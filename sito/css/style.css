@@ -607,3 +607,120 @@ body {
         transition: none;
     }
 }
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #edf4fc;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    background: #dceafb;
+}
+
+.social-links img {
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .social-links a {
+        transition: none;
+    }
+}
+
+.site-footer {
+    margin-top: 40px;
+    padding: 24px 16px;
+    background-color: #123c69;
+    color: #ffffff;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 8px 0;
+}
+
+.site-footer a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.site-footer a:hover {
+    opacity: 0.8;
+}
+
+/* Pulsante menu mobile: nascosto su desktop */
+.mobile-menu-toggle {
+    display: none;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    background: #123c69;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+/* Versione mobile */
+@media (max-width: 768px) {
+    .header {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .mobile-menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .header .menu {
+        display: none;
+        flex: 0 0 100%;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 8px 0;
+        background: #123c69;
+        border-radius: 8px;
+    }
+
+    .header .menu.is-open {
+        display: flex;
+    }
+
+    .header .menu > a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 13px 16px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .header .menu > a:hover,
+    .header .menu > a:focus {
+        background: rgba(255, 255, 255, 0.12);
+    }
+}
