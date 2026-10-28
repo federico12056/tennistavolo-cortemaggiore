@@ -725,14 +725,38 @@ body {
     }
 }
 
-/* Footer con loghi sponsor */
+/* Footer e loghi sponsor */
 .site-footer {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 40px;
+    padding: 30px 20px;
+    background-color: #102747;
+    color: #ffffff;
     text-align: center;
 }
 
-.footer-sponsors {
-    margin: 0 auto 24px;
+.site-footer p {
+    margin: 8px 0;
+    color: #ffffff;
+}
+
+.site-footer a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.site-footer a:hover {
+    opacity: 0.8;
+}
+
+.site-footer .footer-sponsors {
+    display: block;
+    width: 100%;
     max-width: 1100px;
+    margin: 0 auto 24px;
+
 }
 
 .footer-sponsors-title {
@@ -741,67 +765,165 @@ body {
     font-weight: 700;
     letter-spacing: 1.4px;
     text-transform: uppercase;
+    color: #ffffff;
 }
 
-.footer-sponsors-logos {
+.site-footer .footer-sponsors-logos {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 18px 24px;
+    gap: 16px;
 }
 
-.footer-sponsors-logos a,
-.footer-sponsor-no-link {
+.site-footer .footer-sponsors-logos a,
+.site-footer .footer-sponsor-no-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 48px;
+    box-sizing: border-box;
+    width: 120px;
+    height: 64px;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
-.footer-sponsors-logos img {
+.site-footer .footer-sponsors-logos img {
     display: block;
-    max-width: 100px;
-    max-height: 42px;
+
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.site-footer .footer-sponsors-logos a {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.site-footer .footer-sponsors-logos a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+.site-footer .footer-sponsors-logos a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+    .site-footer .footer-sponsors-logos {
+        gap: 12px;
+    }
+
+    .site-footer .footer-sponsors-logos a,
+    .site-footer .footer-sponsor-no-link {
+        width: 92px;
+        height: 52px;
+        padding: 7px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-footer .footer-sponsors-logos a {
+        transition: none;
+    }
+
+    .site-footer .footer-sponsors-logos a:hover {
+        transform: none;
+    }
+}
+/* Sezioni squadre e giocatori */
+.section > h2 {
+    color: #173c70;
+    margin-bottom: 12px;
+}
+
+#elenco-giocatori-squadre .card {
+    border-top: 4px solid #173c70;
+}
+
+#elenco-giocatori-squadre .card h3 {
+    color: #173c70;
+}
+
+#elenco-giocatori-squadre .card a {
+    color: #173c70;
+    font-weight: bold;
+}
+/* Footer sponsor nella home e nelle altre pagine */
+footer.site-footer {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    clear: both;
+    margin-top: 40px;
+    padding: 30px 20px;
+    background-color: #102747;
+    color: #ffffff;
+}
+
+footer.site-footer .footer-sponsors {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    margin: 0 auto 24px;
+}
+
+footer.site-footer .footer-sponsors-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+footer.site-footer .footer-sponsors-logos a,
+footer.site-footer .footer-sponsor-no-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 64px;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+footer.site-footer .footer-sponsors-logos img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
     width: auto;
     height: auto;
     object-fit: contain;
 }
 
-.footer-sponsors-logos a {
-    border-radius: 5px;
-    transition: opacity 0.2s ease;
-}
-
-.footer-sponsors-logos a:hover {
-    opacity: 0.72;
-}
-
-.footer-sponsors-logos a:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 4px;
+footer.site-footer p,
+footer.site-footer p a {
+    color: #ffffff;
 }
 
 @media (max-width: 600px) {
-    .footer-sponsors-logos {
-        gap: 12px 14px;
+    footer.site-footer .footer-sponsors-logos {
+        gap: 12px;
     }
 
-    .footer-sponsors-logos a,
-    .footer-sponsor-no-link {
-        width: 76px;
-        height: 38px;
-    }
-
-    .footer-sponsors-logos img {
-        max-width: 76px;
-        max-height: 34px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .footer-sponsors-logos a {
-        transition: none;
+    footer.site-footer .footer-sponsors-logos a,
+    footer.site-footer .footer-sponsor-no-link {
+        width: 92px;
+        height: 52px;
+        padding: 7px;
     }
 }

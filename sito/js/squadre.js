@@ -1,64 +1,100 @@
 
 const contenitore = document.getElementById("elenco-squadre");
+const contenitoreGiocatori = document.getElementById("elenco-giocatori-squadre");
 
-contenitore.innerHTML = "";
+if (contenitore && typeof squadre !== "undefined") {
+    contenitore.innerHTML = "";
 
-squadre.forEach(function(squadra) {
-    const scheda = document.createElement("article");
-    scheda.className = "card";
+    const giocatoriUnici = new Map();
 
-    // Identificativo univoco della squadra,
-    // utilizzato per raggiungerla direttamente.
-    scheda.id = "squadra-" + squadra.categoria;
+    squadre.forEach(function(squadra) {
+        const scheda = document.createElement("article");
+        scheda.className = "card";
+        scheda.id = "squadra-" + squadra.categoria;
 
-    const titolo = document.createElement("h2");
-    titolo.textContent = squadra.nome;
+        const titolo = document.createElement("h3");
+        titolo.textContent = squadra.nome;
 
-    const categoria = document.createElement("p");
-    categoria.textContent = "Categoria: " + squadra.categoria;
+        const categoria = document.createElement("p");
+        categoria.textContent = "Categoria: " + squadra.categoria;
 
-    const descrizione = document.createElement("p");
-    descrizione.textContent = squadra.descrizione;
+        const descrizione = document.createElement("p");
+        descrizione.textContent = squadra.descrizione || "";
 
-    scheda.append(titolo, categoria, descrizione);
+        scheda.append(titolo, categoria, descrizione);
 
-    // Collegamento alla scheda FITeT, se presente.
-    if (squadra.fitet) {
-        const linkFitet = document.createElement("a");
+        if (squadra.fitet) {
+            const linkFitet = document.createElement("a");
+            linkFitet.href = squadra.fitet;
+            linkFitet.textContent = "Consulta la scheda FITeT →";
+            linkFitet.target = "_blank";
+            linkFitet.rel = "noopener noreferrer";
+            scheda.appendChild(linkFitet);
+        }
 
-        linkFitet.href = squadra.fitet;
-        linkFitet.textContent = "Consulta la scheda FITeT →";
-        linkFitet.target = "_blank";
-        linkFitet.rel = "noopener noreferrer";
+        const titoloGiocatori = document.createElement("h4");
+        titoloGiocatori.textContent = "Rosa della squadra";
 
-        linkFitet.style.display = "inline-block";
-        linkFitet.style.marginBottom = "16px";
+        const elenco = document.createElement("ul");
 
-        scheda.appendChild(linkFitet);
-    }
+        (squadra.giocatori || []).forEach(function(giocatore) {
+            const elemento = document.createElement("li");
+            const link = document.createElement("a");
 
-    const titoloGiocatori = document.createElement("h3");
-    titoloGiocatori.textContent = "Giocatori";
+            link.href = "giocatori.html#" + encodeURIComponent(giocatore.id);
+            link.textContent = giocatore.nome;
 
-    const elencoGiocatori = document.createElement("ul");
+            elemento.appendChild(link);
+            elenco.appendChild(elemento);
 
-    squadra.giocatori.forEach(function(giocatore) {
-        const elemento = document.createElement("li");
+            if (!giocatoriUnici.has(giocatore.id)) {
+                giocatoriUnici.set(giocatore.id, {
+                    ...giocatore,
+                    squadre: []
+                });
+            }
 
-        const linkGiocatore = document.createElement("a");
-        linkGiocatore.href = "giocatori.html#" + giocatore.id;
-        linkGiocatore.textContent = giocatore.nome;
+            const giocatoreUnico = giocatoriUnici.get(giocatore.id);
+            if (!giocatoreUnico.squadre.includes(squadra.nome)) {
+                giocatoreUnico.squadre.push(squadra.nome);
+            }
+        });
 
-        elemento.appendChild(linkGiocatore);
-        elencoGiocatori.appendChild(elemento);
+        scheda.append(titoloGiocatori, elenco);
+        contenitore.appendChild(scheda);
     });
 
-    scheda.append(titoloGiocatori, elencoGiocatori);
-    contenitore.appendChild(scheda);
-});
+    if (contenitoreGiocatori) {
+        contenitoreGiocatori.innerHTML = "";
 
-// Se si arriva da un link con #squadra-CATEGORIA,
-// porta direttamente alla scheda della squadra.
+        giocatoriUnici.forEach(function(giocatore) {
+            const scheda = document.createElement("article");
+            scheda.className = "card";
+
+            const nome = document.createElement("h3");
+            nome.textContent = giocatore.nome;
+
+            const appartenenza = document.createElement("p");
+            appartenenza.textContent =
+                "Squadra: " + giocatore.squadre.join(", ");
+
+            const link = document.createElement("a");
+            link.href = "giocatori.html#" + encodeURIComponent(giocatore.id);
+            link.textContent = "Scheda giocatore →";
+
+            scheda.append(nome, appartenenza, link);
+            contenitoreGiocatori.appendChild(scheda);
+        });
+
+        if (giocatoriUnici.size === 0) {
+            contenitoreGiocatori.textContent =
+                "Non sono ancora presenti giocatori.";
+        }
+    }
+}
+
+// Se si arriva con un collegamento diretto a una squadra,
+// porta alla relativa scheda.
 if (window.location.hash) {
     const id = decodeURIComponent(window.location.hash.slice(1));
 
@@ -73,4 +109,3 @@ if (window.location.hash) {
         }
     });
 }
-
