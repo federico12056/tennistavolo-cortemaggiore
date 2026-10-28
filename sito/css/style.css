@@ -53,7 +53,7 @@ body {
 
 .hero {
     padding: 100px 8%;
-    background: #173c70;
+    background: #140a70;
     color: white;
 }
 
@@ -474,4 +474,136 @@ body {
     width: auto;
     max-width: 220px;
     object-fit: contain;
+}
+/* Carousel fotografico della home */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 38px auto 0;
+    overflow: hidden;
+    border-radius: 0;
+    aspect-ratio: auto;
+    background: transparent;
+    box-shadow: none;
+}
+
+.hero-carousel-track {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+/* Immagini del carousel */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease;
+}
+
+.hero-slide.active {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Frecce laterali */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: white;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.carousel-arrow.prev {
+    left: 14px;
+}
+
+.carousel-arrow.next {
+    right: 14px;
+}
+
+.carousel-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Indicatori delle immagini */
+.carousel-dots {
+    position: absolute;
+    z-index: 2;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+
+.carousel-dot.active {
+    background: white;
+    transform: scale(1.25);
+}
+
+/* Adattamento per smartphone */
+@media (max-width: 600px) {
+    .hero-carousel {
+        margin-top: 28px;
+    }
+
+    .carousel-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 25px;
+    }
+
+    .carousel-arrow.prev {
+        left: 8px;
+    }
+
+    .carousel-arrow.next {
+        right: 8px;
+    }
+
+    .carousel-dots {
+        bottom: 8px;
+    }
+}
+
+/* Rispetto delle preferenze di movimento */
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide {
+        transition: none;
+    }
 }

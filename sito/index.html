@@ -3,43 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Tennistavolo Cortemaggiore</title>
     <meta name="description" content="Scopri il Tennistavolo Cortemaggiore: squadre, giocatori, risultati, sponsor e lezioni private.">
+
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Carousel della home page */
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            margin: 38px auto 0;
+            overflow: hidden;
+            border-radius: 18px;
+            background: transparent;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+        }
+
+        .hero-carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-carousel .hero-slide {
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.7s ease;
+        }
+
+        .hero-carousel .hero-slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .hero-carousel .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border: none;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 30px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .hero-carousel .carousel-arrow:hover {
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .hero-carousel .carousel-arrow.prev {
+            left: 14px;
+        }
+
+        .hero-carousel .carousel-arrow.next {
+            right: 14px;
+        }
+
+        .hero-carousel .carousel-dots {
+            position: absolute;
+            z-index: 5;
+            bottom: 14px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .hero-carousel .carousel-dot {
+            width: 11px;
+            height: 11px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.65);
+            cursor: pointer;
+        }
+
+        .hero-carousel .carousel-dot.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 600px) {
+            .hero-carousel {
+                margin-top: 28px;
+                border-radius: 12px;
+            }
+
+            .hero-carousel .carousel-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 25px;
+            }
+
+            .hero-carousel .carousel-arrow.prev {
+                left: 8px;
+            }
+
+            .hero-carousel .carousel-arrow.next {
+                right: 8px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-carousel .hero-slide {
+                transition: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <header class="header">
         <a class="logo" href="index.html" aria-label="Tennistavolo Cortemaggiore - Home">
-    <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
-</a>
+            <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
+        </a>
 
-     
-<nav class="menu">
-    <a href="index.html">Home</a>
+        <nav class="menu">
+            <a href="index.html">Home</a>
 
-    <div class="dropdown">
-        <button class="dropdown-button">La società ▾</button>
-        <div class="dropdown-content">
-            <a href="societa.html">Chi siamo</a>
-            <a href="sponsor.html">Sponsor</a>
-            <a href="contatti.html">Contatti</a>
-        </div>
-    </div>
+            <div class="dropdown">
+                <button class="dropdown-button">La società ▾</button>
+                <div class="dropdown-content">
+                    <a href="societa.html">Chi siamo</a>
+                    <a href="sponsor.html">Sponsor</a>
+                    <a href="contatti.html">Contatti</a>
+                </div>
+            </div>
 
-    <div class="dropdown">
-        <button class="dropdown-button">Squadre e giocatori ▾</button>
-        <div class="dropdown-content">
-            <a href="squadre.html">Le squadre</a>
-            <a href="giocatori.html">I giocatori</a>
-        </div>
-    </div>
+            <div class="dropdown">
+                <button class="dropdown-button">Squadre e giocatori ▾</button>
+                <div class="dropdown-content">
+                    <a href="squadre.html">Le squadre</a>
+                    <a href="giocatori.html">I giocatori</a>
+                </div>
+            </div>
 
-    <a href="risultati.html">Risultati</a>
-    <a href="galleria.html">Galleria</a>
-    <a href="lezioni.html">Lezioni private</a>
-</nav>
-
+            <a href="risultati.html">Risultati</a>
+            <a href="galleria.html">Galleria</a>
+            <a href="lezioni.html">Lezioni private</a>
+        </nav>
     </header>
 
     <main>
@@ -57,6 +181,43 @@
             <a class="button" href="squadre.html">
                 Scopri le squadre
             </a>
+
+            <div class="hero-carousel" aria-label="Galleria fotografica">
+                <div class="hero-carousel-track">
+                    <img src="img/foto-squadra.png"
+                         alt=""
+                         class="hero-slide active">
+
+                    <img src="img/c-fem.png"
+                         alt=""
+                         class="hero-slide">
+
+                    <img src="img/mohamed.png"
+                         alt=""
+                         class="hero-slide">
+
+                    <img src="img/dernini-milza.png"
+                         alt=""
+                         class="hero-slide">
+                </div>
+
+                <button type="button" class="carousel-arrow prev"
+                        aria-label="Foto precedente">‹</button>
+
+                <button type="button" class="carousel-arrow next"
+                        aria-label="Foto successiva">›</button>
+
+                <div class="carousel-dots">
+                    <button type="button" class="carousel-dot active"
+                            aria-label="Foto 1"></button>
+                    <button type="button" class="carousel-dot"
+                            aria-label="Foto 2"></button>
+                    <button type="button" class="carousel-dot"
+                            aria-label="Foto 3"></button>
+                    <button type="button" class="carousel-dot"
+                            aria-label="Foto 4"></button>
+                </div>
+            </div>
         </section>
 
         <section class="section">
@@ -97,5 +258,66 @@
         <p>© 2026 Tennistavolo Cortemaggiore</p>
         <a href="contatti.html">Contatti e social</a>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carousel = document.querySelector(".hero-carousel");
+
+            if (!carousel) return;
+
+            const slides = Array.from(
+                carousel.querySelectorAll(".hero-slide")
+            );
+            const dots = Array.from(
+                carousel.querySelectorAll(".carousel-dot")
+            );
+            const prev = carousel.querySelector(".prev");
+            const next = carousel.querySelector(".next");
+
+            if (slides.length === 0) return;
+
+            let current = 0;
+            let timer;
+
+            function showSlide(index) {
+                current = (index + slides.length) % slides.length;
+
+                slides.forEach(function (slide, i) {
+                    slide.classList.toggle("active", i === current);
+                });
+
+                dots.forEach(function (dot, i) {
+                    dot.classList.toggle("active", i === current);
+                });
+            }
+
+            function restartTimer() {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    showSlide(current + 1);
+                }, 5000);
+            }
+
+            prev.addEventListener("click", function () {
+                showSlide(current - 1);
+                restartTimer();
+            });
+
+            next.addEventListener("click", function () {
+                showSlide(current + 1);
+                restartTimer();
+            });
+
+            dots.forEach(function (dot, i) {
+                dot.addEventListener("click", function () {
+                    showSlide(i);
+                    restartTimer();
+                });
+            });
+
+            showSlide(0);
+            restartTimer();
+        });
+    </script>
 </body>
 </html>
