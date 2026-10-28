@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210.00015mm"
-   height="210.00015mm"
-   viewBox="0 0 210.00015 210.00015"
+   width="177.61353mm"
+   height="117.99271mm"
+   viewBox="0 0 177.61353 117.99271"
    version="1.1"
    id="svg1"
    xml:space="preserve"
@@ -24,8 +24,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.35945918"
-     inkscape:cx="-107.10535"
-     inkscape:cy="504.92521"
+     inkscape:cx="-168.3084"
+     inkscape:cy="326.87995"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -34,8 +34,8 @@
      inkscape:current-layer="layer1"><inkscape:page
        x="0"
        y="0"
-       width="210.00015"
-       height="210.00015"
+       width="177.61353"
+       height="117.99271"
        id="page2"
        margin="0"
        bleed="0" /></sodipodi:namedview><defs
@@ -43,11 +43,11 @@
      inkscape:label="Livello 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-220.00001)" /><g
+     transform="translate(-236.19332,-47.843865)" /><g
      id="g1"
      inkscape:groupmode="layer"
      inkscape:label="1"
-     transform="matrix(0.26458333,0,0,0.26458334,9.8198979e-6,0)"><g
+     transform="matrix(0.26458333,0,0,0.26458334,-16.193298,-47.843865)"><g
        id="g2"><path
          id="path2"
          d="M 0,0 H -11.265 L -16.216,33.767 -28.74,0 h -7.423 L -49.26,33.463 -53.714,0 h -11.455 l 7.422,54.246 h 11.992 l 13.172,-34.223 12.636,34.223 H -7.84 Z"

@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="204mm"
-   height="292mm"
-   viewBox="0 0 204 292"
+   width="198.2874mm"
+   height="44.253792mm"
+   viewBox="0 0 198.2874 44.253792"
    version="1.1"
    id="svg1"
    xml:space="preserve"
-   sodipodi:docname="Fumara.logo.svg"
+   sodipodi:docname="fumara.svg"
    inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,8 +25,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.88"
-     inkscape:cx="389.77273"
-     inkscape:cy="1564.2045"
+     inkscape:cx="385.22727"
+     inkscape:cy="-80.113636"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -35,30 +35,16 @@
      inkscape:current-layer="layer1"><inkscape:page
        x="0"
        y="0"
-       width="204"
-       height="292"
+       width="198.2874"
+       height="44.253792"
        id="page112"
        margin="0"
-       bleed="0" /><inkscape:page
-       x="0.30066288"
-       y="298.55823"
-       width="204.75142"
-       height="212.56865"
-       id="page113" /><inkscape:page
-       x="-0.30066288"
-       y="518.94412"
-       width="205.65341"
-       height="190.62026"
-       id="page114" /><inkscape:page
-       x="-0.60132576"
-       y="715.27697"
-       width="205.35275"
-       height="176.18844"
-       id="page115" /></sodipodi:namedview><defs
+       bleed="0" /></sodipodi:namedview><defs
      id="defs1" /><g
      inkscape:label="Livello 1"
      inkscape:groupmode="layer"
-     id="layer1"><rect
+     id="layer1"
+     transform="translate(-1.2026515,-64.341857)"><rect
        style="fill:none;fill-opacity:0;stroke-width:0.264583"
        id="rect97"
        width="20.745737"

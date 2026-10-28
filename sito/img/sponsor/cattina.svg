@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210.00015mm"
-   height="210.00015mm"
-   viewBox="0 0 210.00015 210.00015"
+   width="179.08566mm"
+   height="58.371906mm"
+   viewBox="0 0 179.08566 58.371905"
    version="1.1"
    id="svg1"
    xml:space="preserve"
@@ -24,8 +24,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.35945918"
-     inkscape:cx="958.38422"
-     inkscape:cy="504.92521"
+     inkscape:cx="901.35408"
+     inkscape:cy="226.7295"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -34,8 +34,8 @@
      inkscape:current-layer="g1-4"><inkscape:page
        x="0"
        y="0"
-       width="210.00015"
-       height="210.00015"
+       width="179.08566"
+       height="58.371906"
        id="page5"
        margin="0"
        bleed="0" /></sodipodi:namedview><defs
@@ -43,23 +43,23 @@
      inkscape:label="Livello 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-880.00046)" /><g
+     transform="translate(-895.45771,-74.342004)" /><g
      id="g1"
      inkscape:groupmode="layer"
      inkscape:label="1"
-     transform="matrix(0.26458333,0,0,0.26458334,-660.00044,0)" /><g
+     transform="matrix(0.26458333,0,0,0.26458334,-675.45769,-74.342004)" /><g
      id="g1-4"
      inkscape:groupmode="layer"
      inkscape:label="2"
-     transform="matrix(0.26458333,0,0,0.26458333,-440.00031,0)" /><g
+     transform="matrix(0.26458333,0,0,0.26458333,-455.45756,-74.342004)" /><g
      id="g1-42"
      inkscape:groupmode="layer"
      inkscape:label="3"
-     transform="matrix(0.26458333,0,0,0.26458333,-220.00016,0)" /><g
+     transform="matrix(0.26458333,0,0,0.26458333,-235.45741,-74.342004)" /><g
      id="g1-1"
      inkscape:groupmode="layer"
      inkscape:label="4"
-     transform="matrix(0.26458333,0,0,0.26458333,-2.7679927e-6,0)"><path
+     transform="matrix(0.26458333,0,0,0.26458333,-15.457252,-74.342004)"><path
        id="path1"
        d="m 0,0 c 39.557,0 71.624,32.067 71.624,71.624 0,39.557 -32.067,71.624 -71.624,71.624 -39.557,0 -71.624,-32.067 -71.624,-71.624 C -71.624,32.067 -39.557,0 0,0"
        style="fill:#db6f1a;fill-opacity:1;fill-rule:nonzero;stroke:none"
