@@ -336,3 +336,102 @@ body {
         padding: 45px 7%;
     }
 }
+
+/* ==============================
+   PAGINA SPONSOR
+   ============================== */
+
+.sponsors {
+    text-align: center;
+}
+
+.sponsors > p {
+    max-width: 750px;
+    margin: 0 auto 30px;
+}
+
+/* Griglia degli sponsor */
+.sponsors .cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 35px;
+}
+
+/* Scheda del singolo sponsor */
+.sponsor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    min-height: 250px;
+    padding: 24px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Area riservata al logo */
+.sponsor-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 125px;
+    margin-bottom: 18px;
+    text-decoration: none;
+}
+
+/* Immagine SVG */
+.sponsor-logo img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 105px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+/* Piccolo effetto al passaggio del mouse */
+.sponsor-logo:hover img {
+    transform: scale(1.05);
+}
+
+/* Nome dello sponsor */
+.sponsor-card h3 {
+    margin: 0 0 16px;
+    color: #173c70;
+}
+
+/* Link al sito */
+.sponsor-card .sponsor-link {
+    margin-top: auto;
+    color: #173c70;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sponsor-card .sponsor-link:hover {
+    color: #d83a42;
+    text-decoration: underline;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .sponsors .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Smartphone */
+@media (max-width: 560px) {
+    .sponsors .cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .sponsor-card {
+        min-height: 230px;
+    }
+}
