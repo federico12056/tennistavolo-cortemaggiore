@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestione galleria | Tennistavolo Cortemaggiore</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    .admin-container {
+      max-width: 950px;
+      margin: 55px auto;
+      padding: 0 22px 60px;
+    }
+
+    .admin-panel {
+      background: white;
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 3px 15px #00000012;
+      margin-bottom: 25px;
+    }
+
+    .admin-panel h1,
+    .admin-panel h2 {
+      color: #173b67;
+      margin-bottom: 18px;
+    }
+
+    .admin-form {
+      display: grid;
+      gap: 14px;
+      max-width: 450px;
+    }
+
+    .admin-form input,
+    .admin-form button,
+    .admin-button {
+      padding: 12px 15px;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .admin-form input {
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+
+    .admin-form button,
+    .admin-button {
+      border: 0;
+      background: #173b67;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .admin-button.danger {
+      background: #b52d2d;
+    }
+
+    .admin-button:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    #admin-status {
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+
+    .admin-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .admin-photo {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .admin-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .admin-photo button {
+      width: 100%;
+      padding: 10px;
+      border: 0;
+      background: #b52d2d;
+      color: white;
+      cursor: pointer;
+    }
+
+    #upload-section,
+    #logout-button {
+      display: none;
+    }
+
+    @media (max-width: 650px) {
+      .admin-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 420px) {
+      .admin-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
+  </a>
+  <nav class="menu">
+    <a href="index.html">Torna al sito</a>
+    <a href="galleria.html">Galleria pubblica</a>
+  </nav>
+</header>
+
+<main class="admin-container">
+
+  <section class="admin-panel">
+    <h1>Gestione galleria</h1>
+    <p>Accedi per gestire le fotografie del Tennistavolo Cortemaggiore.</p>
+
+    <form class="admin-form" id="login-form">
+      <input
+        type="email"
+        id="email"
+        placeholder="Indirizzo email"
+        autocomplete="username"
+        required
+      >
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        autocomplete="current-password"
+        required
+      >
+
+      <button type="submit">Accedi</button>
+    </form>
+
+    <button class="admin-button" id="logout-button" type="button">
+      Esci
+    </button>
+
+    <p id="admin-status" role="status"></p>
+  </section>
+
+  <section class="admin-panel" id="upload-section">
+
+    <h2>Carica nuove fotografie</h2>
+
+    <p>
+      Puoi selezionare più fotografie contemporaneamente.
+      Le immagini saranno ordinate automaticamente dalla più recente.
+    </p>
+
+    <form class="admin-form" id="upload-form">
+      <input
+        type="file"
+        id="photo-files"
+        accept="image/jpeg,image/png,image/webp"
+        multiple
+        required
+      >
+
+      <button type="submit" id="upload-button">
+        Carica fotografie
+      </button>
+    </form>
+
+  </section>
+
+  <section class="admin-panel" id="photos-section" style="display:none;">
+
+    <h2>Fotografie presenti</h2>
+    <p>Da qui puoi eliminare le fotografie che non vuoi più mostrare.</p>
+
+    <div class="admin-gallery" id="admin-gallery"></div>
+
+  </section>
+
+</main>
+
+<script>
+const SUPABASE_URL = "https://jjktajcbtxmyagyexxbj.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_iuOOYxZ6xQKyddY2SALzLg__pPAayjK";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+const loginForm = document.getElementById("login-form");
+const logoutButton = document.getElementById("logout-button");
+const uploadSection = document.getElementById("upload-section");
+const photosSection = document.getElementById("photos-section");
+const uploadForm = document.getElementById("upload-form");
+const uploadButton = document.getElementById("upload-button");
+const photoFiles = document.getElementById("photo-files");
+const adminGallery = document.getElementById("admin-gallery");
+const statusMessage = document.getElementById("admin-status");
+
+function mostraMessaggio(testo) {
+  statusMessage.textContent = testo;
+}
+
+function aggiornaInterfaccia(session) {
+  const autenticato = Boolean(session);
+
+  loginForm.style.display = autenticato ? "none" : "grid";
+  logoutButton.style.display = autenticato ? "inline-block" : "none";
+  uploadSection.style.display = autenticato ? "block" : "none";
+  photosSection.style.display = autenticato ? "block" : "none";
+
+  if (autenticato) {
+    caricaFotografie();
+  } else {
+    adminGallery.innerHTML = "";
+  }
+}
+
+async function caricaFotografie() {
+  adminGallery.innerHTML = "<p>Caricamento fotografie...</p>";
+
+  const { data, error } = await supabaseClient
+    .storage
+    .from("galleria")
+    .list("", {
+      limit: 1000,
+      sortBy: {
+        column: "created_at",
+        order: "desc"
+      }
+    });
+
+  if (error) {
+    adminGallery.textContent = "Errore nel caricamento: " + error.message;
+    return;
+  }
+
+  adminGallery.innerHTML = "";
+
+  const fotografie = (data || []).filter(file => file.id);
+
+  if (fotografie.length === 0) {
+    adminGallery.textContent = "Non ci sono ancora fotografie.";
+    return;
+  }
+
+  fotografie.forEach(file => {
+    const { data: publicData } = supabaseClient
+      .storage
+      .from("galleria")
+      .getPublicUrl(file.name);
+
+    const card = document.createElement("div");
+    card.className = "admin-photo";
+
+    const img = document.createElement("img");
+    img.src = publicData.publicUrl;
+    img.alt = file.name;
+    img.loading = "lazy";
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = "Elimina fotografia";
+
+    button.addEventListener("click", async () => {
+      const conferma = confirm(
+        "Vuoi davvero eliminare questa fotografia?"
+      );
+
+      if (!conferma) return;
+
+      const { error } = await supabaseClient
+        .storage
+        .from("galleria")
+        .remove([file.name]);
+
+      if (error) {
+        mostraMessaggio("Errore: " + error.message);
+        return;
+      }
+
+      mostraMessaggio("Fotografia eliminata.");
+      caricaFotografie();
+    });
+
+    card.append(img, button);
+    adminGallery.appendChild(card);
+  });
+}
+
+loginForm.addEventListener("submit", async event => {
+  event.preventDefault();
+
+  mostraMessaggio("Accesso in corso...");
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    mostraMessaggio("Accesso non riuscito: " + error.message);
+    return;
+  }
+
+  mostraMessaggio("Accesso effettuato.");
+  aggiornaInterfaccia(data.session);
+});
+
+logoutButton.addEventListener("click", async () => {
+  const { error } = await supabaseClient.auth.signOut();
+
+  if (error) {
+    mostraMessaggio("Errore durante l'uscita: " + error.message);
+    return;
+  }
+
+  mostraMessaggio("Hai effettuato la disconnessione.");
+  aggiornaInterfaccia(null);
+});
+
+uploadForm.addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const files = Array.from(photoFiles.files);
+
+  if (!files.length) {
+    mostraMessaggio("Seleziona almeno una fotografia.");
+    return;
+  }
+
+  uploadButton.disabled = true;
+
+  let caricate = 0;
+
+  for (const file of files) {
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+      mostraMessaggio("Formato non supportato: " + file.name);
+      continue;
+    }
+
+    const nomeSicuro = file.name.replace(/[^a-zA-Z0-9._-]/g, "-");
+    const percorso = Date.now() + "-" +
+      Math.random().toString(36).slice(2) + "-" + nomeSicuro;
+
+    const { error } = await supabaseClient
+      .storage
+      .from("galleria")
+      .upload(percorso, file, {
+        cacheControl: "3600",
+        upsert: false,
+        contentType: file.type
+      });
+
+    if (error) {
+      mostraMessaggio("Errore con " + file.name + ": " + error.message);
+    } else {
+      caricate++;
+    }
+  }
+
+  photoFiles.value = "";
+  uploadButton.disabled = false;
+
+  mostraMessaggio("Fotografie caricate: " + caricate);
+
+  caricaFotografie();
+});
+
+async function inizializza() {
+  const { data, error } = await supabaseClient.auth.getSession();
+
+  if (error) {
+    mostraMessaggio("Errore: " + error.message);
+    return;
+  }
+
+  aggiornaInterfaccia(data.session);
+}
+
+supabaseClient.auth.onAuthStateChange((_event, session) => {
+  aggiornaInterfaccia(session);
+});
+
+inizializza();
+</script>
+
+</body>
+</html>
+

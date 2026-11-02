@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galleria | Tennistavolo Cortemaggiore</title>
+  <meta name="description" content="Le fotografie e i momenti più belli del Tennistavolo Cortemaggiore.">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .gallery-hero {
+      text-align: center;
+      padding: 65px 20px 35px;
+    }
+
+    .gallery-hero h1 {
+      margin-bottom: 18px;
+    }
+
+    .gallery-hero .intro {
+      color: #333;
+      opacity: 1;
+      max-width: 750px;
+      margin: 0 auto;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .gallery-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 24px 70px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-item {
+      border: 0;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 12px;
+      aspect-ratio: 4 / 3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-empty {
+      text-align: center;
+      padding: 65px 20px;
+      background: #f5f5f5;
+      border-radius: 14px;
+      color: #444;
+    }
+
+    .gallery-empty p {
+      line-height: 1.7;
+    }
+
+    .gallery-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 50px 20px;
+    }
+
+    .gallery-lightbox.is-open {
+      display: flex;
+    }
+
+    .gallery-lightbox img {
+      max-width: 90%;
+      max-height: 85vh;
+      object-fit: contain;
+    }
+
+    .gallery-close {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      color: white;
+      font-size: 36px;
+      background: none;
+      border: 0;
+      cursor: pointer;
+    }
+
+    @media (max-width: 800px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 500px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-hero {
+        padding-top: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
+  </a>
+
+  <button class="mobile-menu-toggle" type="button"
+          aria-expanded="false" aria-controls="site-menu">
+    ☰ <span>Menu</span>
+  </button>
+
+  <nav class="menu" id="site-menu" aria-label="Menu principale">
+    <a href="index.html">Home</a>
+    <a href="societa.html">Società</a>
+    <a href="squadre.html">Squadre e giocatori</a>
+    <a href="risultati.html">Risultati</a>
+    <a href="galleria.html">Galleria</a>
+    <a href="lezioni.html">Lezioni</a>
+    <a href="contatti.html">Contatti</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="gallery-hero">
+    <p class="eyebrow">I NOSTRI RICORDI</p>
+    <h1>I nostri momenti.</h1>
+    <p class="intro">
+      Partite, allenamenti, tornei e momenti di squadra.
+      Una raccolta di fotografie per raccontare la vita
+      del Tennistavolo Cortemaggiore.
+    </p>
+  </section>
+<section class="gallery-section">
+
+  <div class="gallery-empty" id="gallery-empty">
+    <h2>Le fotografie arriveranno presto!</h2>
+    <p>
+      Stiamo preparando una raccolta dei momenti più belli
+      della nostra squadra.
+    </p>
+  </div>
+
+  <div class="gallery-grid" id="gallery-grid">
+
+    <button class="gallery-item" type="button">
+    <img src="img/c-fem.png" alt="La squadra C femminile">
+    </button>
+
+  <button class="gallery-item" type="button">
+    <img src="img/foto-squadra.png">
+  </button>
+
+  <button class="gallery-item" type="button">
+    <img src="img/mohamed.png" >
+  </button>
+
+<script>
+  const gallery = document.getElementById("gallery-grid");
+
+  for (let i = 1; i <= 56; i++) {
+    const button = document.createElement("button");
+    button.className = "gallery-item";
+    button.type = "button";
+
+    const img = document.createElement("img");
+    img.src = `img/${i}.png`;
+    img.alt = `Fotografia della squadra ${i}`;
+
+    button.appendChild(img);
+    gallery.appendChild(button);
+  }
+</script>
+
+</div>
+
+
+</div>
+  </div>
+
+</section>
+
+  <div class="gallery-lightbox" id="gallery-lightbox">
+    <button class="gallery-close" type="button"
+            aria-label="Chiudi">&times;</button>
+    <img src="" alt="" id="gallery-lightbox-image">
+  </div>
+
+</main>
+
+
+
+    <div class="footer-sponsors">
+        <p class="footer-sponsors-title">I nostri sponsor</p>
+
+        <div class="footer-sponsors-logos">
+            <a href="https://www.metronottevigilanza.it/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Metronotte">
+                <img src="img/sponsor/metronotte.svg" alt="Metronotte" loading="lazy">
+            </a>
+
+            <a href="https://www.fumara.it/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Fumara">
+                <img src="img/sponsor/fumara.svg" alt="Fumara" loading="lazy">
+            </a>
+
+            <a href="https://welcome.quoting24.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Quoting 24">
+                <img src="img/sponsor/quoting24.svg" alt="Quoting 24" loading="lazy">
+            </a>
+
+            <a href="https://www.gruppoteco.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="TECO">
+                <img src="img/sponsor/teco.svg" alt="TECO" loading="lazy">
+            </a>
+
+            <a href="https://www.meteservizi.it/home-page-it"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Mete">
+                <img src="img/sponsor/mete.svg" alt="Mete" loading="lazy">
+            </a>
+
+            <a href="https://cattina.info/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Cattina">
+                <img src="img/sponsor/cattina.svg" alt="Cattina" loading="lazy">
+            </a>
+
+            <a href="https://www.gmtermosanitari.it/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="GM Termosanitari">
+                <img src="img/sponsor/gm-termosanitari.svg" alt="GM Termosanitari" loading="lazy">
+            </a>
+
+            <span class="footer-sponsor-no-link">
+                <img src="img/sponsor/costantini.svg" alt="Costantini" loading="lazy">
+            </span>
+
+            <a href="https://www.devoti-ecologia.it/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Devoti">
+                <img src="img/sponsor/devoti.svg" alt="Devoti" loading="lazy">
+            </a>
+
+            <a href="https://www.corteauto.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Corteauto">
+                <img src="img/sponsor/corteauto.svg" alt="Corteauto" loading="lazy">
+            </a>
+        </div>
+    </div>
+
+    <p>© 2026 Tennistavolo Cortemaggiore SSD a r.l.</p>
+
+    <p>
+        <a href="privacy.html">Privacy Policy</a>
+        <span aria-hidden="true"> | </span>
+        <a href="cookie.html">Cookie Policy</a>
+        <span aria-hidden="true"> | </span>
+        <a href="contatti.html">Contatti</a>
+    </p>
+
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const button = document.querySelector(".mobile-menu-toggle");
+  const menu = document.querySelector("#site-menu");
+
+  if (button && menu) {
+    button.addEventListener("click", function () {
+      const isOpen = menu.classList.toggle("is-open");
+      button.setAttribute("aria-expanded", String(isOpen));
+      button.querySelector("span").textContent =
+        isOpen ? "Chiudi menu" : "Menu";
+    });
+
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function () {
+        menu.classList.remove("is-open");
+        button.setAttribute("aria-expanded", "false");
+        button.querySelector("span").textContent = "Menu";
+      });
+    });
+  }
+
+  const gallery = document.getElementById("gallery-grid");
+  const emptyMessage = document.getElementById("gallery-empty");
+  const lightbox = document.getElementById("gallery-lightbox");
+  const lightboxImage = document.getElementById("gallery-lightbox-image");
+  const closeButton = document.querySelector(".gallery-close");
+
+  function updateGallery() {
+    const items = gallery.querySelectorAll(".gallery-item");
+    emptyMessage.style.display = items.length ? "none" : "block";
+
+    items.forEach(item => {
+      item.addEventListener("click", function () {
+        const img = item.querySelector("img");
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt;
+        lightbox.classList.add("is-open");
+      });
+    });
+  }
+
+  closeButton.addEventListener("click", function () {
+    lightbox.classList.remove("is-open");
+  });
+
+  lightbox.addEventListener("click", function (event) {
+    if (event.target === lightbox) {
+      lightbox.classList.remove("is-open");
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      lightbox.classList.remove("is-open");
+    }
+  });
+
+  updateGallery();
+
+});
+</script>
+
+</body>
+</html>
