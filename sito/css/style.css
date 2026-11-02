@@ -933,3 +933,12 @@ footer.site-footer p a {
   color: #1a1919;
   opacity: 1;
 }
+.lessons-hero {
+  text-align: center !important;
+}
+
+.lessons-hero .intro {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
