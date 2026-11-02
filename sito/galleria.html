@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Galleria | Tennistavolo Cortemaggiore</title>
   <meta name="description" content="Le fotografie e i momenti più belli del Tennistavolo Cortemaggiore.">
+
   <link rel="stylesheet" href="css/style.css">
 
   <style>
@@ -157,54 +159,17 @@
       del Tennistavolo Cortemaggiore.
     </p>
   </section>
-<section class="gallery-section">
 
-  <div class="gallery-empty" id="gallery-empty">
-    <h2>Le fotografie arriveranno presto!</h2>
-    <p>
-      Stiamo preparando una raccolta dei momenti più belli
-      della nostra squadra.
-    </p>
-  </div>
+  <section class="gallery-section">
 
-  <div class="gallery-grid" id="gallery-grid">
+    <div class="gallery-empty" id="gallery-empty">
+      <h2>Caricamento fotografie...</h2>
+      <p>Stiamo recuperando le immagini della nostra squadra.</p>
+    </div>
 
-    <button class="gallery-item" type="button">
-    <img src="img/c-fem.png" alt="La squadra C femminile">
-    </button>
+    <div class="gallery-grid" id="gallery-grid"></div>
 
-  <button class="gallery-item" type="button">
-    <img src="img/foto-squadra.png">
-  </button>
-
-  <button class="gallery-item" type="button">
-    <img src="img/mohamed.png" >
-  </button>
-
-<script>
-  const gallery = document.getElementById("gallery-grid");
-
-  for (let i = 1; i <= 56; i++) {
-    const button = document.createElement("button");
-    button.className = "gallery-item";
-    button.type = "button";
-
-    const img = document.createElement("img");
-    img.src = `img/${i}.png`;
-    img.alt = `Fotografia della squadra ${i}`;
-
-    button.appendChild(img);
-    gallery.appendChild(button);
-  }
-</script>
-
-</div>
-
-
-</div>
-  </div>
-
-</section>
+  </section>
 
   <div class="gallery-lightbox" id="gallery-lightbox">
     <button class="gallery-close" type="button"
@@ -214,146 +179,323 @@
 
 </main>
 
+<footer class="site-footer">
 
+  <div class="footer-sponsors">
+    <p class="footer-sponsors-title">I nostri sponsor</p>
 
-    <div class="footer-sponsors">
-        <p class="footer-sponsors-title">I nostri sponsor</p>
+    <div class="footer-sponsors-logos">
 
-        <div class="footer-sponsors-logos">
-            <a href="https://www.metronottevigilanza.it/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Metronotte">
-                <img src="img/sponsor/metronotte.svg" alt="Metronotte" loading="lazy">
-            </a>
+      <a href="https://www.metronottevigilanza.it/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Metronotte">
+        <img src="img/sponsor/metronotte.svg" alt="Metronotte" loading="lazy">
+      </a>
 
-            <a href="https://www.fumara.it/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Fumara">
-                <img src="img/sponsor/fumara.svg" alt="Fumara" loading="lazy">
-            </a>
+      <a href="https://www.fumara.it/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Fumara">
+        <img src="img/sponsor/fumara.svg" alt="Fumara" loading="lazy">
+      </a>
 
-            <a href="https://welcome.quoting24.com/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Quoting 24">
-                <img src="img/sponsor/quoting24.svg" alt="Quoting 24" loading="lazy">
-            </a>
+      <a href="https://welcome.quoting24.com/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Quoting 24">
+        <img src="img/sponsor/quoting24.svg" alt="Quoting 24" loading="lazy">
+      </a>
 
-            <a href="https://www.gruppoteco.com/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="TECO">
-                <img src="img/sponsor/teco.svg" alt="TECO" loading="lazy">
-            </a>
+      <a href="https://www.gruppoteco.com/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="TECO">
+        <img src="img/sponsor/teco.svg" alt="TECO" loading="lazy">
+      </a>
 
-            <a href="https://www.meteservizi.it/home-page-it"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Mete">
-                <img src="img/sponsor/mete.svg" alt="Mete" loading="lazy">
-            </a>
+      <a href="https://www.meteservizi.it/home-page-it"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Mete">
+        <img src="img/sponsor/mete.svg" alt="Mete" loading="lazy">
+      </a>
 
-            <a href="https://cattina.info/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Cattina">
-                <img src="img/sponsor/cattina.svg" alt="Cattina" loading="lazy">
-            </a>
+      <a href="https://cattina.info/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Cattina">
+        <img src="img/sponsor/cattina.svg" alt="Cattina" loading="lazy">
+      </a>
 
-            <a href="https://www.gmtermosanitari.it/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="GM Termosanitari">
-                <img src="img/sponsor/gm-termosanitari.svg" alt="GM Termosanitari" loading="lazy">
-            </a>
+      <a href="https://www.gmtermosanitari.it/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="GM Termosanitari">
+        <img src="img/sponsor/gm-termosanitari.svg" alt="GM Termosanitari" loading="lazy">
+      </a>
 
-            <span class="footer-sponsor-no-link">
-                <img src="img/sponsor/costantini.svg" alt="Costantini" loading="lazy">
-            </span>
+      <span class="footer-sponsor-no-link">
+        <img src="img/sponsor/costantini.svg" alt="Costantini" loading="lazy">
+      </span>
 
-            <a href="https://www.devoti-ecologia.it/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Devoti">
-                <img src="img/sponsor/devoti.svg" alt="Devoti" loading="lazy">
-            </a>
+      <a href="https://www.devoti-ecologia.it/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Devoti">
+        <img src="img/sponsor/devoti.svg" alt="Devoti" loading="lazy">
+      </a>
 
-            <a href="https://www.corteauto.com/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Corteauto">
-                <img src="img/sponsor/corteauto.svg" alt="Corteauto" loading="lazy">
-            </a>
-        </div>
+      <a href="https://www.corteauto.com/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Corteauto">
+        <img src="img/sponsor/corteauto.svg" alt="Corteauto" loading="lazy">
+      </a>
+
     </div>
+  </div>
 
-    <p>© 2026 Tennistavolo Cortemaggiore SSD a r.l.</p>
+  <p>© 2026 Tennistavolo Cortemaggiore SSD a r.l.</p>
 
-    <p>
-        <a href="privacy.html">Privacy Policy</a>
-        <span aria-hidden="true"> | </span>
-        <a href="cookie.html">Cookie Policy</a>
-        <span aria-hidden="true"> | </span>
-        <a href="contatti.html">Contatti</a>
-    </p>
+  <p>
+    <a href="privacy.html">Privacy Policy</a>
+    <span aria-hidden="true"> | </span>
+    <a href="cookie.html">Cookie Policy</a>
+    <span aria-hidden="true"> | </span>
+    <a href="contatti.html">Contatti</a>
+  </p>
 
 </footer>
 
+<!-- Libreria Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
+
+// ==========================================
+// COLLEGAMENTO A SUPABASE
+// ==========================================
+
+const SUPABASE_URL = "https://jjktajcbtxmyagyexxbj.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_iuOOYxZ6xQKyddY2SALzLg__pPAayjK";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+
+// ==========================================
+// MENU MOBILE
+// ==========================================
+
 document.addEventListener("DOMContentLoaded", function () {
 
-  const button = document.querySelector(".mobile-menu-toggle");
+  const menuButton = document.querySelector(".mobile-menu-toggle");
   const menu = document.querySelector("#site-menu");
 
-  if (button && menu) {
-    button.addEventListener("click", function () {
+  if (menuButton && menu) {
+
+    menuButton.addEventListener("click", function () {
+
       const isOpen = menu.classList.toggle("is-open");
-      button.setAttribute("aria-expanded", String(isOpen));
-      button.querySelector("span").textContent =
+
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+
+      menuButton.querySelector("span").textContent =
         isOpen ? "Chiudi menu" : "Menu";
+
     });
 
     menu.querySelectorAll("a").forEach(link => {
+
       link.addEventListener("click", function () {
+
         menu.classList.remove("is-open");
-        button.setAttribute("aria-expanded", "false");
-        button.querySelector("span").textContent = "Menu";
+
+        menuButton.setAttribute("aria-expanded", "false");
+
+        menuButton.querySelector("span").textContent = "Menu";
+
       });
+
     });
+
   }
+
+
+  // ==========================================
+  // ELEMENTI GALLERIA
+  // ==========================================
 
   const gallery = document.getElementById("gallery-grid");
+
   const emptyMessage = document.getElementById("gallery-empty");
+
   const lightbox = document.getElementById("gallery-lightbox");
+
   const lightboxImage = document.getElementById("gallery-lightbox-image");
+
   const closeButton = document.querySelector(".gallery-close");
 
-  function updateGallery() {
-    const items = gallery.querySelectorAll(".gallery-item");
-    emptyMessage.style.display = items.length ? "none" : "block";
 
-    items.forEach(item => {
-      item.addEventListener("click", function () {
-        const img = item.querySelector("img");
-        lightboxImage.src = img.src;
-        lightboxImage.alt = img.alt;
-        lightbox.classList.add("is-open");
+  // ==========================================
+  // CARICAMENTO AUTOMATICO DELLE FOTOGRAFIE
+  // ==========================================
+
+  async function loadGallery() {
+
+    try {
+
+      const { data, error } = await supabaseClient
+        .storage
+        .from("galleria")
+        .list("", {
+          limit: 1000,
+          sortBy: {
+            column: "created_at",
+            order: "desc"
+          }
+        });
+
+      if (error) {
+        throw error;
+      }
+
+      // Mostra soltanto i file immagine
+      const images = (data || []).filter(file => {
+
+        return file.name &&
+          /\.(jpg|jpeg|png|webp|gif|avif)$/i.test(file.name);
+
       });
-    });
+
+      gallery.innerHTML = "";
+
+      // Nessuna fotografia disponibile
+      if (images.length === 0) {
+
+        emptyMessage.style.display = "block";
+
+        emptyMessage.innerHTML = `
+          <h2>Le fotografie arriveranno presto!</h2>
+          <p>
+            Stiamo preparando una raccolta dei momenti più belli
+            della nostra squadra.
+          </p>
+        `;
+
+        return;
+
+      }
+
+      // Creazione automatica delle immagini
+      images.forEach(file => {
+
+        const { data: publicData } = supabaseClient
+          .storage
+          .from("galleria")
+          .getPublicUrl(file.name);
+
+        const button = document.createElement("button");
+
+        button.className = "gallery-item";
+
+        button.type = "button";
+
+        button.setAttribute(
+          "aria-label",
+          "Apri fotografia " + file.name
+        );
+
+        const img = document.createElement("img");
+
+        img.src = publicData.publicUrl;
+
+        img.alt = "Fotografia del Tennistavolo Cortemaggiore";
+
+        img.loading = "lazy";
+
+        button.appendChild(img);
+
+        gallery.appendChild(button);
+
+      });
+
+      emptyMessage.style.display = "none";
+
+    } catch (error) {
+
+      console.error("Errore nel caricamento della galleria:", error);
+
+      emptyMessage.style.display = "block";
+
+      emptyMessage.innerHTML = `
+        <h2>Impossibile caricare le fotografie</h2>
+        <p>
+          Si è verificato un problema durante il collegamento
+          alla galleria. Riprova più tardi.
+        </p>
+      `;
+
+    }
+
   }
 
+
+  // ==========================================
+  // APERTURA FOTO A SCHERMO INTERO
+  // ==========================================
+
+  gallery.addEventListener("click", function (event) {
+
+    const button = event.target.closest(".gallery-item");
+
+    if (!button) return;
+
+    const img = button.querySelector("img");
+
+    if (!img) return;
+
+    lightboxImage.src = img.src;
+
+    lightboxImage.alt = img.alt;
+
+    lightbox.classList.add("is-open");
+
+  });
+
+
+  // Chiusura con pulsante
   closeButton.addEventListener("click", function () {
+
     lightbox.classList.remove("is-open");
+
   });
 
+
+  // Chiusura cliccando sullo sfondo
   lightbox.addEventListener("click", function (event) {
+
     if (event.target === lightbox) {
+
       lightbox.classList.remove("is-open");
+
     }
+
   });
 
+
+  // Chiusura con ESC
   document.addEventListener("keydown", function (event) {
+
     if (event.key === "Escape") {
+
       lightbox.classList.remove("is-open");
+
     }
+
   });
 
-  updateGallery();
+
+  // Avvia caricamento fotografie
+  loadGallery();
 
 });
+
 </script>
 
 </body>
