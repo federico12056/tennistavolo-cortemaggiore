@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -10,7 +11,8 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* Carousel della home page */
+        /* CAROUSEL HOMEPAGE */
+
         .hero-carousel {
             position: relative;
             width: 100%;
@@ -22,6 +24,10 @@
             border-radius: 18px;
             background: transparent;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+        }
+
+        .hero-carousel[hidden] {
+            display: none;
         }
 
         .hero-carousel-track {
@@ -105,6 +111,10 @@
             transform: scale(1.2);
         }
 
+        .hero-carousel button[hidden] {
+            display: none;
+        }
+
         @media (max-width: 600px) {
             .hero-carousel {
                 margin-top: 28px;
@@ -132,7 +142,8 @@
             }
         }
 
-        /* Immagine principale sotto il carousel */
+        /* IMMAGINE PRINCIPALE HOMEPAGE */
+
         .homepage-main-image-section {
             width: 100%;
             margin: 48px 0;
@@ -149,7 +160,8 @@
             display: none;
         }
 
-        /* Immagini delle schede "Il nostro mondo" */
+        /* IMMAGINI SCHEDE IL NOSTRO MONDO */
+
         .world-card-image {
             display: block;
             width: 100%;
@@ -168,6 +180,7 @@
 <body>
 
 <header class="header">
+
     <a href="index.html" class="logo">
         <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
     </a>
@@ -189,11 +202,13 @@
         <a href="lezioni.html">Lezioni</a>
         <a href="contatti.html">Contatti</a>
     </nav>
+
 </header>
 
 <main>
 
     <!-- PRESENTAZIONE E CAROUSEL -->
+
     <section class="hero">
 
         <p class="eyebrow">PASSIONE · SPORT · SQUADRA</p>
@@ -210,55 +225,41 @@
             Scopri le squadre
         </a>
 
-        <div class="hero-carousel" aria-label="Galleria fotografica">
+        <!--
+            Il carousel viene popolato esclusivamente
+            con le immagini caricate dall'amministrazione
+            attraverso Supabase.
+        -->
 
-            <div class="hero-carousel-track">
+        <div class="hero-carousel"
+             aria-label="Galleria fotografica"
+             hidden>
 
-                <img src="img/foto-squadra.png"
-                     alt=""
-                     class="hero-slide active">
+            <div class="hero-carousel-track"></div>
 
-                <img src="img/c-fem.png"
-                     alt=""
-                     class="hero-slide">
+            <button type="button"
+                    class="carousel-arrow prev"
+                    aria-label="Foto precedente"
+                    hidden>
+                ‹
+            </button>
 
-                <img src="img/mohamed.png"
-                     alt=""
-                     class="hero-slide">
+            <button type="button"
+                    class="carousel-arrow next"
+                    aria-label="Foto successiva"
+                    hidden>
+                ›
+            </button>
 
-                <img src="img/dernini-milza.png"
-                     alt=""
-                     class="hero-slide">
-
-            </div>
-
-            <button type="button" class="carousel-arrow prev"
-                    aria-label="Foto precedente">‹</button>
-
-            <button type="button" class="carousel-arrow next"
-                    aria-label="Foto successiva">›</button>
-
-            <div class="carousel-dots">
-
-                <button type="button" class="carousel-dot active"
-                        aria-label="Foto 1"></button>
-
-                <button type="button" class="carousel-dot"
-                        aria-label="Foto 2"></button>
-
-                <button type="button" class="carousel-dot"
-                        aria-label="Foto 3"></button>
-
-                <button type="button" class="carousel-dot"
-                        aria-label="Foto 4"></button>
-
-            </div>
+            <div class="carousel-dots" hidden></div>
 
         </div>
 
     </section>
 
+
     <!-- IMMAGINE PRINCIPALE HOMEPAGE -->
+
     <section class="homepage-main-image-section"
              aria-label="Immagine principale della società">
 
@@ -270,16 +271,23 @@
 
     </section>
 
+
     <!-- ALLENAMENTI -->
+
     <section class="section">
 
         <div class="training-header">
 
-            <span class="training-kicker">TENNISTAVOLO CORTEMAGGIORE</span>
+            <span class="training-kicker">
+                TENNISTAVOLO CORTEMAGGIORE
+            </span>
 
             <h2>I nostri allenamenti</h2>
 
-            <p>Passione, sport e divertimento. Ti aspettiamo in palestra!</p>
+            <p>
+                Passione, sport e divertimento.
+                Ti aspettiamo in palestra!
+            </p>
 
         </div>
 
@@ -307,7 +315,8 @@
                 <h3>Martedì</h3>
                 <div class="training-hours">
                     <span class="kids-training">
-                        16:30 – 18:00 <small>Allenamento bambini</small>
+                        16:30 – 18:00
+                        <small>Allenamento bambini</small>
                     </span>
                     <span>18:00 – 20:00</span>
                 </div>
@@ -317,7 +326,8 @@
                 <h3>Mercoledì</h3>
                 <div class="training-hours">
                     <span class="kids-training">
-                        16:30 – 18:00 <small>Allenamento bambini</small>
+                        16:30 – 18:00
+                        <small>Allenamento bambini</small>
                     </span>
                     <span>18:00 – 20:00</span>
                 </div>
@@ -335,7 +345,8 @@
                 <h3>Venerdì</h3>
                 <div class="training-hours">
                     <span class="kids-training">
-                        16:30 – 18:00 <small>Allenamento bambini</small>
+                        16:30 – 18:00
+                        <small>Allenamento bambini</small>
                     </span>
                     <span>18:00 – 20:00</span>
                 </div>
@@ -345,7 +356,9 @@
 
     </section>
 
+
     <!-- IL NOSTRO MONDO -->
+
     <section class="section">
 
         <h2>Il nostro mondo</h2>
@@ -362,7 +375,9 @@
 
                 <h3>Le squadre</h3>
 
-                <p>Scopri le formazioni e i giocatori della società.</p>
+                <p>
+                    Scopri le formazioni e i giocatori della società.
+                </p>
 
                 <a href="squadre.html">Scopri di più →</a>
 
@@ -378,7 +393,9 @@
 
                 <h3>Risultati</h3>
 
-                <p>Segui campionati, partite e tornei.</p>
+                <p>
+                    Segui campionati, partite e tornei.
+                </p>
 
                 <a href="risultati.html">Consulta i risultati →</a>
 
@@ -394,7 +411,9 @@
 
                 <h3>Lezioni private</h3>
 
-                <p>Migliora il tuo gioco con i nostri allenatori.</p>
+                <p>
+                    Migliora il tuo gioco con i nostri allenatori.
+                </p>
 
                 <a href="lezioni.html">Prenota una lezione →</a>
 
@@ -404,7 +423,9 @@
 
     </section>
 
+
     <!-- SPONSOR -->
+
     <section class="section sponsors">
 
         <h2>I nostri sponsor</h2>
@@ -420,36 +441,51 @@
 
 </main>
 
+
 <!-- SUPABASE E CARICAMENTO IMMAGINI HOMEPAGE -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
+
 document.addEventListener("DOMContentLoaded", async function () {
 
-    const SUPABASE_URL = "https://jjktajcbtxmyagyexxbj.supabase.co";
-    const SUPABASE_KEY = "sb_publishable_iuOOYxZ6xQKyddY2SALzLg__pPAayjK";
+    const SUPABASE_URL =
+        "https://jjktajcbtxmyagyexxbj.supabase.co";
+
+    const SUPABASE_KEY =
+        "sb_publishable_iuOOYxZ6xQKyddY2SALzLg__pPAayjK";
 
     const supabaseClient = window.supabase.createClient(
         SUPABASE_URL,
         SUPABASE_KEY
     );
 
+
+    /* ==================================================
+       CAROUSEL HOMEPAGE
+    ================================================== */
+
     const carousel = document.querySelector(".hero-carousel");
 
-    if (!carousel) return;
-
     const track = carousel.querySelector(".hero-carousel-track");
+
     const dotsContainer = carousel.querySelector(".carousel-dots");
-    const prev = carousel.querySelector(".prev");
-    const next = carousel.querySelector(".next");
+
+    const prev = carousel.querySelector(".carousel-arrow.prev");
+
+    const next = carousel.querySelector(".carousel-arrow.next");
 
     let slides = [];
+
     let dots = [];
+
     let current = 0;
+
     let timer = null;
 
 
-    // CREA I PALLINI DEL CAROUSEL
+    // CREA I PALLINI
 
     function creaPallini() {
 
@@ -460,12 +496,20 @@ document.addEventListener("DOMContentLoaded", async function () {
             const dot = document.createElement("button");
 
             dot.type = "button";
+
             dot.className = "carousel-dot";
-            dot.setAttribute("aria-label", "Foto " + (index + 1));
+
+            dot.setAttribute(
+                "aria-label",
+                "Vai alla foto " + (index + 1)
+            );
 
             dot.addEventListener("click", function () {
+
                 showSlide(index);
+
                 restartTimer();
+
             });
 
             dotsContainer.appendChild(dot);
@@ -479,7 +523,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
 
-    // MOSTRA UNA FOTOGRAFIA DEL CAROUSEL
+    // MOSTRA UNA FOTO
 
     function showSlide(index) {
 
@@ -488,23 +532,27 @@ document.addEventListener("DOMContentLoaded", async function () {
         current = (index + slides.length) % slides.length;
 
         slides.forEach(function (slide, i) {
-            slide.classList.toggle("active", i === current);
+
+            slide.classList.toggle(
+                "active",
+                i === current
+            );
+
         });
 
         dots.forEach(function (dot, i) {
-            dot.classList.toggle("active", i === current);
+
+            dot.classList.toggle(
+                "active",
+                i === current
+            );
+
         });
-
-        const mostraControlli = slides.length > 1;
-
-        prev.hidden = !mostraControlli;
-        next.hidden = !mostraControlli;
-        dotsContainer.hidden = !mostraControlli;
 
     }
 
 
-    // RIAVVIA LA ROTAZIONE AUTOMATICA
+    // ROTAZIONE AUTOMATICA
 
     function restartTimer() {
 
@@ -513,7 +561,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (slides.length > 1) {
 
             timer = setInterval(function () {
+
                 showSlide(current + 1);
+
             }, 5000);
 
         }
@@ -521,77 +571,117 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
 
-    // AGGIORNA IL CAROUSEL
+    // CARICA LE IMMAGINI NEL CAROUSEL
 
     function aggiornaCarousel(immagini) {
 
+        clearInterval(timer);
+
+        track.innerHTML = "";
+
+        dotsContainer.innerHTML = "";
+
+        slides = [];
+
+        dots = [];
+
+        current = 0;
+
+
+        // Nessuna immagine disponibile:
+        // il carousel viene nascosto.
+
         if (!immagini || immagini.length === 0) {
 
-            // Se non ci sono immagini nel database,
-            // restano visibili quelle già presenti nell'HTML.
+            carousel.hidden = true;
 
-            slides = Array.from(
-                track.querySelectorAll(".hero-slide")
-            );
-
-        } else {
-
-            track.innerHTML = "";
-
-            immagini.forEach(function (foto, index) {
-
-                const immagine = document.createElement("img");
-
-                immagine.src = supabaseClient.storage
-                    .from("foto-sito")
-                    .getPublicUrl(foto.percorso).data.publicUrl;
-
-                immagine.alt = foto.testo_alternativo ||
-                    "Fotografia del Tennistavolo Cortemaggiore";
-
-                immagine.className =
-                    "hero-slide" + (index === 0 ? " active" : "");
-
-                immagine.loading = index === 0 ? "eager" : "lazy";
-
-                track.appendChild(immagine);
-
-            });
-
-            slides = Array.from(
-                track.querySelectorAll(".hero-slide")
-            );
+            return;
 
         }
 
+
+        immagini.forEach(function (foto, index) {
+
+            if (!foto.percorso) return;
+
+            const immagine = document.createElement("img");
+
+            const risultato = supabaseClient.storage
+                .from("foto-sito")
+                .getPublicUrl(foto.percorso);
+
+            immagine.src = risultato.data.publicUrl;
+
+            immagine.alt = foto.testo_alternativo ||
+                "Fotografia del Tennistavolo Cortemaggiore";
+
+            immagine.className =
+                "hero-slide" + (index === 0 ? " active" : "");
+
+            immagine.loading = index === 0 ? "eager" : "lazy";
+
+            track.appendChild(immagine);
+
+        });
+
+
+        slides = Array.from(
+            track.querySelectorAll(".hero-slide")
+        );
+
+
+        if (slides.length === 0) {
+
+            carousel.hidden = true;
+
+            return;
+
+        }
+
+
         creaPallini();
+
+        carousel.hidden = false;
+
+        const mostraControlli = slides.length > 1;
+
+        prev.hidden = !mostraControlli;
+
+        next.hidden = !mostraControlli;
+
+        dotsContainer.hidden = !mostraControlli;
+
         showSlide(0);
+
         restartTimer();
 
     }
 
 
-    // CONTROLLI DEL CAROUSEL
+    // FRECCE DEL CAROUSEL
+
+    prev.addEventListener("click", function () {
+
+        showSlide(current - 1);
+
+        restartTimer();
+
+    });
+
+    next.addEventListener("click", function () {
+
+        showSlide(current + 1);
+
+        restartTimer();
+
+    });
 
 
-prev.addEventListener("click", function () {
-    showSlide(current - 1);
-    restartTimer();
-});
+    /* ==================================================
+       CARICAMENTO IMMAGINI DA SUPABASE
+    ================================================== */
 
-next.addEventListener("click", function () {
-    showSlide(current + 1);
-    restartTimer();
-});
-
-// Avvia subito il carousel con le immagini HTML.
-// In seguito verrà aggiornato con quelle di Supabase.
-aggiornaCarousel([]);
-
-
-try {
-
-        // RECUPERA TUTTE LE IMMAGINI DELLA HOMEPAGE
+    try {
 
         const { data: foto, error } = await supabaseClient
             .from("foto_sito")
@@ -601,36 +691,50 @@ try {
         if (error) throw error;
 
 
-        // CAROUSEL HOMEPAGE
+        const immagini = foto || [];
 
-        const immaginiCarousel = (foto || [])
+
+        /* CAROUSEL */
+
+        const immaginiCarousel = immagini
+
             .filter(function (elemento) {
 
                 return /^homepage-carousel-\d+$/.test(
-                    elemento.elemento_id
+                    elemento.elemento_id || ""
                 );
 
             })
+
             .sort(function (a, b) {
 
-                return a.elemento_id.localeCompare(b.elemento_id);
+                return a.elemento_id.localeCompare(
+                    b.elemento_id,
+                    undefined,
+                    { numeric: true }
+                );
 
             });
+
 
         aggiornaCarousel(immaginiCarousel);
 
 
-        // IMMAGINE PRINCIPALE HOMEPAGE
+        /* BANNER PRINCIPALE */
 
-        const immaginePrincipale = (foto || []).find(
+        const immaginePrincipale = immagini.find(
             function (elemento) {
+
                 return elemento.elemento_id === "homepage-banner";
+
             }
         );
+
 
         const banner = document.querySelector(
             '[data-foto-pagina="homepage-banner"]'
         );
+
 
         if (
             banner &&
@@ -640,7 +744,8 @@ try {
 
             banner.src = supabaseClient.storage
                 .from("foto-sito")
-                .getPublicUrl(immaginePrincipale.percorso).data.publicUrl;
+                .getPublicUrl(immaginePrincipale.percorso)
+                .data.publicUrl;
 
             banner.alt = immaginePrincipale.testo_alternativo ||
                 "Tennistavolo Cortemaggiore";
@@ -650,15 +755,20 @@ try {
         }
 
 
-        // IMMAGINI DELLE TRE SCHEDE "IL NOSTRO MONDO"
+        /* IMMAGINI DELLE SCHEDE IL NOSTRO MONDO */
 
         const immaginiMondo = {
+
             "mondo-squadre": null,
+
             "mondo-risultati": null,
+
             "mondo-lezioni": null
+
         };
 
-        (foto || []).forEach(function (elemento) {
+
+        immagini.forEach(function (elemento) {
 
             if (
                 Object.prototype.hasOwnProperty.call(
@@ -674,14 +784,11 @@ try {
         });
 
 
-        // ASSOCIA OGNI IMMAGINE ALLA PROPRIA SCHEDA
-
         document.querySelectorAll("[data-foto-pagina]").forEach(
             function (img) {
 
                 const id = img.getAttribute("data-foto-pagina");
 
-                // Il banner viene gestito separatamente.
                 if (id === "homepage-banner") return;
 
                 const elemento = immaginiMondo[id];
@@ -690,11 +797,11 @@ try {
 
                     img.src = supabaseClient.storage
                         .from("foto-sito")
-                        .getPublicUrl(elemento.percorso).data.publicUrl;
+                        .getPublicUrl(elemento.percorso)
+                        .data.publicUrl;
 
-                    if (elemento.testo_alternativo) {
-                        img.alt = elemento.testo_alternativo;
-                    }
+                    img.alt = elemento.testo_alternativo ||
+                        img.alt;
 
                     img.hidden = false;
 
@@ -707,22 +814,24 @@ try {
     } catch (errore) {
 
         console.error(
-            "Errore nel caricamento delle immagini della homepage:",
+            "Errore nel caricamento delle immagini homepage:",
             errore
         );
 
-        // In caso di errore Supabase,
-        // il carousel mantiene le immagini originali.
+        // In caso di errore non vengono mostrate
+        // immagini statiche come alternativa.
 
         aggiornaCarousel([]);
 
     }
 
 });
+
 </script>
 
 
 <!-- FOOTER -->
+
 <footer class="site-footer">
 
     <div class="footer-sponsors">
@@ -732,61 +841,90 @@ try {
         <div class="footer-sponsors-logos">
 
             <a href="https://www.metronottevigilanza.it/"
-               target="_blank" rel="noopener noreferrer"
+               target="_blank"
+               rel="noopener noreferrer"
                aria-label="Metronotte">
-                <img src="img/sponsor/metronotte.svg" alt="Metronotte" loading="lazy">
+                <img src="img/sponsor/metronotte.svg"
+                     alt="Metronotte"
+                     loading="lazy">
             </a>
 
             <a href="https://www.fumara.it/"
-               target="_blank" rel="noopener noreferrer"
+               target="_blank"
+               rel="noopener noreferrer"
                aria-label="Fumara">
-                <img src="img/sponsor/fumara.svg" alt="Fumara" loading="lazy">
+                <img src="img/sponsor/fumara.svg"
+                     alt="Fumara"
+                     loading="lazy">
             </a>
 
             <a href="https://welcome.quoting24.com/"
-               target="_blank" rel="noopener noreferrer"
+               target="_blank"
+               rel="noopener noreferrer"
                aria-label="Quoting 24">
-                <img src="img/sponsor/quoting24.svg" alt="Quoting 24" loading="lazy">
+                <img src="img/sponsor/quoting24.svg"
+                     alt="Quoting 24"
+                     loading="lazy">
             </a>
 
             <a href="https://www.gruppoteco.com/"
-               target="_blank" rel="noopener noreferrer"
+               target="_blank"
+               rel="noopener noreferrer"
                aria-label="TECO">
-                <img src="img/sponsor/teco.svg" alt="TECO" loading="lazy">
+                <img src="img/sponsor/teco.svg"
+                     alt="TECO"
+                     loading="lazy">
             </a>
 
             <a href="https://www.meteservizi.it/home-page-it"
-               target="_blank" rel="noopener noreferrer"
+               target="_blank"
+               rel="noopener noreferrer"
                aria-label="Mete">
-                <img src="img/sponsor/mete.svg" alt="Mete" loading="lazy">
+                <img src="img/sponsor/mete.svg"
+                     alt="Mete"
+                     loading="lazy">
             </a>
 
             <a href="https://cattina.info/"
-               target="_blank" rel="noopener noreferrer"
+               target="_blank"
+               rel="noopener noreferrer"
                aria-label="Cattina">
-                <img src="img/sponsor/cattina.svg" alt="Cattina" loading="lazy">
+                <img src="img/sponsor/cattina.svg"
+                     alt="Cattina"
+                     loading="lazy">
             </a>
 
             <a href="https://www.gmtermosanitari.it/"
-               target="_blank" rel="noopener noreferrer"
+               target="_blank"
+               rel="noopener noreferrer"
                aria-label="GM Termosanitari">
-                <img src="img/sponsor/gm-termosanitari.svg" alt="GM Termosanitari" loading="lazy">
+                <img src="img/sponsor/gm-termosanitari.svg"
+                     alt="GM Termosanitari"
+                     loading="lazy">
             </a>
 
             <span class="footer-sponsor-no-link">
-                <img src="img/sponsor/costantini.svg" alt="Costantini" loading="lazy">
+                <img src="img/sponsor/costantini.svg"
+                     alt="Costantini"
+                     loading="lazy">
             </span>
 
             <a href="https://www.devoti-ecologia.it/"
-               target="_blank" rel="noopener noreferrer"
+               target="_blank"
+               rel="noopener noreferrer"
                aria-label="Devoti">
-                <img src="img/sponsor/devoti.svg" alt="Devoti" loading="lazy">
+                <img src="img/sponsor/devoti.svg"
+                     alt="Devoti"
+                     loading="lazy">
             </a>
 
             <a href="https://www.corteauto.com/"
-               target="_blank" rel="noopener noreferrer"
+               target="_blank"
+               rel="noopener noreferrer"
                aria-label="Corteauto">
-                <img src="img/sponsor/corteauto.svg" alt="Corteauto" loading="lazy">
+                <img src="img/sponsor/corteauto.svg"
+                     alt="Corteauto"
+                     loading="lazy">
             </a>
 
         </div>
@@ -807,24 +945,32 @@ try {
 
 
 <!-- MENU MOBILE -->
+
 <script>
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const button = document.querySelector(".mobile-menu-toggle");
+
     const menu = document.querySelector("#site-menu");
 
     if (!button || !menu) return;
+
 
     button.addEventListener("click", function () {
 
         const isOpen = menu.classList.toggle("is-open");
 
-        button.setAttribute("aria-expanded", String(isOpen));
+        button.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
 
         button.querySelector("span").textContent =
             isOpen ? "Chiudi menu" : "Menu";
 
     });
+
 
     menu.querySelectorAll("a").forEach(function (link) {
 
@@ -841,6 +987,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
 </script>
 
 </body>
