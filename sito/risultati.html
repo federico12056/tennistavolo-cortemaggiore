@@ -4,13 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Risultati | Tennistavolo Cortemaggiore</title>
+
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <style>
+        /* INTRODUZIONE E BANNER */
+
         .risultati-intro {
             margin-bottom: 28px;
         }
+
+        .risultati-banner {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            min-height: 230px;
+            padding: 45px 25px;
+            margin-bottom: 30px;
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background: #173b67;
+        }
+
+        .risultati-banner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background-image: var(--sfondo-risultati);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .risultati-banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: rgba(10, 30, 55, 0.55);
+        }
+
+        .risultati-banner h1 {
+            color: white;
+            margin: 0 0 12px;
+        }
+
+        .risultati-banner p {
+            color: white;
+            margin: 5px 0;
+        }
+
+        /* FILTRI */
 
         .risultati-filtri {
             display: flex;
@@ -33,6 +87,34 @@
             background: #173b67;
             color: white;
         }
+
+        /* PULSANTE CALENDARIO FITeT */
+
+        .calendario-fitet-container {
+            margin: -5px 0 25px;
+        }
+
+        .calendario-fitet {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            background: #173b67;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .calendario-fitet:hover {
+            background: #24558a;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* LISTA RISULTATI */
 
         .lista-risultati {
             display: grid;
@@ -86,44 +168,54 @@
             border-radius: 10px;
         }
 
+        /* COLORI VITTORIE E SCONFITTE */
+
+        .risultato-card.vittoria {
+            border-left: 5px solid #2e9d62;
+            background-color: #f0faf4;
+        }
+
+        .risultato-card.sconfitta {
+            border-left: 5px solid #d9534f;
+            background-color: #fff4f3;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 600px) {
+            .risultati-banner {
+                min-height: 180px;
+                padding: 35px 18px;
+            }
+        }
+
         @media (max-width: 550px) {
-    .risultato-card {
-        padding: 14px;
-    }
+            .risultato-card {
+                padding: 14px;
+            }
 
-    .risultato-squadre {
-        gap: 7px;
-    }
+            .risultato-squadre {
+                gap: 7px;
+            }
 
-    .risultato-squadra {
-        font-size: 0.88rem;
-    }
+            .risultato-squadra {
+                font-size: 0.88rem;
+            }
 
-    .risultato-punteggio {
-        font-size: 1rem;
-    }
-}
+            .risultato-punteggio {
+                font-size: 1rem;
+            }
 
-.risultato-card.vittoria {
-    border-left: 5px solid #2e9d62;
-    background-color: #f0faf4;
-}
-
-.risultato-card.sconfitta {
-    border-left: 5px solid #d9534f;
-    background-color: #fff4f3;
-}
-
-.risultato-card.sconfitta {
-    border-left: 5px solid #d9534f;
-    background-color: #fff4f3;
-}
-        
+            .calendario-fitet {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
     </style>
 </head>
 
 <body>
-    
+
 <header class="header">
     <a href="index.html" class="logo">
         <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
@@ -141,64 +233,161 @@
         <a href="societa.html">Società</a>
         <a href="squadre.html">Squadre e giocatori</a>
         <a href="risultati.html">Risultati</a>
+        <a href="notizie.html">News e annunci</a>
         <a href="galleria.html">Galleria</a>
         <a href="lezioni.html">Lezioni</a>
         <a href="contatti.html">Contatti</a>
     </nav>
 </header>
 
+<main>
 
-    <main>
-        <section class="section">
-            <div class="container">
-                <div class="risultati-intro">
+    <section class="section">
+        <div class="container">
+
+            <!-- BANNER PRINCIPALE -->
+            <div class="risultati-intro">
+                <div class="risultati-banner">
                     <h1>Risultati e calendario</h1>
                     <p>Segui le partite del Tennistavolo Cortemaggiore.</p>
-                    <p id="descrizione-campionato">Campionato regionale D1 · TECO DEVOTI</p>
-                </div>
-
-                
-<div class="risultati-filtri">
-  <button type="button" class="attivo" data-campionato="B2">B2</button>
-  <button type="button" data-campionato="C1">C1</button>
-  <button type="button" data-campionato="D1">D1</button>
-  <button type="button" data-campionato="D2">D2</button>
-  <button type="button" data-campionato="D3A">D3A</button>
-  <button type="button" data-campionato="D3B">D3B</button>
-  <button type="button" data-campionato="CF">CF</button>
-</div>
-
-<div class="risultati-filtri">
-    <button type="button" class="attivo" data-filtro="tutte">
-        Tutte
-    </button>
-    <button type="button" data-filtro="giocate">
-        Disputate
-    </button>
-    <button type="button" data-filtro="future">
-        In programma
-    </button>
-</div>
-
-
-                <p id="conteggio-risultati"></p>
-
-                <div id="elenco-partite" class="lista-risultati">
-                    <p>Caricamento dei risultati...</p>
+                    <p id="descrizione-campionato">
+                        Campionato regionale D1 · TECO DEVOTI
+                    </p>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>© Tennistavolo Cortemaggiore</p>
-            <p>Passione, sport e comunità dal 1989.</p>
+            <!-- FILTRO CAMPIONATI -->
+            <div class="risultati-filtri">
+                <button type="button" class="attivo" data-campionato="B2">B2</button>
+                <button type="button" data-campionato="C1">C1</button>
+                <button type="button" data-campionato="D1">D1</button>
+                <button type="button" data-campionato="D2">D2</button>
+                <button type="button" data-campionato="D3A">D3A</button>
+                <button type="button" data-campionato="D3B">D3B</button>
+                <button type="button" data-campionato="CF">CF</button>
+            </div>
+
+            <!-- FILTRO PARTITE -->
+            <div class="risultati-filtri">
+                <button type="button" class="attivo" data-filtro="tutte">
+                    Tutte
+                </button>
+
+                <button type="button" data-filtro="giocate">
+                    Disputate
+                </button>
+
+                <button type="button" data-filtro="future">
+                    In programma
+                </button>
+            </div>
+
+            <!-- CALENDARIO FITeT -->
+            <div class="calendario-fitet-container" id="contenitore-calendario-fitet">
+                <a
+                    id="link-calendario-fitet"
+                    class="calendario-fitet"
+                    href="https://portale.fitet.org/risultati/campionati/Calendario.asp?CAM=10&ANNO=41"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Consulta il calendario FITeT ↗
+                </a>
+            </div>
+
+            <p id="conteggio-risultati"></p>
+
+            <div id="elenco-partite" class="lista-risultati">
+                <p>Caricamento dei risultati...</p>
+            </div>
+
         </div>
-    </footer>
+    </section>
 
-    <script>
-        
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+
+    <div class="footer-sponsors">
+        <p class="footer-sponsors-title">I nostri sponsor</p>
+
+        <div class="footer-sponsors-logos">
+
+            <a href="https://www.metronottevigilanza.it/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Metronotte">
+                <img src="img/sponsor/metronotte.svg" alt="Metronotte" loading="lazy">
+            </a>
+
+            <a href="https://www.fumara.it/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Fumara">
+                <img src="img/sponsor/fumara.svg" alt="Fumara" loading="lazy">
+            </a>
+
+            <a href="https://welcome.quoting24.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Quoting 24">
+                <img src="img/sponsor/quoting24.svg" alt="Quoting 24" loading="lazy">
+            </a>
+
+            <a href="https://www.gruppoteco.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="TECO">
+                <img src="img/sponsor/teco.svg" alt="TECO" loading="lazy">
+            </a>
+
+            <a href="https://www.meteservizi.it/home-page-it"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Mete">
+                <img src="img/sponsor/mete.svg" alt="Mete" loading="lazy">
+            </a>
+
+            <a href="https://cattina.info/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Cattina">
+                <img src="img/sponsor/cattina.svg" alt="Cattina" loading="lazy">
+            </a>
+
+            <a href="https://www.gmtermosanitari.it/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="GM Termosanitari">
+                <img src="img/sponsor/gm-termosanitari.svg" alt="GM Termosanitari" loading="lazy">
+            </a>
+
+            <span class="footer-sponsor-no-link">
+                <img src="img/sponsor/costantini.svg" alt="Costantini" loading="lazy">
+            </span>
+
+            <a href="https://www.devoti-ecologia.it/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Devoti">
+                <img src="img/sponsor/devoti.svg" alt="Devoti" loading="lazy">
+            </a>
+
+            <a href="https://www.corteauto.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Corteauto">
+                <img src="img/sponsor/corteauto.svg" alt="Corteauto" loading="lazy">
+            </a>
+
+        </div>
+    </div>
+
+    <p>© 2026 Tennistavolo Cortemaggiore SSD a r.l.</p>
+
+    <p>
+        <a href="privacy.html">Privacy Policy</a>
+        <span aria-hidden="true"> | </span>
+        <a href="cookie.html">Cookie Policy</a>
+        <span aria-hidden="true"> | </span>
+        <a href="contatti.html">Contatti</a>
+    </p>
+
+</footer>
+
+<!-- LOGICA RISULTATI E CALENDARIO -->
+<script>
 
 let partiteCortemaggiore = [];
 let filtroAttivo = "tutte";
@@ -208,37 +397,44 @@ const campionati = {
     B2: {
         file: "risultati-b2.json",
         squadra: "TECO-CATTINA CORTEMAGGIORE",
-        descrizione: "Campionato nazionale B2 · TECO-CATTINA CORTEMAGGIORE"
+        descrizione: "Campionato nazionale B2 · TECO-CATTINA CORTEMAGGIORE",
+        calendario: "https://portale.fitet.org/risultati/campionati/Calendario.asp?CAM=10&ANNO=41"
     },
     C1: {
         file: "risultati-c1.json",
         squadra: "TECO-METE CORTEMAGGIORE",
-        descrizione: "Campionato nazionale C1 · TECO-METE CORTEMAGGIORE"
+        descrizione: "Campionato nazionale C1 · TECO-METE CORTEMAGGIORE",
+        calendario: "https://portale.fitet.org/risultati/campionati/Calendario.asp?CAM=33&ANNO=41"
     },
     D1: {
         file: "risultati-d1.json",
         squadra: "TECO DEVOTI",
-        descrizione: "Campionato regionale D1 · TECO DEVOTI"
+        descrizione: "Campionato regionale D1 · TECO DEVOTI",
+        calendario: "https://portale.fitet.org/risultati/campionati/Calendario.asp?CAM=903&ANNO=41"
     },
     D2: {
         file: "risultati-d2.json",
         squadra: "TECO COSTANTINI",
-        descrizione: "Campionato regionale D2 · TECO COSTANTINI"
+        descrizione: "Campionato regionale D2 · TECO COSTANTINI",
+        calendario: "https://portale.fitet.org/risultati/campionati/Calendario.asp?CAM=907&ANNO=41"
     },
     D3A: {
         file: "risultati-d3a.json",
         squadra: "TECO",
-        descrizione: "Campionato regionale D3/A · TECO"
+        descrizione: "Campionato regionale D3/A · TECO",
+        calendario: "https://portale.fitet.org/risultati/campionati/Calendario.asp?CAM=913&ANNO=41"
     },
     D3B: {
         file: "risultati-d3b.json",
         squadra: "TECO CORTEMAGGIORE",
-        descrizione: "Campionato regionale D3/B · TECO CORTEMAGGIORE"
+        descrizione: "Campionato regionale D3/B · TECO CORTEMAGGIORE",
+        calendario: "https://portale.fitet.org/risultati/campionati/Calendario.asp?CAM=914&ANNO=41"
     },
     CF: {
         file: "risultati-cf.json",
         squadra: "TECO CATTINA",
-        descrizione: "Campionato femminile · TECO CATTINA"
+        descrizione: "Campionato femminile · TECO CATTINA",
+        calendario: null
     }
 };
 
@@ -249,6 +445,21 @@ function normalizza(testo) {
         .replace(/\s+/g, " ");
 }
 
+// AGGIORNA IL COLLEGAMENTO AL CALENDARIO FITeT
+
+function aggiornaCalendarioFitet() {
+    const configurazione = campionati[campionatoAttivo];
+    const contenitore = document.getElementById("contenitore-calendario-fitet");
+    const link = document.getElementById("link-calendario-fitet");
+
+    if (configurazione.calendario) {
+        link.href = configurazione.calendario;
+        contenitore.style.display = "block";
+    } else {
+        contenitore.style.display = "none";
+    }
+}
+
 async function caricaPartite() {
     const contenitore = document.getElementById("elenco-partite");
     const descrizione = document.getElementById("descrizione-campionato");
@@ -256,6 +467,8 @@ async function caricaPartite() {
 
     contenitore.innerHTML = "<p>Caricamento dei risultati...</p>";
     descrizione.textContent = configurazione.descrizione;
+
+    aggiornaCalendarioFitet();
 
     try {
         const risposta = await fetch(configurazione.file);
@@ -273,6 +486,7 @@ async function caricaPartite() {
         );
 
         mostraPartite();
+
     } catch (errore) {
         contenitore.innerHTML =
             '<p class="risultato-vuoto">Non riesco a caricare i risultati. Controlla che il file JSON sia presente nella cartella principale.</p>';
@@ -293,8 +507,10 @@ function mostraPartite() {
 
         if (filtroAttivo === "giocate") return giocata;
         if (filtroAttivo === "future") return !giocata;
+
         return true;
     });
+
     partiteFiltrate.sort((a, b) => {
         const giornataA = parseInt(a.giornata.match(/\d+/)?.[0] || "0", 10);
         const giornataB = parseInt(b.giornata.match(/\d+/)?.[0] || "0", 10);
@@ -303,7 +519,6 @@ function mostraPartite() {
             return giornataA - giornataB;
         }
 
-        // A parità di giornata, ordina per data
         const dataA = (a.data || "").split("/");
         const dataB = (b.data || "").split("/");
 
@@ -316,6 +531,7 @@ function mostraPartite() {
 
         return 0;
     });
+
     conteggio.textContent = partiteFiltrate.length + " partite trovate";
 
     if (partiteFiltrate.length === 0) {
@@ -393,6 +609,8 @@ function mostraPartite() {
     });
 }
 
+// SELEZIONE CAMPIONATO
+
 document.querySelectorAll("[data-campionato]").forEach(pulsante => {
     pulsante.addEventListener("click", () => {
         campionatoAttivo = pulsante.dataset.campionato;
@@ -404,6 +622,8 @@ document.querySelectorAll("[data-campionato]").forEach(pulsante => {
         caricaPartite();
     });
 });
+
+// SELEZIONE FILTRO
 
 document.querySelectorAll("[data-filtro]").forEach(pulsante => {
     pulsante.addEventListener("click", () => {
@@ -419,88 +639,9 @@ document.querySelectorAll("[data-filtro]").forEach(pulsante => {
 
 caricaPartite();
 
+</script>
 
-    </script>
-    
-
-<footer class="site-footer">
-
-    <div class="footer-sponsors">
-        <p class="footer-sponsors-title">I nostri sponsor</p>
-
-        <div class="footer-sponsors-logos">
-            <a href="https://www.metronottevigilanza.it/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Metronotte">
-                <img src="img/sponsor/metronotte.svg" alt="Metronotte" loading="lazy">
-            </a>
-
-            <a href="https://www.fumara.it/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Fumara">
-                <img src="img/sponsor/fumara.svg" alt="Fumara" loading="lazy">
-            </a>
-
-            <a href="https://welcome.quoting24.com/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Quoting 24">
-                <img src="img/sponsor/quoting24.svg" alt="Quoting 24" loading="lazy">
-            </a>
-
-            <a href="https://www.gruppoteco.com/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="TECO">
-                <img src="img/sponsor/teco.svg" alt="TECO" loading="lazy">
-            </a>
-
-            <a href="https://www.meteservizi.it/home-page-it"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Mete">
-                <img src="img/sponsor/mete.svg" alt="Mete" loading="lazy">
-            </a>
-
-            <a href="https://cattina.info/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Cattina">
-                <img src="img/sponsor/cattina.svg" alt="Cattina" loading="lazy">
-            </a>
-
-            <a href="https://www.gmtermosanitari.it/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="GM Termosanitari">
-                <img src="img/sponsor/gm-termosanitari.svg" alt="GM Termosanitari" loading="lazy">
-            </a>
-
-            <span class="footer-sponsor-no-link">
-                <img src="img/sponsor/costantini.svg" alt="Costantini" loading="lazy">
-            </span>
-
-            <a href="https://www.devoti-ecologia.it/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Devoti">
-                <img src="img/sponsor/devoti.svg" alt="Devoti" loading="lazy">
-            </a>
-
-            <a href="https://www.corteauto.com/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Corteauto">
-                <img src="img/sponsor/corteauto.svg" alt="Corteauto" loading="lazy">
-            </a>
-        </div>
-    </div>
-
-    <p>© 2026 Tennistavolo Cortemaggiore SSD a r.l.</p>
-
-    <p>
-        <a href="privacy.html">Privacy Policy</a>
-        <span aria-hidden="true"> | </span>
-        <a href="cookie.html">Cookie Policy</a>
-        <span aria-hidden="true"> | </span>
-        <a href="contatti.html">Contatti</a>
-    </p>
-
-</footer>
-
+<!-- MENU MOBILE -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const button = document.querySelector(".mobile-menu-toggle");
@@ -523,6 +664,49 @@ document.addEventListener("DOMContentLoaded", function () {
             button.querySelector("span").textContent = "Menu";
         });
     });
+});
+</script>
+
+<!-- SFONDO BANNER DA SUPABASE -->
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+
+    const SUPABASE_URL = "https://jjktajcbtxmyagyexxbj.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_iuOOYxZ6xQKyddY2SALzLg__pPAayjK";
+
+    const supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+    const { data, error } = await supabaseClient
+        .from("foto_sito")
+        .select("percorso")
+        .eq("tipo", "pagina")
+        .eq("elemento_id", "risultati-principale")
+        .maybeSingle();
+
+    if (error) {
+        console.error("Errore caricamento sfondo risultati:", error);
+        return;
+    }
+
+    if (!data || !data.percorso) return;
+
+    const { data: publicData } = supabaseClient
+        .storage
+        .from("foto-sito")
+        .getPublicUrl(data.percorso);
+
+    const banner = document.querySelector(".risultati-banner");
+
+    if (banner) {
+        banner.style.setProperty(
+            "--sfondo-risultati",
+            `url("${publicData.publicUrl}")`
+        );
+    }
+
 });
 </script>
 

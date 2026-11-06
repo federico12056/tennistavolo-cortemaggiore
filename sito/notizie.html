@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html>
+
+<html lang="it">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Notizie | Tennistavolo Cortemaggiore</title>
+
+  <meta name="description" content="Tutte le notizie, i risultati e gli aggiornamenti del Tennistavolo Cortemaggiore.">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+
+    .news-hero {
+
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      padding: 65px 24px 35px;
+
+    }
+
+    .news-kicker {
+
+      color: #c62828;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 12px;
+
+    }
+
+    .news-hero h1 {
+
+      font-size: clamp(34px, 5vw, 48px);
+
+      margin: 0 0 12px;
+
+      letter-spacing: -1.5px;
+
+    }
+
+    .news-hero p {
+
+      max-width: 650px;
+
+      line-height: 1.7;
+
+      color: #555;
+
+    }
+
+    .news-section {
+
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      padding: 15px 24px 75px;
+
+    }
+
+    .news-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      gap: 25px;
+
+    }
+
+    .news-card {
+
+      background: white;
+
+      border-radius: 14px;
+
+      overflow: hidden;
+
+      border: 1px solid #e8e8e8;
+
+      box-shadow: 0 3px 14px #00000009;
+
+      display: flex;
+
+      flex-direction: column;
+
+      transition: transform .25s ease, box-shadow .25s ease;
+
+    }
+
+    .news-card:hover {
+
+      transform: translateY(-4px);
+
+      box-shadow: 0 8px 24px #00000012;
+
+    }
+
+    .news-image {
+
+      width: 100%;
+
+      aspect-ratio: 16 / 10;
+
+      object-fit: cover;
+
+      display: block;
+
+      background: #eee;
+
+    }
+
+    .news-content {
+
+      padding: 22px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      flex: 1;
+
+    }
+
+    .news-meta {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      margin-bottom: 14px;
+
+      flex-wrap: wrap;
+
+    }
+
+    .news-category {
+
+      background: #fceaea;
+
+      color: #b52d2d;
+
+      padding: 6px 10px;
+
+      border-radius: 5px;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+    }
+
+    .news-date {
+
+      color: #888;
+
+      font-size: 12px;
+
+    }
+
+    .news-content h2 {
+
+      font-size: 21px;
+
+      line-height: 1.35;
+
+      color: #173b67;
+
+      margin: 0 0 12px;
+
+    }
+
+    .news-description {
+
+      color: #555;
+
+      font-size: 14px;
+
+      line-height: 1.7;
+
+      margin: 0 0 22px;
+
+      white-space: pre-line;
+
+      flex: 1;
+
+    }
+
+    .news-link {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      align-self: flex-start;
+
+      padding: 11px 16px;
+
+      background: #173b67;
+
+      color: white;
+
+      border-radius: 7px;
+
+      text-decoration: none;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      transition: background .2s ease;
+
+    }
+
+    .news-link:hover {
+
+      background: #c62828;
+
+    }
+
+    .news-empty {
+
+      text-align: center;
+
+      padding: 65px 20px;
+
+      background: #f5f5f5;
+
+      border-radius: 14px;
+
+      color: #444;
+
+      grid-column: 1 / -1;
+
+    }
+
+    .news-empty h2 {
+
+      color: #173b67;
+
+    }
+
+    @media (max-width: 850px) {
+
+      .news-grid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      }
+
+    }
+
+    @media (max-width: 550px) {
+
+      .news-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .news-hero {
+
+        padding-top: 45px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header class="header">
+
+  <a href="index.html" class="logo">
+
+    <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
+
+  </a>
+
+  <button class="mobile-menu-toggle" type="button"
+
+          aria-expanded="false" aria-controls="site-menu">
+
+    ☰ <span>Menu</span>
+
+  </button>
+
+  <nav class="menu" id="site-menu" aria-label="Menu principale">
+
+    <a href="index.html">Home</a>
+
+    <a href="societa.html">Società</a>
+
+    <a href="squadre.html">Squadre e giocatori</a>
+
+    <a href="risultati.html">Risultati</a>
+
+    <a href="notizie.html">News e annunci</a>
+
+    <a href="galleria.html">Galleria</a>
+
+    <a href="lezioni.html">Lezioni</a>
+
+    <a href="contatti.html">Contatti</a>
+
+  </nav>
+
+</header>
+
+<main>
+
+  <section class="news-hero">
+
+    <div class="news-kicker">TENNISTAVOLO CORTEMAGGIORE</div>
+
+    <h1>Le ultime notizie.</h1>
+
+    <p>
+
+      Risultati, appuntamenti, eventi e aggiornamenti.
+
+      Tutto quello che succede nel mondo del Tennistavolo
+
+      Cortemaggiore, dentro e fuori dal campo.
+
+    </p>
+
+  </section>
+
+  <section class="news-section">
+
+    <div class="news-grid" id="news-grid">
+
+      <div class="news-empty">
+
+        <h2>Caricamento notizie...</h2>
+
+        <p>Stiamo recuperando gli ultimi aggiornamenti.</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+  <div class="footer-sponsors">
+
+    <p class="footer-sponsors-title">I nostri sponsor</p>
+
+    <div class="footer-sponsors-logos">
+
+      <a href="https://www.metronottevigilanza.it/" target="_blank" rel="noopener noreferrer">
+
+        <img src="img/sponsor/metronotte.svg" alt="Metronotte" loading="lazy">
+
+      </a>
+
+      <a href="https://www.fumara.it/" target="_blank" rel="noopener noreferrer">
+
+        <img src="img/sponsor/fumara.svg" alt="Fumara" loading="lazy">
+
+      </a>
+
+      <a href="https://welcome.quoting24.com/" target="_blank" rel="noopener noreferrer">
+
+        <img src="img/sponsor/quoting24.svg" alt="Quoting 24" loading="lazy">
+
+      </a>
+
+      <a href="https://www.gruppoteco.com/" target="_blank" rel="noopener noreferrer">
+
+        <img src="img/sponsor/teco.svg" alt="TECO" loading="lazy">
+
+      </a>
+
+      <a href="https://www.meteservizi.it/home-page-it" target="_blank" rel="noopener noreferrer">
+
+        <img src="img/sponsor/mete.svg" alt="Mete" loading="lazy">
+
+      </a>
+
+      <a href="https://cattina.info/" target="_blank" rel="noopener noreferrer">
+
+        <img src="img/sponsor/cattina.svg" alt="Cattina" loading="lazy">
+
+      </a>
+
+      <a href="https://www.gmtermosanitari.it/" target="_blank" rel="noopener noreferrer">
+
+        <img src="img/sponsor/gm-termosanitari.svg" alt="GM Termosanitari" loading="lazy">
+
+      </a>
+
+      <span class="footer-sponsor-no-link">
+
+        <img src="img/sponsor/costantini.svg" alt="Costantini" loading="lazy">
+
+      </span>
+
+      <a href="https://www.devoti-ecologia.it/" target="_blank" rel="noopener noreferrer">
+
+        <img src="img/sponsor/devoti.svg" alt="Devoti" loading="lazy">
+
+      </a>
+
+      <a href="https://www.corteauto.com/" target="_blank" rel="noopener noreferrer">
+
+        <img src="img/sponsor/corteauto.svg" alt="Corteauto" loading="lazy">
+
+      </a>
+
+    </div>
+
+  </div>
+
+  <p>© 2026 Tennistavolo Cortemaggiore SSD a r.l.</p>
+
+  <p>
+
+    <a href="privacy.html">Privacy Policy</a>
+
+    <span aria-hidden="true"> | </span>
+
+    <a href="cookie.html">Cookie Policy</a>
+
+    <span aria-hidden="true"> | </span>
+
+    <a href="contatti.html">Contatti</a>
+
+  </p>
+
+</footer>
+
+<script>
+
+// ==========================================
+
+// SUPABASE
+
+// ==========================================
+
+const SUPABASE_URL = "https://jjktajcbtxmyagyexxbj.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_iuOOYxZ6xQKyddY2SALzLg__pPAayjK";
+
+const supabaseClient = window.supabase.createClient(
+
+  SUPABASE_URL,
+
+  SUPABASE_KEY
+
+);
+
+// ==========================================
+
+// MENU MOBILE
+
+// ==========================================
+
+const menuButton = document.querySelector(".mobile-menu-toggle");
+
+const menu = document.querySelector("#site-menu");
+
+if (menuButton && menu) {
+
+  menuButton.addEventListener("click", function() {
+
+    const isOpen = menu.classList.toggle("is-open");
+
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+
+    menuButton.querySelector("span").textContent =
+
+      isOpen ? "Chiudi menu" : "Menu";
+
+  });
+
+  menu.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", function() {
+
+      menu.classList.remove("is-open");
+
+      menuButton.setAttribute("aria-expanded", "false");
+
+      menuButton.querySelector("span").textContent = "Menu";
+
+    });
+
+  });
+
+}
+
+// ==========================================
+
+// CARICAMENTO NOTIZIE
+
+// ==========================================
+
+const newsGrid = document.getElementById("news-grid");
+
+function formattaData(data) {
+
+  return new Date(data).toLocaleDateString("it-IT", {
+
+    day: "numeric",
+
+    month: "long",
+
+    year: "numeric"
+
+  });
+
+}
+
+async function caricaNotizie() {
+
+  try {
+
+    const { data, error } = await supabaseClient
+
+      .from("notizie")
+
+      .select("*")
+
+      .eq("pubblicata", true)
+
+      .order("created_at", { ascending: false });
+
+    if (error) throw error;
+
+    newsGrid.innerHTML = "";
+
+    if (!data || data.length === 0) {
+
+      newsGrid.innerHTML = `
+
+        <div class="news-empty">
+
+          <h2>Le notizie arriveranno presto!</h2>
+
+          <p>
+
+            Stiamo preparando gli ultimi aggiornamenti
+
+            del Tennistavolo Cortemaggiore.
+
+          </p>
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+    data.forEach(notizia => {
+
+      const card = document.createElement("article");
+
+      card.className = "news-card";
+
+      // IMMAGINE
+
+      if (notizia.immagine) {
+
+        const img = document.createElement("img");
+
+        img.src = supabaseClient.storage
+
+          .from("notizie")
+
+          .getPublicUrl(notizia.immagine).data.publicUrl;
+
+        img.alt = notizia.titolo;
+
+        img.className = "news-image";
+
+        img.loading = "lazy";
+
+        card.appendChild(img);
+
+      }
+
+      // CONTENUTO
+
+      const content = document.createElement("div");
+
+      content.className = "news-content";
+
+      const meta = document.createElement("div");
+
+      meta.className = "news-meta";
+
+      const category = document.createElement("span");
+
+      category.className = "news-category";
+
+      category.textContent = notizia.categoria || "News";
+
+      const date = document.createElement("span");
+
+      date.className = "news-date";
+
+      date.textContent = formattaData(notizia.created_at);
+
+      meta.append(category, date);
+
+      const title = document.createElement("h2");
+
+      title.textContent = notizia.titolo;
+
+      const description = document.createElement("p");
+
+      description.className = "news-description";
+
+      description.textContent = notizia.descrizione;
+
+      content.append(meta, title, description);
+
+      // LINK ESTERNO FACOLTATIVO
+
+      if (notizia.link) {
+
+        try {
+
+          const url = new URL(notizia.link);
+
+          if (url.protocol === "https:" || url.protocol === "http:") {
+
+            const link = document.createElement("a");
+
+            link.href = url.href;
+
+            link.target = "_blank";
+
+            link.rel = "noopener noreferrer";
+
+            link.className = "news-link";
+
+            link.textContent = "Leggi l'articolo originale ↗";
+
+            content.appendChild(link);
+
+          }
+
+        } catch (error) {
+
+          console.warn("Link non valido:", notizia.link);
+
+        }
+
+      }
+
+      card.appendChild(content);
+
+      newsGrid.appendChild(card);
+
+    });
+
+  } catch (error) {
+
+    console.error("Errore caricamento notizie:", error);
+
+    newsGrid.innerHTML = `
+
+      <div class="news-empty">
+
+        <h2>Impossibile caricare le notizie</h2>
+
+        <p>
+
+          Si è verificato un problema durante il collegamento.
+
+          Riprova più tardi.
+
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+// AVVIO
+
+caricaNotizie();
+
+</script>
+
+</body>
+
+</html>

@@ -32,6 +32,7 @@
         <a href="societa.html">Società</a>
         <a href="squadre.html">Squadre e giocatori</a>
         <a href="risultati.html">Risultati</a>
+ <a href="notizie.html">News e annunci</a>
         <a href="galleria.html">Galleria</a>
         <a href="lezioni.html">Lezioni</a>
         <a href="contatti.html">Contatti</a>
@@ -56,6 +57,12 @@
             </p>
         </section>
 
+        </section>
+
+        <!-- FOTO SOCIETÀ PRINCIPALE -->
+        <div class="societa-foto" id="foto-societa-principale"></div>
+
+        <!-- LE ORIGINI -->
         <!-- LE ORIGINI -->
         <section class="section">
             <h2>Le nostre radici: l'Oratorio don Bosco</h2>
@@ -177,6 +184,9 @@
                 che appartenevano all'Oratorio di allora.
             </p>
         </section>
+
+                <!-- FOTO SOCIETÀ CON I GIOVANI -->
+        <div class="societa-foto" id="foto-societa-giovani"></div>
 
         <!-- ALBO ALLENATORI -->
         <section class="section">
@@ -312,6 +322,11 @@
 
     </main>
 
+            </section>
+
+        <!-- FOTO UNA STORIA CHE CONTINUA -->
+        <div class="societa-foto" id="foto-societa-storia"></div>
+
     
     
 <footer class="site-footer">
@@ -392,28 +407,93 @@
 
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+const SUPABASE_URL = "https://jjktajcbtxmyagyexxbj.supabase.co";
+const SUPABASE_KEY = "sb_publishable_iuOOYxZ6xQKyddY2SALzLg__pPAayjK";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+// Caricamento delle fotografie della pagina Società
+async function caricaFotoSocieta(elementoId, contenitoreId, descrizione) {
+    const contenitore = document.getElementById(contenitoreId);
+
+    if (!contenitore) return;
+
+    const { data, error } = await supabaseClient
+        .from("foto_sito")
+        .select("percorso, testo_alternativo")
+        .eq("tipo", "pagina")
+        .eq("elemento_id", elementoId)
+        .maybeSingle();
+
+    if (error) {
+        console.error("Errore caricamento foto:", error);
+        return;
+    }
+
+    if (!data || !data.percorso) return;
+
+    const { data: publicData } = supabaseClient
+        .storage
+        .from("foto-sito")
+        .getPublicUrl(data.percorso);
+
+    const immagine = document.createElement("img");
+
+    immagine.src = publicData.publicUrl;
+    immagine.alt = data.testo_alternativo || descrizione;
+    immagine.loading = "lazy";
+
+    contenitore.appendChild(immagine);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+
+    // MENU MOBILE
     const button = document.querySelector(".mobile-menu-toggle");
     const menu = document.querySelector("#site-menu");
 
-    if (!button || !menu) return;
+    if (button && menu) {
+        button.addEventListener("click", function () {
+            const isOpen = menu.classList.toggle("is-open");
 
-    button.addEventListener("click", function () {
-        const isOpen = menu.classList.toggle("is-open");
-
-        button.setAttribute("aria-expanded", String(isOpen));
-        button.querySelector("span").textContent =
-            isOpen ? "Chiudi menu" : "Menu";
-    });
-
-    menu.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
-            menu.classList.remove("is-open");
-            button.setAttribute("aria-expanded", "false");
-            button.querySelector("span").textContent = "Menu";
+            button.setAttribute("aria-expanded", String(isOpen));
+            button.querySelector("span").textContent =
+                isOpen ? "Chiudi menu" : "Menu";
         });
-    });
+
+        menu.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                menu.classList.remove("is-open");
+                button.setAttribute("aria-expanded", "false");
+                button.querySelector("span").textContent = "Menu";
+            });
+        });
+    }
+
+    // FOTO SOCIETÀ
+    caricaFotoSocieta(
+        "societa-principale",
+        "foto-societa-principale",
+        "La nostra società"
+    );
+
+    caricaFotoSocieta(
+        "societa-giovani",
+        "foto-societa-giovani",
+        "La società con i giovani"
+    );
+
+    caricaFotoSocieta(
+        "societa-storia",
+        "foto-societa-storia",
+        "Una storia che continua"
+    );
+
 });
 </script>
 

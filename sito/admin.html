@@ -1,413 +1,2469 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestione galleria | Tennistavolo Cortemaggiore</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amministrazione | Tennistavolo Cortemaggiore</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-  <style>
-    .admin-container {
-      max-width: 950px;
-      margin: 55px auto;
-      padding: 0 22px 60px;
+<style>
+.admin-container {
+    max-width: 950px;
+    margin: 55px auto;
+    padding: 0 22px 60px;
+}
+.admin-panel {
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 3px 15px #00000012;
+    margin-bottom: 25px;
+}
+.admin-panel h1,
+.admin-panel h2 {
+    color: #173b67;
+    margin-bottom: 18px;
+}
+.admin-form {
+    display: grid;
+    gap: 14px;
+    max-width: 550px;
+}
+.admin-form input,
+.admin-form textarea,
+.admin-form select,
+.admin-form button,
+.admin-button {
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+    border: 1px solid #ccc;
+    width: 100%;
+    background: white;
+    box-sizing: border-box;
+}
+.admin-form textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+.admin-form button,
+.admin-button {
+    border: 0;
+    background: #173b67;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+.admin-button.danger {
+    background: #b52d2d;
+}
+.admin-button.secondary {
+    background: #666;
+}
+.admin-button:disabled,
+.admin-form button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+#admin-status {
+    margin-top: 15px;
+    line-height: 1.6;
+}
+.admin-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 22px;
+}
+.admin-photo {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+}
+.admin-photo img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+.admin-photo button {
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    background: #b52d2d;
+    color: white;
+    cursor: pointer;
+}
+#upload-section,
+#photos-section,
+#news-section,
+#site-photos-section,
+#logout-button {
+    display: none;
+}
+#teams-section,
+#players-section {
+    display: none;
+}
+.management-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 22px;
+}
+.management-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+.management-card h3 {
+    color: #173b67;
+    margin: 0 0 7px;
+}
+.management-card p {
+    margin: 5px 0;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+.management-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    flex-shrink: 0;
+}
+.management-actions button {
+    border: 0;
+    border-radius: 7px;
+    padding: 9px 13px;
+    color: white;
+    background: #173b67;
+    cursor: pointer;
+}
+.management-actions .danger {
+    background: #b52d2d;
+}
+.management-form {
+    max-width: 650px;
+}
+.management-form label {
+    display: grid;
+    gap: 7px;
+    font-weight: 600;
+}
+.management-form input,
+.management-form textarea,
+.management-form select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: white;
+    font: inherit;
+}
+.management-form textarea {
+    min-height: 90px;
+}
+.check-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.check-list label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+}
+.check-list input {
+    width: auto;
+}
+.management-form-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.management-form-buttons button {
+    width: auto;
+}
+.admin-tabs {
+    display: none;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 24px;
+}
+.admin-tabs button {
+    border: 1px solid #173b67;
+    border-radius: 8px;
+    padding: 11px 20px;
+    background: white;
+    color: #173b67;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+.admin-tabs button:hover {
+    background: #eaf0f7;
+}
+.admin-tabs button.active {
+    background: #173b67;
+    color: white;
+}
+.photo-manager-form {
+    display: grid;
+    gap: 14px;
+    max-width: 600px;
+}
+.photo-manager-form label {
+    display: grid;
+    gap: 7px;
+    font-weight: 600;
+}
+.photo-manager-form select,
+.photo-manager-form input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: white;
+    font: inherit;
+}
+.photo-manager-preview {
+    margin-top: 18px;
+    max-width: 360px;
+}
+.photo-manager-preview img {
+    display: block;
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    background: #f5f5f5;
+}
+.photo-manager-preview p {
+    overflow-wrap: anywhere;
+}
+.news-admin-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 24px;
+}
+.news-admin-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 18px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    align-items: start;
+}
+.news-admin-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 7px;
+}
+.news-admin-card h3 {
+    color: #173b67;
+    margin: 0 0 8px;
+}
+.news-admin-card p {
+    margin: 6px 0;
+    line-height: 1.5;
+}
+.news-admin-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+.news-admin-actions button {
+    padding: 9px 13px;
+    border: 0;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+    background: #173b67;
+}
+.news-admin-actions .delete-news {
+    background: #b52d2d;
+}
+.news-status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 5px;
+    background: #eee;
+    font-size: .85rem;
+    margin-top: 5px;
+}
+.news-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.news-checkbox input {
+    width: auto;
+}
+.admin-help {
+    color: #666;
+    font-size: .9rem;
+    line-height: 1.5;
+}
+@media (max-width: 650px) {
+    .management-card {
+        display: block;
     }
-
-    .admin-panel {
-      background: white;
-      padding: 28px;
-      border-radius: 14px;
-      box-shadow: 0 3px 15px #00000012;
-      margin-bottom: 25px;
+    .management-actions {
+        margin-top: 12px;
     }
-
-    .admin-panel h1,
-    .admin-panel h2 {
-      color: #173b67;
-      margin-bottom: 18px;
-    }
-
-    .admin-form {
-      display: grid;
-      gap: 14px;
-      max-width: 450px;
-    }
-
-    .admin-form input,
-    .admin-form button,
-    .admin-button {
-      padding: 12px 15px;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    .admin-form input {
-      border: 1px solid #ccc;
-      width: 100%;
-    }
-
-    .admin-form button,
-    .admin-button {
-      border: 0;
-      background: #173b67;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .admin-button.danger {
-      background: #b52d2d;
-    }
-
-    .admin-button:disabled {
-      opacity: .5;
-      cursor: not-allowed;
-    }
-
-    #admin-status {
-      margin-top: 15px;
-      line-height: 1.6;
-    }
-
-    .admin-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 22px;
-    }
-
-    .admin-photo {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      overflow: hidden;
-      background: #fff;
-    }
-
-    .admin-photo img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      display: block;
-    }
-
-    .admin-photo button {
-      width: 100%;
-      padding: 10px;
-      border: 0;
-      background: #b52d2d;
-      color: white;
-      cursor: pointer;
-    }
-
-    #upload-section,
-    #logout-button {
-      display: none;
-    }
-
-    @media (max-width: 650px) {
-      .admin-gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 420px) {
-      .admin-gallery {
+    .check-list {
         grid-template-columns: 1fr;
-      }
     }
-  </style>
+    .admin-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .news-admin-card {
+        grid-template-columns: 1fr;
+    }
+    .news-admin-card img {
+        max-width: 220px;
+    }
+}
+@media (max-width: 600px) {
+    .admin-tabs {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .admin-tabs button {
+        width: 100%;
+    }
+}
+@media (max-width: 420px) {
+    .admin-gallery {
+        grid-template-columns: 1fr;
+    }
+    .admin-panel {
+        padding: 20px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header class="header">
-  <a href="index.html" class="logo">
-    <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
-  </a>
-  <nav class="menu">
-    <a href="index.html">Torna al sito</a>
-    <a href="galleria.html">Galleria pubblica</a>
-  </nav>
+    <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
+    </a>
+    <nav class="menu">
+        <a href="index.html">Torna al sito</a>
+        <a href="galleria.html">Galleria pubblica</a>
+        <a href="notizie.html">Notizie pubbliche</a>
+    </nav>
 </header>
 
 <main class="admin-container">
 
-  <section class="admin-panel">
-    <h1>Gestione galleria</h1>
-    <p>Accedi per gestire le fotografie del Tennistavolo Cortemaggiore.</p>
+    <section class="admin-panel">
+        <h1>Area amministrazione</h1>
+        <p>Accedi per gestire fotografie, notizie, squadre e giocatori del Tennistavolo Cortemaggiore.</p>
 
-    <form class="admin-form" id="login-form">
-      <input
-        type="email"
-        id="email"
-        placeholder="Indirizzo email"
-        autocomplete="username"
-        required
-      >
+        <form class="admin-form" id="login-form">
+            <input type="email" id="email" placeholder="Indirizzo email"
+                autocomplete="username" required>
+            <input type="password" id="password" placeholder="Password"
+                autocomplete="current-password" required>
+            <button type="submit">Accedi</button>
+        </form>
 
-      <input
-        type="password"
-        id="password"
-        placeholder="Password"
-        autocomplete="current-password"
-        required
-      >
+        <button class="admin-button" id="logout-button" type="button">
+            Esci
+        </button>
 
-      <button type="submit">Accedi</button>
-    </form>
+        <p id="admin-status" role="status"></p>
+    </section>
 
-    <button class="admin-button" id="logout-button" type="button">
-      Esci
-    </button>
+    <nav class="admin-tabs" id="admin-tabs" aria-label="Sezioni amministrazione">
+        <button type="button" class="active" data-admin-tab="gallery">Galleria</button>
+        <button type="button" data-admin-tab="news">Notizie</button>
+        <button type="button" data-admin-tab="site-photos">Foto del sito</button>
+        <button type="button" data-admin-tab="teams">Gestione squadre</button>
+        <button type="button" data-admin-tab="players">Gestione giocatori</button>
+    </nav>
 
-    <p id="admin-status" role="status"></p>
-  </section>
+    <!-- GALLERIA -->
+    <section class="admin-panel" id="upload-section">
+        <h2>Carica nuove fotografie</h2>
+        <p>Puoi selezionare più fotografie contemporaneamente. Le immagini saranno ordinate automaticamente dalla più recente.</p>
 
-  <section class="admin-panel" id="upload-section">
+        <form class="admin-form" id="upload-form">
+            <input type="file" id="photo-files"
+                accept="image/jpeg,image/png,image/webp"
+                multiple required>
+            <button type="submit" id="upload-button">Carica fotografie</button>
+        </form>
+    </section>
 
-    <h2>Carica nuove fotografie</h2>
+    <section class="admin-panel" id="photos-section">
+        <h2>Fotografie presenti</h2>
+        <p>Da qui puoi eliminare le fotografie che non vuoi più mostrare.</p>
+        <div class="admin-gallery" id="admin-gallery"></div>
+    </section>
 
-    <p>
-      Puoi selezionare più fotografie contemporaneamente.
-      Le immagini saranno ordinate automaticamente dalla più recente.
-    </p>
+    <!-- NOTIZIE -->
+    <section class="admin-panel" id="news-section">
+        <h2>Gestione notizie</h2>
+        <p>Da qui puoi pubblicare le novità della società, i risultati delle competizioni e gli articoli dei giornali.</p>
 
-    <form class="admin-form" id="upload-form">
-      <input
-        type="file"
-        id="photo-files"
+        <h3 id="news-form-title">Aggiungi una nuova notizia</h3>
+
+        <form class="admin-form" id="news-form">
+            <input type="text" id="news-title"
+                placeholder="Titolo della notizia"
+                maxlength="200" required>
+
+            <input type="text" id="news-category"
+                placeholder="Categoria (es. Società, Campionati, Eventi)"
+                maxlength="80">
+
+            <textarea id="news-description"
+                placeholder="Descrizione della notizia..."
+                required></textarea>
+
+            <input type="url" id="news-link"
+                placeholder="Link all'articolo (facoltativo)">
+
+            <label for="news-image">Immagine della notizia (facoltativa)</label>
+            <input type="file" id="news-image"
+                accept="image/jpeg,image/png,image/webp">
+
+            <p class="admin-help">
+                Se stai modificando una notizia e non selezioni una nuova immagine,
+                quella già presente verrà mantenuta.
+            </p>
+
+            <label class="news-checkbox">
+                <input type="checkbox" id="news-published" checked>
+                Pubblica immediatamente la notizia
+            </label>
+
+            <button type="submit" id="news-submit-button">Pubblica notizia</button>
+
+            <button type="button" class="admin-button secondary"
+                id="news-cancel-button" style="display:none;">
+                Annulla modifica
+            </button>
+        </form>
+
+        <hr style="margin:30px 0; border:0; border-top:1px solid #ddd;">
+
+        <h2>Notizie inserite</h2>
+        <div id="news-admin-list" class="news-admin-list">
+            <p>Caricamento notizie...</p>
+        </div>
+    </section>
+
+    <!-- FOTO DEL SITO -->
+    <section class="admin-panel" id="site-photos-section">
+        <h2>Foto del sito</h2>
+        <p>
+            Carica o sostituisci le immagini associate a squadre,
+            giocatori e pagine. Quando sostituisci una foto,
+            tutte le pagine che useranno questa associazione potranno
+            mostrare automaticamente la nuova immagine.
+        </p>
+
+        <form class="photo-manager-form" id="site-photo-form">
+
+            <label for="site-photo-type">
+                Tipo di elemento
+                <select id="site-photo-type">
+                    <option value="squadra">Squadra</option>
+                    <option value="giocatore">Giocatore</option>
+                    <option value="pagina">Pagina del sito</option>
+                </select>
+            </label>
+
+            <label for="site-photo-element">
+                Seleziona elemento
+                <select id="site-photo-element" required>
+                    <option value="">Caricamento...</option>
+                </select>
+            </label>
+
+            <label for="site-photo-file">
+    Scegli una o più fotografie
+    <input type="file" id="site-photo-file"
         accept="image/jpeg,image/png,image/webp"
         multiple
-        required
-      >
+        required>
+</label>
 
-      <button type="submit" id="upload-button">
-        Carica fotografie
-      </button>
-    </form>
+            <label for="site-photo-alt">
+                Testo alternativo (facoltativo)
+                <input type="text" id="site-photo-alt"
+                    maxlength="180"
+                    placeholder="Descrizione della fotografia">
+            </label>
 
-  </section>
+            <button type="submit" id="site-photo-save">
+                Carica e associa fotografia
+            </button>
+        </form>
 
-  <section class="admin-panel" id="photos-section" style="display:none;">
+        <div class="photo-manager-preview" id="site-photo-preview">
+            <p>Seleziona un elemento per vedere se possiede già una fotografia.</p>
+        </div>
 
-    <h2>Fotografie presenti</h2>
-    <p>Da qui puoi eliminare le fotografie che non vuoi più mostrare.</p>
+        <button type="button" class="admin-button danger"
+            id="site-photo-delete"
+            style="display:none; margin-top:12px;">
+            Rimuovi fotografia associata
+        </button>
+    </section>
 
-    <div class="admin-gallery" id="admin-gallery"></div>
+    <!-- GESTIONE SQUADRE -->
+    <section class="admin-panel" id="teams-section">
+        <h2>Gestione squadre</h2>
+        <p class="admin-help">
+            Crea e modifica le squadre, gestisci i collegamenti FITeT e assegna gli atleti alle rose.
+            Il codice identificativo serve a mantenere stabili i collegamenti con le fotografie.
+        </p>
 
-  </section>
+        <h3 id="team-form-title">Aggiungi una squadra</h3>
+        <form class="admin-form management-form" id="team-form">
+            <input type="hidden" id="team-db-id">
+
+            <label>Codice identificativo
+                <input type="text" id="team-code" placeholder="Es. B2, C1, D1" maxlength="40" required>
+            </label>
+
+            <label>Nome della squadra
+                <input type="text" id="team-name" placeholder="Es. Prima squadra" maxlength="120" required>
+            </label>
+
+            <label>Categoria
+                <input type="text" id="team-category" placeholder="Es. B2" maxlength="80" required>
+            </label>
+
+            <label>Descrizione
+                <textarea id="team-description" placeholder="Descrizione della squadra"></textarea>
+            </label>
+
+            <label>Link FITeT
+                <input type="url" id="team-fitet" placeholder="https://portale.fitet.org/...">
+            </label>
+
+            <label>Ordine di visualizzazione
+                <input type="number" id="team-order" min="0" step="1" value="0">
+            </label>
+
+            <div>
+                <strong>Giocatori della rosa</strong>
+                <p class="admin-help">Puoi selezionare più giocatori. Lo stesso atleta può appartenere a più squadre.</p>
+                <div class="check-list" id="team-player-checks">
+                    <p>Caricamento giocatori...</p>
+                </div>
+            </div>
+
+            <div class="management-form-buttons">
+                <button type="submit" id="team-submit-button">Salva squadra</button>
+                <button type="button" class="admin-button secondary"
+                    id="team-cancel-button" style="display:none;">
+                    Annulla modifica
+                </button>
+            </div>
+        </form>
+
+        <hr style="margin:30px 0; border:0; border-top:1px solid #ddd;">
+
+        <h2>Squadre presenti</h2>
+        <div id="teams-admin-list" class="management-list">
+            <p>Caricamento squadre...</p>
+        </div>
+    </section>
+
+    <!-- GESTIONE GIOCATORI -->
+    <section class="admin-panel" id="players-section">
+        <h2>Gestione giocatori</h2>
+        <p class="admin-help">
+            Crea le schede degli atleti e assegnali a una o più squadre.
+            La fotografia del giocatore continua a essere gestita nella sezione Foto del sito.
+        </p>
+
+        <h3 id="player-form-title">Aggiungi un giocatore</h3>
+        <form class="admin-form management-form" id="player-form">
+            <input type="hidden" id="player-db-id">
+
+            <label>Codice identificativo
+                <input type="text" id="player-code" placeholder="Es. Vacca-Federico" maxlength="100" required>
+            </label>
+
+            <label>Nome
+                <input type="text" id="player-first-name" placeholder="Nome" maxlength="100" required>
+            </label>
+
+            <label>Cognome
+                <input type="text" id="player-last-name" placeholder="Cognome" maxlength="100" required>
+            </label>
+            <label>Link FITeT
+                <input type="url" id="team-fitet" placeholder="https://portale.fitet.org/...">
+            </label>
+
+            <div>
+                <strong>Squadre di appartenenza</strong>
+                <p class="admin-help">Seleziona tutte le squadre in cui milita l'atleta.</p>
+                <div class="check-list" id="player-team-checks">
+                    <p>Caricamento squadre...</p>
+                </div>
+            </div>
+
+            <div class="management-form-buttons">
+                <button type="submit" id="player-submit-button">Salva giocatore</button>
+                <button type="button" class="admin-button secondary"
+                    id="player-cancel-button" style="display:none;">
+                    Annulla modifica
+                </button>
+            </div>
+        </form>
+
+        <hr style="margin:30px 0; border:0; border-top:1px solid #ddd;">
+
+        <h2>Giocatori presenti</h2>
+        <div id="players-admin-list" class="management-list">
+            <p>Caricamento giocatori...</p>
+        </div>
+    </section>
 
 </main>
 
 <script>
 const SUPABASE_URL = "https://jjktajcbtxmyagyexxbj.supabase.co";
-
 const SUPABASE_KEY = "sb_publishable_iuOOYxZ6xQKyddY2SALzLg__pPAayjK";
 
 const supabaseClient = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
+    SUPABASE_URL,
+    SUPABASE_KEY
 );
 
+// ELEMENTI GENERALI
 const loginForm = document.getElementById("login-form");
 const logoutButton = document.getElementById("logout-button");
 const uploadSection = document.getElementById("upload-section");
 const photosSection = document.getElementById("photos-section");
+const newsSection = document.getElementById("news-section");
 const uploadForm = document.getElementById("upload-form");
 const uploadButton = document.getElementById("upload-button");
 const photoFiles = document.getElementById("photo-files");
 const adminGallery = document.getElementById("admin-gallery");
 const statusMessage = document.getElementById("admin-status");
 
+// ELEMENTI NOTIZIE
+const newsForm = document.getElementById("news-form");
+const newsTitle = document.getElementById("news-title");
+const newsCategory = document.getElementById("news-category");
+const newsDescription = document.getElementById("news-description");
+const newsLink = document.getElementById("news-link");
+const newsImage = document.getElementById("news-image");
+const newsPublished = document.getElementById("news-published");
+const newsSubmitButton = document.getElementById("news-submit-button");
+const newsCancelButton = document.getElementById("news-cancel-button");
+const newsFormTitle = document.getElementById("news-form-title");
+const newsAdminList = document.getElementById("news-admin-list");
+
+// ELEMENTI FOTO DEL SITO
+const adminTabs = document.getElementById("admin-tabs");
+const sitePhotosSection = document.getElementById("site-photos-section");
+const sitePhotoForm = document.getElementById("site-photo-form");
+const sitePhotoType = document.getElementById("site-photo-type");
+const sitePhotoElement = document.getElementById("site-photo-element");
+const sitePhotoFile = document.getElementById("site-photo-file");
+const sitePhotoAlt = document.getElementById("site-photo-alt");
+const sitePhotoSave = document.getElementById("site-photo-save");
+const sitePhotoPreview = document.getElementById("site-photo-preview");
+const sitePhotoDelete = document.getElementById("site-photo-delete");
+
+// ELEMENTI GESTIONE SQUADRE E GIOCATORI
+const teamsSection = document.getElementById("teams-section");
+const playersSection = document.getElementById("players-section");
+
+const teamForm = document.getElementById("team-form");
+const teamDbId = document.getElementById("team-db-id");
+const teamCode = document.getElementById("team-code");
+const teamName = document.getElementById("team-name");
+const teamCategory = document.getElementById("team-category");
+const teamDescription = document.getElementById("team-description");
+const teamFitet = document.getElementById("team-fitet");
+const teamOrder = document.getElementById("team-order");
+const teamPlayerChecks = document.getElementById("team-player-checks");
+const teamSubmitButton = document.getElementById("team-submit-button");
+const teamCancelButton = document.getElementById("team-cancel-button");
+const teamFormTitle = document.getElementById("team-form-title");
+const teamsAdminList = document.getElementById("teams-admin-list");
+
+const playerForm = document.getElementById("player-form");
+const playerDbId = document.getElementById("player-db-id");
+const playerCode = document.getElementById("player-code");
+const playerFirstName = document.getElementById("player-first-name");
+const playerLastName = document.getElementById("player-last-name");
+const playerTeamChecks = document.getElementById("player-team-checks");
+const playerSubmitButton = document.getElementById("player-submit-button");
+const playerCancelButton = document.getElementById("player-cancel-button");
+const playerFormTitle = document.getElementById("player-form-title");
+const playersAdminList = document.getElementById("players-admin-list");
+
+let squadreCache = [];
+let giocatoriCache = [];
+let fotoSitoCorrente = null;
+let ultimoTabAdmin = "gallery";
+let notiziaInModifica = null;
+
 function mostraMessaggio(testo) {
-  statusMessage.textContent = testo;
+    statusMessage.textContent = testo;
 }
 
+// CAMBIO SEZIONE DEL PANNELLO
+function mostraTabAdmin(tab) {
+    ultimoTabAdmin = tab;
+
+    uploadSection.style.display = tab === "gallery" ? "block" : "none";
+    photosSection.style.display = tab === "gallery" ? "block" : "none";
+    newsSection.style.display = tab === "news" ? "block" : "none";
+    sitePhotosSection.style.display = tab === "site-photos" ? "block" : "none";
+    teamsSection.style.display = tab === "teams" ? "block" : "none";
+    playersSection.style.display = tab === "players" ? "block" : "none";
+
+    adminTabs.querySelectorAll("[data-admin-tab]").forEach(button => {
+        button.classList.toggle("active", button.dataset.adminTab === tab);
+    });
+}
+
+adminTabs.querySelectorAll("[data-admin-tab]").forEach(button => {
+    button.addEventListener("click", () => {
+        mostraTabAdmin(button.dataset.adminTab);
+    });
+});
+
+// AGGIORNAMENTO INTERFACCIA
 function aggiornaInterfaccia(session) {
-  const autenticato = Boolean(session);
+    const autenticato = Boolean(session);
 
-  loginForm.style.display = autenticato ? "none" : "grid";
-  logoutButton.style.display = autenticato ? "inline-block" : "none";
-  uploadSection.style.display = autenticato ? "block" : "none";
-  photosSection.style.display = autenticato ? "block" : "none";
+    // Gestione accesso e pulsanti principali
+    loginForm.style.display = autenticato ? "none" : "grid";
+    logoutButton.style.display = autenticato ? "inline-block" : "none";
+    adminTabs.style.display = autenticato ? "flex" : "none";
 
-  if (autenticato) {
-    caricaFotografie();
-  } else {
-    adminGallery.innerHTML = "";
-  }
+    if (autenticato) {
+        // Mostra l'ultima scheda amministrativa aperta
+        mostraTabAdmin(ultimoTabAdmin);
+
+        // Carica i contenuti del pannello
+        caricaFotografie();
+        caricaNotizieAdmin();
+        caricaGestioneSquadreGiocatori();
+
+        // Inizializza la gestione delle fotografie del sito
+        popolaElementiFotoSito();
+
+    } else {
+        // Nasconde tutte le sezioni amministrative
+        uploadSection.style.display = "none";
+        photosSection.style.display = "none";
+        newsSection.style.display = "none";
+        sitePhotosSection.style.display = "none";
+        teamsSection.style.display = "none";
+        playersSection.style.display = "none";
+
+        // Svuota gli elenchi
+        adminGallery.innerHTML = "";
+        newsAdminList.innerHTML = "";
+
+        // Ripristina l'anteprima delle fotografie del sito
+        sitePhotoPreview.innerHTML =
+            "<p>Accedi per gestire le fotografie del sito.</p>";
+
+        // Nasconde il pulsante di eliminazione
+        sitePhotoDelete.style.display = "none";
+
+        // Azzera la fotografia attualmente selezionata
+        fotoSitoCorrente = null;
+
+        // Ripristina il modulo delle notizie
+        resetNewsForm();
+
+        // Ripristina il modulo delle fotografie del sito
+        sitePhotoForm.reset();
+        sitePhotoFile.multiple = false;
+        sitePhotoFile.value = "";
+
+        // Ripristina i campi delle squadre e dei giocatori
+        // senza modificare i dati salvati nel database
+    }
 }
+
+
+
+// ==================================================
+// GESTIONE GALLERIA
+// ==================================================
 
 async function caricaFotografie() {
-  adminGallery.innerHTML = "<p>Caricamento fotografie...</p>";
+    adminGallery.innerHTML = "<p>Caricamento fotografie...</p>";
 
-  const { data, error } = await supabaseClient
-    .storage
-    .from("galleria")
-    .list("", {
-      limit: 1000,
-      sortBy: {
-        column: "created_at",
-        order: "desc"
-      }
-    });
-
-  if (error) {
-    adminGallery.textContent = "Errore nel caricamento: " + error.message;
-    return;
-  }
-
-  adminGallery.innerHTML = "";
-
-  const fotografie = (data || []).filter(file => file.id);
-
-  if (fotografie.length === 0) {
-    adminGallery.textContent = "Non ci sono ancora fotografie.";
-    return;
-  }
-
-  fotografie.forEach(file => {
-    const { data: publicData } = supabaseClient
-      .storage
-      .from("galleria")
-      .getPublicUrl(file.name);
-
-    const card = document.createElement("div");
-    card.className = "admin-photo";
-
-    const img = document.createElement("img");
-    img.src = publicData.publicUrl;
-    img.alt = file.name;
-    img.loading = "lazy";
-
-    const button = document.createElement("button");
-    button.type = "button";
-    button.textContent = "Elimina fotografia";
-
-    button.addEventListener("click", async () => {
-      const conferma = confirm(
-        "Vuoi davvero eliminare questa fotografia?"
-      );
-
-      if (!conferma) return;
-
-      const { error } = await supabaseClient
+    const { data, error } = await supabaseClient
         .storage
         .from("galleria")
-        .remove([file.name]);
+        .list("", {
+            limit: 1000,
+            sortBy: {
+                column: "created_at",
+                order: "desc"
+            }
+        });
 
-      if (error) {
-        mostraMessaggio("Errore: " + error.message);
+    if (error) {
+        adminGallery.textContent = "Errore nel caricamento: " + error.message;
         return;
-      }
+    }
 
-      mostraMessaggio("Fotografia eliminata.");
-      caricaFotografie();
+    adminGallery.innerHTML = "";
+
+    const fotografie = (data || []).filter(file => file.id);
+
+    if (fotografie.length === 0) {
+        adminGallery.textContent = "Non ci sono ancora fotografie.";
+        return;
+    }
+
+    fotografie.forEach(file => {
+        const { data: publicData } = supabaseClient
+            .storage
+            .from("galleria")
+            .getPublicUrl(file.name);
+
+        const card = document.createElement("div");
+        card.className = "admin-photo";
+
+        const img = document.createElement("img");
+        img.src = publicData.publicUrl;
+        img.alt = file.name;
+        img.loading = "lazy";
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = "Elimina fotografia";
+
+        button.addEventListener("click", async () => {
+            if (!confirm("Vuoi davvero eliminare questa fotografia?")) return;
+
+            const { error } = await supabaseClient
+                .storage
+                .from("galleria")
+                .remove([file.name]);
+
+            if (error) {
+                mostraMessaggio("Errore: " + error.message);
+                return;
+            }
+
+            mostraMessaggio("Fotografia eliminata.");
+            caricaFotografie();
+        });
+
+        card.append(img, button);
+        adminGallery.appendChild(card);
     });
-
-    card.append(img, button);
-    adminGallery.appendChild(card);
-  });
 }
 
+// CARICAMENTO FOTOGRAFIE
+uploadForm.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const files = Array.from(photoFiles.files);
+
+    if (!files.length) {
+        mostraMessaggio("Seleziona almeno una fotografia.");
+        return;
+    }
+
+    uploadButton.disabled = true;
+    let caricate = 0;
+
+    for (const file of files) {
+        if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+            mostraMessaggio("Formato non supportato: " + file.name);
+            continue;
+        }
+
+        const nomeSicuro = file.name.replace(/[^a-zA-Z0-9._-]/g, "-");
+        const percorso = Date.now() + "-" +
+            Math.random().toString(36).slice(2) + "-" + nomeSicuro;
+
+        const { error } = await supabaseClient
+            .storage
+            .from("galleria")
+            .upload(percorso, file, {
+                cacheControl: "3600",
+                upsert: false,
+                contentType: file.type
+            });
+
+        if (error) {
+            mostraMessaggio("Errore con " + file.name + ": " + error.message);
+        } else {
+            caricate++;
+        }
+    }
+
+    photoFiles.value = "";
+    uploadButton.disabled = false;
+
+    mostraMessaggio("Fotografie caricate: " + caricate);
+    caricaFotografie();
+});
+
+// ==================================================
+// GESTIONE FOTO DEL SITO
+// ==================================================
+
+
+const pagineConFoto = [
+    { id: "homepage-banner", nome: "Homepage - immagine principale" },
+    { id: "homepage-carousel", nome: "Homepage - immagini carousel" },
+
+    { id: "mondo-squadre", nome: "Il nostro mondo - Le squadre" },
+    { id: "mondo-risultati", nome: "Il nostro mondo - Risultati" },
+    { id: "mondo-lezioni", nome: "Il nostro mondo - Lezioni private" },
+
+    { id: "societa-principale", nome: "Società - Principale" },
+    { id: "societa-giovani", nome: "Società - Con i giovani" },
+    { id: "societa-storia", nome: "Società - Una storia che continua" },
+
+    { id: "risultati-principale", nome: "Risultati - Principale" },
+
+    { id: "lezioni-principale", nome: "Lezioni - Principale" },
+    { id: "lezioni-alexandr-sazonov", nome: "Lezioni - Alexandr Sazonov" },
+    { id: "lezioni-nataliia-riabchenko", nome: "Lezioni - Nataliia Riabchenko" }
+];
+
+// POPOLA L'ELENCO DEGLI ELEMENTI DAL DATABASE
+async function popolaElementiFotoSito() {
+    const tipo = sitePhotoType.value;
+    sitePhotoElement.innerHTML = "";
+
+    let elementi = [];
+
+    if (tipo === "squadra") {
+        const { data, error } = await supabaseClient
+            .from("squadre")
+            .select("codice, nome, categoria")
+            .order("ordine", { ascending: true });
+
+        if (error) {
+            mostraMessaggio("Errore nel caricamento delle squadre: " + error.message);
+            return;
+        }
+
+        elementi = (data || []).map(s => ({
+            id: s.codice,
+            nome: (s.nome || "") + " (" + (s.categoria || s.codice) + ")"
+        }));
+
+    } else if (tipo === "giocatore") {
+        const { data, error } = await supabaseClient
+            .from("giocatori")
+            .select("codice, nome, cognome")
+            .order("cognome", { ascending: true });
+
+        if (error) {
+            mostraMessaggio("Errore nel caricamento dei giocatori: " + error.message);
+            return;
+        }
+
+        elementi = (data || []).map(g => ({
+            id: g.codice,
+            nome: g.cognome + " " + g.nome
+        }));
+
+    } else {
+        elementi = pagineConFoto;
+    }
+
+    if (!elementi.length) {
+        const option = document.createElement("option");
+        option.value = "";
+        option.textContent = "Nessun elemento disponibile";
+        sitePhotoElement.appendChild(option);
+        mostraAnteprimaFotoSito(null);
+        return;
+    }
+
+    elementi.forEach(elemento => {
+        if (!elemento.id) return;
+        const option = document.createElement("option");
+        option.value = elemento.id;
+        option.textContent = elemento.nome;
+        sitePhotoElement.appendChild(option);
+    });
+    // Abilita la selezione multipla solo per il carousel della homepage
+sitePhotoFile.multiple =
+    tipo === "pagina" &&
+    sitePhotoElement.value === "homepage-carousel";
+
+// Azzera eventuali file precedentemente selezionati
+sitePhotoFile.value = "";
+
+    await aggiornaFotoSitoSelezionata();
+}
+
+// MOSTRA ANTEPRIMA
+
+function mostraAnteprimaFotoSito(foto) {
+    fotoSitoCorrente = Array.isArray(foto) ? null : (foto || null);
+    sitePhotoPreview.innerHTML = "";
+
+    // ==========================================
+    // NESSUNA FOTOGRAFIA
+    // ==========================================
+
+    if (!foto || (Array.isArray(foto) && foto.length === 0)) {
+        const p = document.createElement("p");
+        p.textContent = "Questo elemento non ha ancora una fotografia associata.";
+
+        sitePhotoPreview.appendChild(p);
+        sitePhotoDelete.style.display = "none";
+        sitePhotoAlt.value = "";
+        return;
+    }
+
+    // ==========================================
+    // CAROUSEL: PIÙ FOTOGRAFIE
+    // ==========================================
+
+    if (Array.isArray(foto)) {
+        sitePhotoDelete.style.display = "none";
+
+        const titolo = document.createElement("p");
+        titolo.textContent = "Fotografie attualmente presenti nel carousel:";
+        sitePhotoPreview.appendChild(titolo);
+
+        foto.forEach((fotografia, indice) => {
+            const contenitore = document.createElement("div");
+            contenitore.style.marginBottom = "20px";
+            contenitore.style.padding = "12px";
+            contenitore.style.border = "1px solid #ddd";
+            contenitore.style.borderRadius = "8px";
+
+            const { data } = supabaseClient
+                .storage
+                .from("foto-sito")
+                .getPublicUrl(fotografia.percorso);
+
+            const img = document.createElement("img");
+            img.src = data.publicUrl;
+            img.alt = fotografia.testo_alternativo || "Fotografia del carousel";
+            img.loading = "lazy";
+            img.style.width = "100%";
+            img.style.maxWidth = "350px";
+            img.style.display = "block";
+            img.style.marginBottom = "10px";
+
+            const descrizione = document.createElement("p");
+            descrizione.textContent =
+                "Fotografia " + (indice + 1) +
+                " - " + fotografia.elemento_id;
+
+            const elimina = document.createElement("button");
+            elimina.type = "button";
+            elimina.textContent = "Elimina questa fotografia";
+            elimina.className = "admin-button danger";
+
+            elimina.addEventListener("click", async () => {
+                if (!confirm("Vuoi eliminare questa fotografia dal carousel?")) {
+                    return;
+                }
+
+                elimina.disabled = true;
+
+                try {
+                    const { error } = await supabaseClient
+    .from("foto_sito")
+    .delete()
+    .eq("tipo", "pagina")
+    .eq("elemento_id", fotografia.elemento_id);
+
+                    if (error) throw error;
+
+                    const { error: storageError } = await supabaseClient
+                        .storage
+                        .from("foto-sito")
+                        .remove([fotografia.percorso]);
+
+                    if (storageError) {
+                        mostraMessaggio(
+                            "Fotografia rimossa dal database, ma non dallo storage: " +
+                            storageError.message
+                        );
+                    } else {
+                        mostraMessaggio("Fotografia eliminata correttamente.");
+                    }
+
+                    await aggiornaFotoSitoSelezionata();
+
+                } catch (error) {
+                    mostraMessaggio(
+                        "Errore durante l'eliminazione: " + error.message
+                    );
+
+                    elimina.disabled = false;
+                }
+            });
+
+            contenitore.append(img, descrizione, elimina);
+            sitePhotoPreview.appendChild(contenitore);
+        });
+
+        sitePhotoAlt.value = "";
+        return;
+    }
+
+    // ==========================================
+    // FOTOGRAFIA SINGOLA
+    // ==========================================
+
+    const { data } = supabaseClient
+        .storage
+        .from("foto-sito")
+        .getPublicUrl(foto.percorso);
+
+    const img = document.createElement("img");
+    img.src = data.publicUrl;
+    img.alt = foto.testo_alternativo || "Fotografia associata";
+    img.loading = "lazy";
+
+    const p = document.createElement("p");
+    p.textContent = "Fotografia attualmente associata";
+
+    sitePhotoPreview.append(img, p);
+
+    sitePhotoDelete.style.display = "inline-block";
+    sitePhotoAlt.value = foto.testo_alternativo || "";
+}
+
+// CARICA LE FOTO DAL DATABASE
+async function caricaFotoSito() {
+    const { data, error } = await supabaseClient
+        .from("foto_sito")
+        .select("tipo, elemento_id, percorso, testo_alternativo, aggiornato_il");
+
+    if (error) {
+        mostraMessaggio("Errore nel caricamento delle foto del sito: " + error.message);
+        return;
+    }
+
+    aggiornaAnteprimaFotoSelezionata(data || []);
+}
+
+function aggiornaAnteprimaFotoSelezionata(lista) {
+    const foto = lista.find(item =>
+        item.tipo === sitePhotoType.value &&
+        item.elemento_id === sitePhotoElement.value
+    );
+
+    mostraAnteprimaFotoSito(foto || null);
+}
+
+
+async function aggiornaFotoSitoSelezionata() {
+    const tipo = sitePhotoType.value;
+    const elementoId = sitePhotoElement.value;
+
+    // ==========================================
+    // CAROUSEL HOMEPAGE: RECUPERO FOTO MULTIPLE
+    // ==========================================
+
+    if (tipo === "pagina" && elementoId === "homepage-carousel") {
+
+        const { data, error } = await supabaseClient
+            .from("foto_sito")
+            .select("tipo, elemento_id, percorso, testo_alternativo, aggiornato_il")
+            .eq("tipo", "pagina")
+            .like("elemento_id", "homepage-carousel-%");
+
+        if (error) {
+            mostraMessaggio(
+                "Errore nel recupero delle fotografie del carousel: " +
+                error.message
+            );
+            return;
+        }
+
+        // Ordina le fotografie in base al numero identificativo
+        const fotografie = (data || []).sort((a, b) =>
+            a.elemento_id.localeCompare(b.elemento_id)
+        );
+
+        // Mostra tutte le fotografie nell'anteprima
+        mostraAnteprimaFotoSito(fotografie);
+
+        return;
+    }
+
+    // ==========================================
+    // TUTTE LE ALTRE SEZIONI: FOTO SINGOLA
+    // ==========================================
+
+    const { data, error } = await supabaseClient
+        .from("foto_sito")
+        .select("tipo, elemento_id, percorso, testo_alternativo, aggiornato_il")
+        .eq("tipo", tipo)
+        .eq("elemento_id", elementoId)
+        .maybeSingle();
+
+    if (error) {
+        mostraMessaggio(
+            "Errore nel recupero della fotografia: " + error.message
+        );
+        return;
+    }
+
+    mostraAnteprimaFotoSito(data);
+}
+
+// ELIMINAZIONE FOTOGRAFIA SINGOLA
+
+sitePhotoDelete.addEventListener("click", async () => {
+
+    if (!fotoSitoCorrente) {
+        mostraMessaggio("Nessuna fotografia da eliminare.");
+        return;
+    }
+
+    const conferma = confirm(
+        "Vuoi davvero eliminare questa fotografia associata?"
+    );
+
+    if (!conferma) return;
+
+    sitePhotoDelete.disabled = true;
+
+    try {
+
+        const fotografia = fotoSitoCorrente;
+
+        // Rimuove l'associazione dal database
+        const { error: dbError } = await supabaseClient
+            .from("foto_sito")
+            .delete()
+            .eq("tipo", fotografia.tipo)
+            .eq("elemento_id", fotografia.elemento_id);
+
+        if (dbError) throw dbError;
+
+        // Rimuove il file dallo Storage
+        const { error: storageError } = await supabaseClient
+            .storage
+            .from("foto-sito")
+            .remove([fotografia.percorso]);
+
+        if (storageError) {
+            mostraMessaggio(
+                "Associazione eliminata, ma il file non è stato rimosso dallo Storage: " +
+                storageError.message
+            );
+        } else {
+            mostraMessaggio("Fotografia eliminata correttamente.");
+        }
+
+        // Aggiorna l'anteprima
+        await aggiornaFotoSitoSelezionata();
+
+    } catch (error) {
+
+        mostraMessaggio(
+            "Errore durante l'eliminazione: " + error.message
+        );
+
+    } finally {
+        sitePhotoDelete.disabled = false;
+    }
+
+});
+
+// AGGIORNAMENTO QUANDO CAMBIA IL TIPO DI FOTOGRAFIA
+sitePhotoType.addEventListener("change", () => {
+    sitePhotoFile.multiple = false;
+    sitePhotoFile.value = "";
+
+    popolaElementiFotoSito();
+});
+
+
+
+// AGGIORNAMENTO DELLA SELEZIONE DELL'ELEMENTO
+sitePhotoElement.addEventListener("change", async () => {
+    const tipo = sitePhotoType.value;
+    const elementoId = sitePhotoElement.value;
+
+    // Abilita più file esclusivamente per il carousel
+    sitePhotoFile.multiple =
+        tipo === "pagina" &&
+        elementoId === "homepage-carousel";
+
+    // Azzera i file precedentemente selezionati
+    sitePhotoFile.value = "";
+
+    await aggiornaFotoSitoSelezionata();
+});
+
+
+// CARICAMENTO E ASSOCIAZIONE FOTO
+sitePhotoForm.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const tipo = sitePhotoType.value;
+    const elementoId = sitePhotoElement.value;
+    const files = Array.from(sitePhotoFile.files);
+
+    if (!files.length || !elementoId) {
+        mostraMessaggio("Seleziona un elemento e almeno una fotografia.");
+        return;
+    }
+
+    // Controllo dei formati
+    const formatiConsentiti = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+    ];
+
+    if (files.some(file => !formatiConsentiti.includes(file.type))) {
+        mostraMessaggio("Formato non supportato. Usa JPG, PNG o WEBP.");
+        return;
+    }
+
+    sitePhotoSave.disabled = true;
+
+    try {
+
+        // ==========================================
+        // CARICAMENTO MULTIPLO DEL CAROUSEL
+        // ==========================================
+
+        if (tipo === "pagina" && elementoId === "homepage-carousel") {
+
+            mostraMessaggio("Caricamento delle fotografie del carousel...");
+
+            // Recupera le fotografie già presenti
+            const { data: fotografieEsistenti, error: selectError } =
+                await supabaseClient
+                    .from("foto_sito")
+                    .select("elemento_id")
+                    .eq("tipo", "pagina")
+                    .like("elemento_id", "homepage-carousel-%");
+
+            if (selectError) throw selectError;
+
+            // Determina il prossimo numero disponibile
+            let numero = 0;
+
+            (fotografieEsistenti || []).forEach(foto => {
+                const match = foto.elemento_id.match(/homepage-carousel-(\d+)/);
+
+                if (match) {
+                    numero = Math.max(numero, parseInt(match[1], 10));
+                }
+            });
+
+            // Carica le fotografie una alla volta
+            for (const file of files) {
+
+                numero++;
+
+                const elementoFotoId =
+                    "homepage-carousel-" + String(numero).padStart(2, "0");
+
+                const estensione = file.name.split(".").pop().toLowerCase();
+
+                const percorso =
+                    "pagina/homepage-carousel/" +
+                    Date.now() + "-" +
+                    Math.random().toString(36).slice(2) +
+                    "." + estensione;
+
+                // Upload su Storage
+                const { error: uploadError } = await supabaseClient
+                    .storage
+                    .from("foto-sito")
+                    .upload(percorso, file, {
+                        cacheControl: "3600",
+                        upsert: false,
+                        contentType: file.type
+                    });
+
+                if (uploadError) throw uploadError;
+
+                // Registrazione nel database
+                const { error: insertError } = await supabaseClient
+                    .from("foto_sito")
+                    .insert({
+                        tipo: "pagina",
+                        elemento_id: elementoFotoId,
+                        percorso: percorso,
+                        testo_alternativo: sitePhotoAlt.value.trim() || null,
+                        aggiornato_il: new Date().toISOString()
+                    });
+
+                if (insertError) {
+                    await supabaseClient
+                        .storage
+                        .from("foto-sito")
+                        .remove([percorso]);
+
+                    throw insertError;
+                }
+            }
+
+            sitePhotoFile.value = "";
+            sitePhotoAlt.value = "";
+
+            mostraMessaggio(
+                files.length + " fotografie caricate correttamente nel carousel."
+            );
+
+            await aggiornaFotoSitoSelezionata();
+
+            return;
+        }
+
+
+        // ==========================================
+        // CARICAMENTO SINGOLA FOTO
+        // ==========================================
+
+        const file = files[0];
+
+        mostraMessaggio("Caricamento della fotografia in corso...");
+
+        let nuovoPercorso = null;
+
+        const vecchioPercorso = fotoSitoCorrente
+            ? fotoSitoCorrente.percorso
+            : null;
+
+        try {
+            const estensione = file.name.split(".").pop().toLowerCase();
+
+            nuovoPercorso = tipo + "/" +
+                elementoId.replace(/[^a-zA-Z0-9_-]/g, "-") + "/" +
+                Date.now() + "-" +
+                Math.random().toString(36).slice(2) + "." + estensione;
+
+            const { error: uploadError } = await supabaseClient
+                .storage
+                .from("foto-sito")
+                .upload(nuovoPercorso, file, {
+                    cacheControl: "3600",
+                    upsert: false,
+                    contentType: file.type
+                });
+
+            if (uploadError) throw uploadError;
+
+            const { error: dbError } = await supabaseClient
+                .from("foto_sito")
+                .upsert({
+                    tipo: tipo,
+                    elemento_id: elementoId,
+                    percorso: nuovoPercorso,
+                    testo_alternativo: sitePhotoAlt.value.trim() || null,
+                    aggiornato_il: new Date().toISOString()
+                }, {
+                    onConflict: "tipo,elemento_id"
+                });
+
+            if (dbError) throw dbError;
+
+            if (vecchioPercorso) {
+                await supabaseClient
+                    .storage
+                    .from("foto-sito")
+                    .remove([vecchioPercorso]);
+            }
+
+            sitePhotoFile.value = "";
+
+            mostraMessaggio("Fotografia caricata e associata correttamente.");
+
+            await aggiornaFotoSitoSelezionata();
+
+        } catch (error) {
+
+            if (nuovoPercorso) {
+                await supabaseClient
+                    .storage
+                    .from("foto-sito")
+                    .remove([nuovoPercorso]);
+            }
+
+            throw error;
+        }
+
+    } catch (error) {
+
+        mostraMessaggio(
+            "Errore nel salvataggio delle fotografie: " + error.message
+        );
+
+    } finally {
+        sitePhotoSave.disabled = false;
+    }
+});
+
+// ==================================================
+// GESTIONE NOTIZIE
+// ==================================================
+
+async function caricaNotizieAdmin() {
+    newsAdminList.innerHTML = "<p>Caricamento notizie...</p>";
+
+    const { data, error } = await supabaseClient
+        .from("notizie")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        newsAdminList.textContent = "Errore nel caricamento delle notizie: " + error.message;
+        return;
+    }
+
+    newsAdminList.innerHTML = "";
+
+    if (!data || data.length === 0) {
+        newsAdminList.innerHTML = "<p>Non ci sono ancora notizie inserite.</p>";
+        return;
+    }
+
+    data.forEach(notizia => {
+        const card = document.createElement("article");
+        card.className = "news-admin-card";
+
+        if (notizia.immagine) {
+            const { data: publicData } = supabaseClient
+                .storage
+                .from("notizie")
+                .getPublicUrl(notizia.immagine);
+
+            const img = document.createElement("img");
+            img.src = publicData.publicUrl;
+            img.alt = notizia.titolo;
+            img.loading = "lazy";
+
+            card.appendChild(img);
+        }
+
+        const content = document.createElement("div");
+
+        const title = document.createElement("h3");
+        title.textContent = notizia.titolo;
+
+        const category = document.createElement("p");
+        category.textContent = notizia.categoria || "Senza categoria";
+
+        const description = document.createElement("p");
+        description.textContent = notizia.descrizione || "";
+
+        const status = document.createElement("span");
+        status.className = "news-status";
+        status.textContent = notizia.pubblicata ? "Pubblicata" : "Bozza";
+
+        content.append(title, category, description, status);
+
+        if (notizia.link) {
+            const link = document.createElement("p");
+            link.textContent = "Link: " + notizia.link;
+            content.appendChild(link);
+        }
+
+        const actions = document.createElement("div");
+        actions.className = "news-admin-actions";
+
+        const editButton = document.createElement("button");
+        editButton.type = "button";
+        editButton.textContent = "Modifica";
+        editButton.addEventListener("click", () => modificaNotizia(notizia));
+
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.textContent = "Elimina";
+        deleteButton.className = "delete-news";
+        deleteButton.addEventListener("click", () => eliminaNotizia(notizia));
+
+        actions.append(editButton, deleteButton);
+        content.appendChild(actions);
+        card.appendChild(content);
+        newsAdminList.appendChild(card);
+    });
+}
+
+async function caricaImmagineNotizia(file) {
+    const estensione = file.name.split(".").pop().toLowerCase();
+
+    const nomeFile = Date.now() + "-" +
+        Math.random().toString(36).slice(2) + "." + estensione;
+
+    const { error } = await supabaseClient
+        .storage
+        .from("notizie")
+        .upload(nomeFile, file, {
+            cacheControl: "3600",
+            upsert: false,
+            contentType: file.type
+        });
+
+    if (error) throw error;
+
+    return nomeFile;
+}
+
+newsForm.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const titolo = newsTitle.value.trim();
+    const categoria = newsCategory.value.trim();
+    const descrizione = newsDescription.value.trim();
+    const link = newsLink.value.trim();
+    const file = newsImage.files[0];
+
+    if (!titolo || !descrizione) {
+        mostraMessaggio("Inserisci titolo e descrizione.");
+        return;
+    }
+
+    newsSubmitButton.disabled = true;
+    mostraMessaggio("Salvataggio notizia in corso...");
+
+    let immagine = null;
+    let nuovaImmagine = null;
+
+    try {
+        if (notiziaInModifica) {
+            const { data: precedente, error: precedenteError } =
+                await supabaseClient
+                    .from("notizie")
+                    .select("immagine")
+                    .eq("id", notiziaInModifica)
+                    .single();
+
+            if (precedenteError) throw precedenteError;
+            immagine = precedente.immagine;
+        }
+
+        if (file) {
+            if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+                throw new Error("Formato immagine non supportato.");
+            }
+
+            nuovaImmagine = await caricaImmagineNotizia(file);
+            immagine = nuovaImmagine;
+        }
+
+        const datiNotizia = {
+            titolo: titolo,
+            categoria: categoria || null,
+            descrizione: descrizione,
+            link: link || null,
+            immagine: immagine,
+            pubblicata: newsPublished.checked
+        };
+
+        let error;
+
+        if (notiziaInModifica) {
+            const result = await supabaseClient
+                .from("notizie")
+                .update(datiNotizia)
+                .eq("id", notiziaInModifica);
+
+            error = result.error;
+        } else {
+            const result = await supabaseClient
+                .from("notizie")
+                .insert([datiNotizia]);
+
+            error = result.error;
+        }
+
+        if (error) throw error;
+
+        mostraMessaggio(
+            notiziaInModifica
+                ? "Notizia modificata correttamente."
+                : "Notizia inserita correttamente."
+        );
+
+        resetNewsForm();
+        await caricaNotizieAdmin();
+
+    } catch (error) {
+        if (nuovaImmagine) {
+            await supabaseClient
+                .storage
+                .from("notizie")
+                .remove([nuovaImmagine]);
+        }
+
+        mostraMessaggio("Errore nel salvataggio: " + error.message);
+
+    } finally {
+        newsSubmitButton.disabled = false;
+    }
+});
+
+function modificaNotizia(notizia) {
+    notiziaInModifica = notizia.id;
+
+    newsTitle.value = notizia.titolo || "";
+    newsCategory.value = notizia.categoria || "";
+    newsDescription.value = notizia.descrizione || "";
+    newsLink.value = notizia.link || "";
+    newsPublished.checked = Boolean(notizia.pubblicata);
+    newsImage.value = "";
+
+    newsFormTitle.textContent = "Modifica notizia";
+    newsSubmitButton.textContent = "Salva modifiche";
+    newsCancelButton.style.display = "block";
+
+    newsForm.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+function resetNewsForm() {
+    newsForm.reset();
+
+    notiziaInModifica = null;
+    newsPublished.checked = true;
+
+    newsFormTitle.textContent = "Aggiungi una nuova notizia";
+    newsSubmitButton.textContent = "Pubblica notizia";
+    newsCancelButton.style.display = "none";
+}
+
+newsCancelButton.addEventListener("click", () => {
+    resetNewsForm();
+    mostraMessaggio("Modifica annullata.");
+});
+
+async function eliminaNotizia(notizia) {
+    const conferma = confirm(
+        'Vuoi davvero eliminare la notizia "' + notizia.titolo + '"?'
+    );
+
+    if (!conferma) return;
+
+    mostraMessaggio("Eliminazione notizia in corso...");
+
+    const { error } = await supabaseClient
+        .from("notizie")
+        .delete()
+        .eq("id", notizia.id);
+
+    if (error) {
+        mostraMessaggio("Errore durante l'eliminazione: " + error.message);
+        return;
+    }
+
+    if (notizia.immagine) {
+        const { error: imageError } = await supabaseClient
+            .storage
+            .from("notizie")
+            .remove([notizia.immagine]);
+
+        if (imageError) {
+            mostraMessaggio(
+                "Notizia eliminata, ma non è stato possibile eliminare l'immagine: " +
+                imageError.message
+            );
+
+            await caricaNotizieAdmin();
+            return;
+        }
+    }
+
+    mostraMessaggio("Notizia eliminata correttamente.");
+
+    if (notiziaInModifica === notizia.id) {
+        resetNewsForm();
+    }
+
+    caricaNotizieAdmin();
+}
+
+// ==================================================
+// GESTIONE SQUADRE E GIOCATORI
+// ==================================================
+
+async function caricaGestioneSquadreGiocatori() {
+    await caricaSquadreAdmin();
+    await caricaGiocatoriAdmin();
+    popolaCheckboxGiocatoriSquadra();
+    popolaCheckboxSquadreGiocatore();
+}
+
+async function caricaSquadreAdmin() {
+    teamsAdminList.innerHTML = "<p>Caricamento squadre...</p>";
+
+    const { data, error } = await supabaseClient
+        .from("squadre")
+        .select("*")
+        .order("ordine", { ascending: true });
+
+    if (error) {
+        teamsAdminList.textContent = "Errore nel caricamento delle squadre: " + error.message;
+        return;
+    }
+
+    squadreCache = data || [];
+    teamsAdminList.innerHTML = "";
+
+    if (!squadreCache.length) {
+        teamsAdminList.innerHTML = "<p>Non ci sono ancora squadre.</p>";
+        return;
+    }
+
+    const { data: links, error: linksError } = await supabaseClient
+        .from("squadra_giocatori")
+        .select("squadra_id, giocatore_id");
+
+    if (linksError) {
+        teamsAdminList.textContent = "Errore nel recupero delle rose: " + linksError.message;
+        return;
+    }
+
+    const { data: players, error: playersError } = await supabaseClient
+        .from("giocatori")
+        .select("id, nome, cognome");
+
+    if (playersError) {
+        teamsAdminList.textContent = "Errore nel recupero dei giocatori: " + playersError.message;
+        return;
+    }
+
+    const playerMap = new Map((players || []).map(p => [p.id, p]));
+    const linksByTeam = new Map();
+
+    (links || []).forEach(link => {
+        if (!linksByTeam.has(link.squadra_id)) {
+            linksByTeam.set(link.squadra_id, []);
+        }
+
+        const player = playerMap.get(link.giocatore_id);
+
+        if (player) {
+            linksByTeam.get(link.squadra_id).push(
+                player.nome + " " + player.cognome
+            );
+        }
+    });
+
+    squadreCache.forEach(squadra => {
+        const card = document.createElement("article");
+        card.className = "management-card";
+
+        const info = document.createElement("div");
+
+        const title = document.createElement("h3");
+        title.textContent =
+            (squadra.nome || "Squadra") + " – " + (squadra.categoria || "");
+
+        const code = document.createElement("p");
+        code.textContent = "Codice: " + squadra.codice;
+
+        const description = document.createElement("p");
+        description.textContent = squadra.descrizione || "Nessuna descrizione";
+
+        const roster = document.createElement("p");
+        roster.textContent =
+            "Rosa: " +
+            ((linksByTeam.get(squadra.id) || []).join(", ") ||
+            "Nessun giocatore assegnato");
+
+        info.append(title, code, description, roster);
+
+        // COLLEGAMENTO FITET
+        if (squadra.fitet) {
+            const fitet = document.createElement("p");
+            const link = document.createElement("a");
+
+            link.href = squadra.fitet;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = "Apri pagina FITeT";
+
+            fitet.appendChild(link);
+            info.appendChild(fitet);
+        } else {
+            const fitetMissing = document.createElement("p");
+            fitetMissing.textContent = "Link FITeT non inserito";
+            info.appendChild(fitetMissing);
+        }
+
+        const actions = document.createElement("div");
+        actions.className = "management-actions";
+
+        const edit = document.createElement("button");
+        edit.type = "button";
+        edit.textContent = "Modifica";
+        edit.addEventListener("click", () => modificaSquadra(squadra));
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.textContent = "Elimina";
+        remove.className = "danger";
+        remove.addEventListener("click", () => eliminaSquadra(squadra));
+
+        actions.append(edit, remove);
+        card.append(info, actions);
+        teamsAdminList.appendChild(card);
+    });
+
+    popolaCheckboxSquadreGiocatore();
+}
+
+async function caricaGiocatoriAdmin() {
+    playersAdminList.innerHTML = "<p>Caricamento giocatori...</p>";
+
+    const { data, error } = await supabaseClient
+        .from("giocatori")
+        .select("*")
+        .order("cognome", { ascending: true });
+
+    if (error) {
+        playersAdminList.textContent = "Errore nel caricamento dei giocatori: " + error.message;
+        return;
+    }
+
+    giocatoriCache = data || [];
+    playersAdminList.innerHTML = "";
+
+    if (!giocatoriCache.length) {
+        playersAdminList.innerHTML = "<p>Non ci sono ancora giocatori.</p>";
+        return;
+    }
+
+    const { data: links, error: linksError } = await supabaseClient
+        .from("squadra_giocatori")
+        .select("squadra_id, giocatore_id");
+
+    if (linksError) {
+        playersAdminList.textContent = "Errore nel recupero delle squadre: " + linksError.message;
+        return;
+    }
+
+    const teamMap = new Map(squadreCache.map(t => [t.id, t]));
+    const teamsByPlayer = new Map();
+
+    (links || []).forEach(link => {
+        if (!teamsByPlayer.has(link.giocatore_id)) {
+            teamsByPlayer.set(link.giocatore_id, []);
+        }
+
+        const team = teamMap.get(link.squadra_id);
+
+        if (team) {
+            teamsByPlayer.get(link.giocatore_id).push(
+                team.categoria || team.nome
+            );
+        }
+    });
+
+    giocatoriCache.forEach(giocatore => {
+        const card = document.createElement("article");
+        card.className = "management-card";
+
+        const info = document.createElement("div");
+
+        const title = document.createElement("h3");
+        title.textContent = giocatore.nome + " " + giocatore.cognome;
+
+        const code = document.createElement("p");
+        code.textContent = "Codice: " + giocatore.codice;
+
+        const teams = document.createElement("p");
+        teams.textContent =
+            "Squadre: " +
+            ((teamsByPlayer.get(giocatore.id) || []).join(", ") ||
+            "Nessuna squadra assegnata");
+
+        info.append(title, code, teams);
+
+        const actions = document.createElement("div");
+        actions.className = "management-actions";
+
+        const edit = document.createElement("button");
+        edit.type = "button";
+        edit.textContent = "Modifica";
+        edit.addEventListener("click", () => modificaGiocatore(giocatore));
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.textContent = "Elimina";
+        remove.className = "danger";
+        remove.addEventListener("click", () => eliminaGiocatore(giocatore));
+
+        actions.append(edit, remove);
+        card.append(info, actions);
+        playersAdminList.appendChild(card);
+    });
+
+    popolaCheckboxGiocatoriSquadra();
+}
+
+function creaCheckbox(container, elementi) {
+    container.innerHTML = "";
+
+    if (!elementi.length) {
+        container.innerHTML = "<p>Nessun elemento disponibile.</p>";
+        return;
+    }
+
+    elementi.forEach(elemento => {
+        const label = document.createElement("label");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.value = elemento.id;
+
+        const span = document.createElement("span");
+        span.textContent = elemento.nome;
+
+        label.append(checkbox, span);
+        container.appendChild(label);
+    });
+}
+
+function popolaCheckboxGiocatoriSquadra(selezionati = []) {
+    creaCheckbox(
+        teamPlayerChecks,
+        giocatoriCache.map(g => ({
+            id: g.id,
+            nome: g.nome + " " + g.cognome
+        }))
+    );
+
+    teamPlayerChecks.querySelectorAll('input[type="checkbox"]').forEach(input => {
+        input.checked = selezionati.includes(input.value);
+    });
+}
+
+function popolaCheckboxSquadreGiocatore(selezionati = []) {
+    creaCheckbox(
+        playerTeamChecks,
+        squadreCache.map(s => ({
+            id: s.id,
+            nome: (s.nome || "") + " (" + (s.categoria || "") + ")"
+        }))
+    );
+
+    playerTeamChecks.querySelectorAll('input[type="checkbox"]').forEach(input => {
+        input.checked = selezionati.includes(input.value);
+    });
+}
+
+function selezioniCheckbox(container) {
+    return Array.from(
+        container.querySelectorAll('input[type="checkbox"]:checked')
+    ).map(input => input.value);
+}
+
+async function salvaCollegamentiSquadra(squadraId, giocatoriIds) {
+    const { error: deleteError } = await supabaseClient
+        .from("squadra_giocatori")
+        .delete()
+        .eq("squadra_id", squadraId);
+
+    if (deleteError) throw deleteError;
+
+    if (!giocatoriIds.length) return;
+
+    const righe = giocatoriIds.map((giocatoreId, index) => ({
+        squadra_id: squadraId,
+        giocatore_id: giocatoreId,
+        ordine: index + 1
+    }));
+
+    const { error } = await supabaseClient
+        .from("squadra_giocatori")
+        .insert(righe);
+
+    if (error) throw error;
+}
+
+async function salvaCollegamentiGiocatore(giocatoreId, squadreIds) {
+    const { error: deleteError } = await supabaseClient
+        .from("squadra_giocatori")
+        .delete()
+        .eq("giocatore_id", giocatoreId);
+
+    if (deleteError) throw deleteError;
+
+    if (!squadreIds.length) return;
+
+    const righe = squadreIds.map((squadraId, index) => ({
+        squadra_id: squadraId,
+        giocatore_id: giocatoreId,
+        ordine: index + 1
+    }));
+
+    const { error } = await supabaseClient
+        .from("squadra_giocatori")
+        .insert(righe);
+
+    if (error) throw error;
+}
+
+function resetTeamForm() {
+    teamForm.reset();
+    teamDbId.value = "";
+    teamOrder.value = 0;
+    teamFormTitle.textContent = "Aggiungi una squadra";
+    teamSubmitButton.textContent = "Salva squadra";
+    teamCancelButton.style.display = "none";
+    teamCode.disabled = false;
+    popolaCheckboxGiocatoriSquadra();
+}
+
+function resetPlayerForm() {
+    playerForm.reset();
+    playerDbId.value = "";
+    playerCode.disabled = false;
+    playerFormTitle.textContent = "Aggiungi un giocatore";
+    playerSubmitButton.textContent = "Salva giocatore";
+    playerCancelButton.style.display = "none";
+    popolaCheckboxSquadreGiocatore();
+}
+
+async function modificaSquadra(squadra) {
+    const { data: links, error } = await supabaseClient
+        .from("squadra_giocatori")
+        .select("giocatore_id")
+        .eq("squadra_id", squadra.id);
+
+    if (error) {
+        mostraMessaggio("Errore nel recupero della rosa: " + error.message);
+        return;
+    }
+
+    teamDbId.value = squadra.id;
+    teamCode.value = squadra.codice || "";
+    teamCode.disabled = true;
+    teamName.value = squadra.nome || "";
+    teamCategory.value = squadra.categoria || "";
+    teamDescription.value = squadra.descrizione || "";
+    teamFitet.value = squadra.fitet || "";
+    teamOrder.value = squadra.ordine ?? 0;
+
+    teamFormTitle.textContent = "Modifica squadra";
+    teamSubmitButton.textContent = "Salva modifiche";
+    teamCancelButton.style.display = "inline-block";
+
+    popolaCheckboxGiocatoriSquadra(
+        (links || []).map(link => link.giocatore_id)
+    );
+
+    teamForm.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+async function modificaGiocatore(giocatore) {
+    const { data: links, error } = await supabaseClient
+        .from("squadra_giocatori")
+        .select("squadra_id")
+        .eq("giocatore_id", giocatore.id);
+
+    if (error) {
+        mostraMessaggio("Errore nel recupero delle squadre: " + error.message);
+        return;
+    }
+
+    playerDbId.value = giocatore.id;
+    playerCode.value = giocatore.codice || "";
+    playerCode.disabled = true;
+    playerFirstName.value = giocatore.nome || "";
+    playerLastName.value = giocatore.cognome || "";
+
+    playerFormTitle.textContent = "Modifica giocatore";
+    playerSubmitButton.textContent = "Salva modifiche";
+    playerCancelButton.style.display = "inline-block";
+
+    popolaCheckboxSquadreGiocatore(
+        (links || []).map(link => link.squadra_id)
+    );
+
+    playerForm.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+// SALVATAGGIO SQUADRA
+teamForm.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const codice = teamCode.value.trim();
+
+    const dati = {
+        nome: teamName.value.trim(),
+        categoria: teamCategory.value.trim(),
+        descrizione: teamDescription.value.trim() || null,
+        fitet: teamFitet.value.trim() || null,
+        ordine: Number(teamOrder.value) || 0
+    };
+
+    if (!codice || !dati.nome || !dati.categoria) {
+        mostraMessaggio("Compila codice, nome e categoria della squadra.");
+        return;
+    }
+
+    if (dati.fitet && !/^https?:\/\//i.test(dati.fitet)) {
+        mostraMessaggio("Inserisci un indirizzo FITeT valido, completo di https://");
+        return;
+    }
+
+    teamSubmitButton.disabled = true;
+    mostraMessaggio("Salvataggio squadra in corso...");
+
+    try {
+        let squadraId = teamDbId.value;
+
+        if (squadraId) {
+            const { error } = await supabaseClient
+                .from("squadre")
+                .update(dati)
+                .eq("id", squadraId);
+
+            if (error) throw error;
+
+        } else {
+            const { data, error } = await supabaseClient
+                .from("squadre")
+                .insert([{ codice, ...dati }])
+                .select("id")
+                .single();
+
+            if (error) throw error;
+            squadraId = data.id;
+        }
+
+        await salvaCollegamentiSquadra(
+            squadraId,
+            selezioniCheckbox(teamPlayerChecks)
+        );
+
+        mostraMessaggio("Squadra salvata correttamente.");
+
+        resetTeamForm();
+        await caricaSquadreAdmin();
+        await caricaGiocatoriAdmin();
+        await popolaElementiFotoSito();
+
+    } catch (error) {
+        mostraMessaggio("Errore nel salvataggio della squadra: " + error.message);
+    } finally {
+        teamSubmitButton.disabled = false;
+    }
+});
+
+// SALVATAGGIO GIOCATORE
+playerForm.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const codice = playerCode.value.trim();
+
+    const dati = {
+        nome: playerFirstName.value.trim(),
+        cognome: playerLastName.value.trim()
+    };
+
+    if (!codice || !dati.nome || !dati.cognome) {
+        mostraMessaggio("Compila codice, nome e cognome del giocatore.");
+        return;
+    }
+
+    playerSubmitButton.disabled = true;
+    mostraMessaggio("Salvataggio giocatore in corso...");
+
+    try {
+        let giocatoreId = playerDbId.value;
+
+        if (giocatoreId) {
+            const { error } = await supabaseClient
+                .from("giocatori")
+                .update(dati)
+                .eq("id", giocatoreId);
+
+            if (error) throw error;
+
+        } else {
+            const { data, error } = await supabaseClient
+                .from("giocatori")
+                .insert([{ codice, ...dati }])
+                .select("id")
+                .single();
+
+            if (error) throw error;
+            giocatoreId = data.id;
+        }
+
+        await salvaCollegamentiGiocatore(
+            giocatoreId,
+            selezioniCheckbox(playerTeamChecks)
+        );
+
+        mostraMessaggio("Giocatore salvato correttamente.");
+
+        resetPlayerForm();
+        await caricaGiocatoriAdmin();
+        await caricaSquadreAdmin();
+        await popolaElementiFotoSito();
+
+    } catch (error) {
+        mostraMessaggio("Errore nel salvataggio del giocatore: " + error.message);
+    } finally {
+        playerSubmitButton.disabled = false;
+    }
+});
+
+teamCancelButton.addEventListener("click", () => {
+    resetTeamForm();
+    mostraMessaggio("Modifica squadra annullata.");
+});
+
+playerCancelButton.addEventListener("click", () => {
+    resetPlayerForm();
+    mostraMessaggio("Modifica giocatore annullata.");
+});
+
+async function eliminaSquadra(squadra) {
+    const conferma = confirm(
+        'Vuoi eliminare la squadra "' + squadra.nome +
+        " (" + squadra.categoria + ')"? I collegamenti con i giocatori verranno rimossi.'
+    );
+
+    if (!conferma) return;
+
+    const { error } = await supabaseClient
+        .from("squadre")
+        .delete()
+        .eq("id", squadra.id);
+
+    if (error) {
+        mostraMessaggio("Errore durante l'eliminazione della squadra: " + error.message);
+        return;
+    }
+
+    mostraMessaggio(
+        "Squadra eliminata. Le associazioni fotografiche non vengono eliminate automaticamente."
+    );
+
+    await caricaSquadreAdmin();
+    await caricaGiocatoriAdmin();
+    await popolaElementiFotoSito();
+}
+
+async function eliminaGiocatore(giocatore) {
+    const conferma = confirm(
+        'Vuoi eliminare "' + giocatore.nome + " " + giocatore.cognome +
+        '"? Verranno rimossi anche i collegamenti alle squadre.'
+    );
+
+    if (!conferma) return;
+
+    const { error } = await supabaseClient
+        .from("giocatori")
+        .delete()
+        .eq("id", giocatore.id);
+
+    if (error) {
+        mostraMessaggio("Errore durante l'eliminazione del giocatore: " + error.message);
+        return;
+    }
+
+    mostraMessaggio(
+        "Giocatore eliminato. L'eventuale fotografia associata non viene eliminata automaticamente."
+    );
+
+    await caricaGiocatoriAdmin();
+    await caricaSquadreAdmin();
+    await popolaElementiFotoSito();
+}
+
+// ==================================================
+// LOGIN E LOGOUT
+// ==================================================
+
 loginForm.addEventListener("submit", async event => {
-  event.preventDefault();
+    event.preventDefault();
 
-  mostraMessaggio("Accesso in corso...");
+    mostraMessaggio("Accesso in corso...");
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-  const { data, error } = await supabaseClient.auth.signInWithPassword({
-    email,
-    password
-  });
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email,
+        password
+    });
 
-  if (error) {
-    mostraMessaggio("Accesso non riuscito: " + error.message);
-    return;
-  }
+    if (error) {
+        mostraMessaggio("Accesso non riuscito: " + error.message);
+        return;
+    }
 
-  mostraMessaggio("Accesso effettuato.");
-  aggiornaInterfaccia(data.session);
+    mostraMessaggio("Accesso effettuato.");
+    aggiornaInterfaccia(data.session);
 });
 
 logoutButton.addEventListener("click", async () => {
-  const { error } = await supabaseClient.auth.signOut();
-
-  if (error) {
-    mostraMessaggio("Errore durante l'uscita: " + error.message);
-    return;
-  }
-
-  mostraMessaggio("Hai effettuato la disconnessione.");
-  aggiornaInterfaccia(null);
-});
-
-uploadForm.addEventListener("submit", async event => {
-  event.preventDefault();
-
-  const files = Array.from(photoFiles.files);
-
-  if (!files.length) {
-    mostraMessaggio("Seleziona almeno una fotografia.");
-    return;
-  }
-
-  uploadButton.disabled = true;
-
-  let caricate = 0;
-
-  for (const file of files) {
-    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
-      mostraMessaggio("Formato non supportato: " + file.name);
-      continue;
-    }
-
-    const nomeSicuro = file.name.replace(/[^a-zA-Z0-9._-]/g, "-");
-    const percorso = Date.now() + "-" +
-      Math.random().toString(36).slice(2) + "-" + nomeSicuro;
-
-    const { error } = await supabaseClient
-      .storage
-      .from("galleria")
-      .upload(percorso, file, {
-        cacheControl: "3600",
-        upsert: false,
-        contentType: file.type
-      });
+    const { error } = await supabaseClient.auth.signOut();
 
     if (error) {
-      mostraMessaggio("Errore con " + file.name + ": " + error.message);
-    } else {
-      caricate++;
+        mostraMessaggio("Errore durante l'uscita: " + error.message);
+        return;
     }
-  }
 
-  photoFiles.value = "";
-  uploadButton.disabled = false;
-
-  mostraMessaggio("Fotografie caricate: " + caricate);
-
-  caricaFotografie();
+    mostraMessaggio("Hai effettuato la disconnessione.");
+    aggiornaInterfaccia(null);
 });
 
+// INIZIALIZZAZIONE
 async function inizializza() {
-  const { data, error } = await supabaseClient.auth.getSession();
+    const { data, error } = await supabaseClient.auth.getSession();
 
-  if (error) {
-    mostraMessaggio("Errore: " + error.message);
-    return;
-  }
+    if (error) {
+        mostraMessaggio("Errore: " + error.message);
+        return;
+    }
 
-  aggiornaInterfaccia(data.session);
+    aggiornaInterfaccia(data.session);
 }
 
 supabaseClient.auth.onAuthStateChange((_event, session) => {
-  aggiornaInterfaccia(session);
+    aggiornaInterfaccia(session);
 });
 
 inizializza();
@@ -415,4 +2471,3 @@ inizializza();
 
 </body>
 </html>
-

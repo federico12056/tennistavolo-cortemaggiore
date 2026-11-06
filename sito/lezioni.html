@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -9,25 +10,71 @@
 
   <link rel="stylesheet" href="css/style.css">
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <style>
+    /* SFONDO PRINCIPALE */
+
+    .lessons-background {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding-bottom: 55px;
+    }
+
+    .lessons-background::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image: var(--sfondo-lezioni);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .lessons-background::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: rgba(10, 30, 55, .72);
+    }
+
+    /* INTRODUZIONE */
+
     .lessons-hero {
       max-width: 1000px;
       margin: 0 auto;
       padding: 58px 22px 28px;
       text-align: center;
+      color: white;
     }
 
     .lessons-hero h1 {
       margin: 8px 0 16px;
+      color: white;
     }
 
-   .lessons-hero .intro {
-  color: #333333;
-  opacity: 1;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  text-align: center;
-}
+    .lessons-hero .eyebrow {
+      color: white;
+    }
+
+    .lessons-hero .intro {
+      color: white;
+      opacity: 1;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* CARD ALLENATORI */
+
+    .lessons-section {
+      background: transparent;
+      padding-top: 15px;
+      padding-bottom: 0;
+    }
 
     .coach-grid {
       display: grid;
@@ -42,8 +89,26 @@
       flex-direction: column;
     }
 
+    .coach-image {
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      background: rgba(127, 127, 127, .12);
+    }
+
+    .coach-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
     .coach-card-content {
       padding: 26px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .coach-tag {
@@ -73,7 +138,11 @@
     .coach-card .button {
       display: inline-block;
       text-decoration: none;
+      margin-top: auto;
+      align-self: flex-start;
     }
+
+    /* NOTA INFORMATIVA */
 
     .lessons-note {
       max-width: 900px;
@@ -95,6 +164,10 @@
 
       .coach-card-content {
         padding: 22px;
+      }
+
+      .coach-image {
+        height: 220px;
       }
     }
   </style>
@@ -121,6 +194,7 @@
     <a href="societa.html">Società</a>
     <a href="squadre.html">Squadre e giocatori</a>
     <a href="risultati.html">Risultati</a>
+    <a href="notizie.html">News e annunci</a>
     <a href="galleria.html">Galleria</a>
     <a href="lezioni.html" aria-current="page">Lezioni</a>
     <a href="contatti.html">Contatti</a>
@@ -129,87 +203,110 @@
 
 <main>
 
-  <section class="lessons-hero">
-    <p class="eyebrow">ALLENAMENTO INDIVIDUALE</p>
+  <!-- SEZIONE CON SFONDO PRINCIPALE -->
 
-    <h1>Fai evolvere il tuo gioco.</h1>
+  <section class="lessons-background">
 
-    <p class="intro">
-      Le lezioni individuali sono un'occasione per lavorare sui dettagli,
-      capire meglio il proprio gioco e costruire obiettivi di miglioramento
-      concreti. Scegli l'allenatore più adatto alle tue esigenze e invia
-      una richiesta di disponibilità.
-    </p>
+    <div class="lessons-hero">
+
+      <p class="eyebrow">ALLENAMENTO INDIVIDUALE</p>
+
+      <h1>Fai evolvere il tuo gioco.</h1>
+
+      <p class="intro">
+        Le lezioni individuali sono un'occasione per lavorare sui dettagli,
+        capire meglio il proprio gioco e costruire obiettivi di miglioramento
+        concreti. Scegli l'allenatore più adatto alle tue esigenze e invia
+        una richiesta di disponibilità.
+      </p>
+
+    </div>
+ </section>
+    <section class="section lessons-section">
+
+
+      <div class="coach-grid">
+
+        <!-- ALLENATORE 1 -->
+
+        <article class="card coach-card">
+
+          <div class="coach-image" id="foto-lezioni-sazonov"></div>
+
+          <div class="coach-card-content">
+
+            <span class="coach-tag">Strategia e tattica</span>
+
+            <h2>Alexandr Sazonov</h2>
+
+            <p>
+              Un lavoro orientato alla lettura della partita e alla scelta
+              delle soluzioni più efficaci nei diversi momenti dello scambio.
+            </p>
+
+            <ul>
+              <li>Lettura dell'avversario e delle sue abitudini</li>
+              <li>Scelte tattiche e gestione del ritmo</li>
+              <li>Costruzione del punto e strategia di gioco</li>
+              <li>Adattamento durante la partita</li>
+            </ul>
+
+            <a class="button" href="lezioni-sazonov.html">
+              Scopri il profilo
+            </a>
+
+          </div>
+        </article>
+
+        <!-- ALLENATRICE 2 -->
+
+        <article class="card coach-card">
+
+          <div class="coach-image" id="foto-lezioni-riabchenko"></div>
+
+          <div class="coach-card-content">
+
+            <span class="coach-tag">Tecnica e continuità</span>
+
+            <h2>Nataliia Riabchenko</h2>
+
+            <p>
+              Un lavoro focalizzato sulla qualità del gesto tecnico e sulla
+              costruzione di un gioco più stabile, fluido e personale.
+            </p>
+
+            <ul>
+              <li>Tecnica dei colpi e qualità del contatto</li>
+              <li>Spostamenti e posizione al tavolo</li>
+              <li>Regolarità, controllo e continuità</li>
+              <li>Sviluppo di uno stile di gioco personale</li>
+            </ul>
+
+            <a class="button" href="lezioni-riabchenko.html">
+              Scopri il profilo
+            </a>
+
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
   </section>
+
+  <!-- NOTA INFORMATIVA -->
 
   <section class="section">
 
-    <div class="coach-grid">
-
-      <!-- ALLENATORE 1 -->
-
-      <article class="card coach-card">
-        <div class="coach-card-content">
-
-          <span class="coach-tag">Strategia e tattica</span>
-
-          <h2>Alexandr Sazonov</h2>
-
-          <p>
-            Un lavoro orientato alla lettura della partita e alla scelta
-            delle soluzioni più efficaci nei diversi momenti dello scambio.
-          </p>
-
-          <ul>
-            <li>Lettura dell'avversario e delle sue abitudini</li>
-            <li>Scelte tattiche e gestione del ritmo</li>
-            <li>Costruzione del punto e strategia di gioco</li>
-            <li>Adattamento durante la partita</li>
-          </ul>
-
-          <a class="button" href="lezioni-sazonov.html">
-            Profilo e calendario
-          </a>
-
-        </div>
-      </article>
-
-      <!-- ALLENATRICE 2 -->
-
-      <article class="card coach-card">
-        <div class="coach-card-content">
-
-          <span class="coach-tag">Tecnica e continuità</span>
-
-          <h2>Nataliia Riabchenko</h2>
-
-          <p>
-            Un lavoro focalizzato sulla qualità del gesto tecnico e sulla
-            costruzione di un gioco più stabile, fluido e personale.
-          </p>
-
-          <ul>
-            <li>Tecnica dei colpi e qualità del contatto</li>
-            <li>Spostamenti e posizione al tavolo</li>
-            <li>Regolarità, controllo e continuità</li>
-            <li>Sviluppo di uno stile di gioco personale</li>
-          </ul>
-
-          <a class="button" href="lezioni-riabchenko.html">
-            Profilo e calendario
-          </a>
-
-        </div>
-      </article>
-
-    </div>
-
     <div class="lessons-note">
+
       <strong>Come funziona la richiesta?</strong><br>
 
       Scegli un giorno e un orario disponibili e inserisci i tuoi recapiti.
       La richiesta non equivale a una prenotazione confermata:
       l'allenatore ti contatterà per concordare i dettagli.
+
     </div>
 
   </section>
@@ -284,6 +381,102 @@
   </p>
 
 </footer>
+
+<!-- CARICAMENTO IMMAGINI DA SUPABASE -->
+
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+
+  const SUPABASE_URL = "https://jjktajcbtxmyagyexxbj.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_iuOOYxZ6xQKyddY2SALzLg__pPAayjK";
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+  const immagini = [
+    {
+      id: "lezioni-principale",
+      contenitore: null,
+      descrizione: "Sfondo principale delle lezioni"
+    },
+    {
+      id: "lezioni-alexandr-sazonov",
+      contenitore: "foto-lezioni-sazonov",
+      descrizione: "Alexandr Sazonov"
+    },
+    {
+      id: "lezioni-nataliia-riabchenko",
+      contenitore: "foto-lezioni-riabchenko",
+      descrizione: "Nataliia Riabchenko"
+    }
+  ];
+
+  const { data, error } = await supabaseClient
+    .from("foto_sito")
+    .select("elemento_id, percorso, testo_alternativo")
+    .eq("tipo", "pagina")
+    .in("elemento_id", immagini.map(function (immagine) {
+      return immagine.id;
+    }));
+
+  if (error) {
+    console.error("Errore nel caricamento delle immagini delle lezioni:", error);
+    return;
+  }
+
+  immagini.forEach(function (immagine) {
+
+    const foto = data.find(function (elemento) {
+      return elemento.elemento_id === immagine.id;
+    });
+
+    if (!foto || !foto.percorso) return;
+
+    const { data: publicData } = supabaseClient
+      .storage
+      .from("foto-sito")
+      .getPublicUrl(foto.percorso);
+
+    if (!publicData || !publicData.publicUrl) return;
+
+    // Immagine principale come sfondo della sezione
+
+    if (immagine.id === "lezioni-principale") {
+
+      const sezione = document.querySelector(".lessons-background");
+
+      if (sezione) {
+        sezione.style.setProperty(
+          "--sfondo-lezioni",
+          `url("${publicData.publicUrl}")`
+        );
+      }
+
+      return;
+    }
+
+    // Immagini dei due allenatori
+
+    const contenitore = document.getElementById(immagine.contenitore);
+
+    if (!contenitore) return;
+
+    const img = document.createElement("img");
+
+    img.src = publicData.publicUrl;
+    img.alt = foto.testo_alternativo || immagine.descrizione;
+    img.loading = "lazy";
+
+    contenitore.appendChild(img);
+
+  });
+
+});
+</script>
+
+<!-- MENU MOBILE -->
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {

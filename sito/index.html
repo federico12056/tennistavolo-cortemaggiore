@@ -131,11 +131,42 @@
                 transition: none;
             }
         }
+
+        /* Immagine principale sotto il carousel */
+        .homepage-main-image-section {
+            width: 100%;
+            margin: 48px 0;
+        }
+
+        .homepage-main-image {
+            display: block;
+            width: 100%;
+            height: clamp(220px, 35vw, 480px);
+            object-fit: cover;
+        }
+
+        .homepage-main-image[hidden] {
+            display: none;
+        }
+
+        /* Immagini delle schede "Il nostro mondo" */
+        .world-card-image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .world-card-image[hidden] {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
-    
+
 <header class="header">
     <a href="index.html" class="logo">
         <img src="img/logo.png" alt="Tennistavolo Cortemaggiore">
@@ -152,6 +183,7 @@
         <a href="index.html">Home</a>
         <a href="societa.html">Società</a>
         <a href="squadre.html">Squadre e giocatori</a>
+        <a href="notizie.html">News e annunci</a>
         <a href="risultati.html">Risultati</a>
         <a href="galleria.html">Galleria</a>
         <a href="lezioni.html">Lezioni</a>
@@ -159,165 +191,546 @@
     </nav>
 </header>
 
+<main>
 
-    <main>
-        <section class="hero">
-            <p class="eyebrow">PASSIONE · SPORT · SQUADRA</p>
+    <!-- PRESENTAZIONE E CAROUSEL -->
+    <section class="hero">
 
-            <h1>La passione per il tennistavolo.</h1>
+        <p class="eyebrow">PASSIONE · SPORT · SQUADRA</p>
 
-            <p class="intro">
-                Scopri il Tennistavolo Cortemaggiore:
-                le nostre squadre, i nostri atleti e i risultati
-                di una società che vive di sport dal 1989.
-            </p>
+        <h1>La passione per il tennistavolo.</h1>
 
-            <a class="button" href="squadre.html">
-                Scopri le squadre
-            </a>
+        <p class="intro">
+            Scopri il Tennistavolo Cortemaggiore:
+            le nostre squadre, i nostri atleti e i risultati
+            di una società che vive di sport dal 1989.
+        </p>
 
-            <div class="hero-carousel" aria-label="Galleria fotografica">
-                <div class="hero-carousel-track">
-                    <img src="img/foto-squadra.png"
-                         alt=""
-                         class="hero-slide active">
+        <a class="button" href="squadre.html">
+            Scopri le squadre
+        </a>
 
-                    <img src="img/c-fem.png"
-                         alt=""
-                         class="hero-slide">
+        <div class="hero-carousel" aria-label="Galleria fotografica">
 
-                    <img src="img/mohamed.png"
-                         alt=""
-                         class="hero-slide">
+            <div class="hero-carousel-track">
 
-                    <img src="img/dernini-milza.png"
-                         alt=""
-                         class="hero-slide">
-                </div>
+                <img src="img/foto-squadra.png"
+                     alt=""
+                     class="hero-slide active">
 
-                <button type="button" class="carousel-arrow prev"
-                        aria-label="Foto precedente">‹</button>
+                <img src="img/c-fem.png"
+                     alt=""
+                     class="hero-slide">
 
-                <button type="button" class="carousel-arrow next"
-                        aria-label="Foto successiva">›</button>
+                <img src="img/mohamed.png"
+                     alt=""
+                     class="hero-slide">
 
-                <div class="carousel-dots">
-                    <button type="button" class="carousel-dot active"
-                            aria-label="Foto 1"></button>
-                    <button type="button" class="carousel-dot"
-                            aria-label="Foto 2"></button>
-                    <button type="button" class="carousel-dot"
-                            aria-label="Foto 3"></button>
-                    <button type="button" class="carousel-dot"
-                            aria-label="Foto 4"></button>
+                <img src="img/dernini-milza.png"
+                     alt=""
+                     class="hero-slide">
+
+            </div>
+
+            <button type="button" class="carousel-arrow prev"
+                    aria-label="Foto precedente">‹</button>
+
+            <button type="button" class="carousel-arrow next"
+                    aria-label="Foto successiva">›</button>
+
+            <div class="carousel-dots">
+
+                <button type="button" class="carousel-dot active"
+                        aria-label="Foto 1"></button>
+
+                <button type="button" class="carousel-dot"
+                        aria-label="Foto 2"></button>
+
+                <button type="button" class="carousel-dot"
+                        aria-label="Foto 3"></button>
+
+                <button type="button" class="carousel-dot"
+                        aria-label="Foto 4"></button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- IMMAGINE PRINCIPALE HOMEPAGE -->
+    <section class="homepage-main-image-section"
+             aria-label="Immagine principale della società">
+
+        <img class="homepage-main-image"
+             data-foto-pagina="homepage-banner"
+             alt="Tennistavolo Cortemaggiore"
+             loading="lazy"
+             hidden>
+
+    </section>
+
+    <!-- ALLENAMENTI -->
+    <section class="section">
+
+        <div class="training-header">
+
+            <span class="training-kicker">TENNISTAVOLO CORTEMAGGIORE</span>
+
+            <h2>I nostri allenamenti</h2>
+
+            <p>Passione, sport e divertimento. Ti aspettiamo in palestra!</p>
+
+        </div>
+
+        <div class="training-location">
+
+            <span class="location-label">DOVE CI TROVIAMO</span>
+
+            <h3>Palestra Oratorio ANSPI</h3>
+
+            <p>Via B. Brighenti 3, Cortemaggiore (PC)</p>
+
+        </div>
+
+        <div class="training-schedule">
+
+            <div class="training-day">
+                <h3>Lunedì</h3>
+                <div class="training-hours">
+                    <span>16:30 – 18:00</span>
+                    <span>18:00 – 20:00</span>
                 </div>
             </div>
-        </section>
 
-        <section class="section">
-            <h2>Il nostro mondo</h2>
-
-            <div class="cards">
-                <article class="card">
-                    <h3>Le squadre</h3>
-                    <p>Scopri le formazioni e i giocatori della società.</p>
-                    <a href="squadre.html">Scopri di più →</a>
-                </article>
-
-                <article class="card">
-                    <h3>Risultati</h3>
-                    <p>Segui campionati, partite e tornei.</p>
-                    <a href="risultati.html">Consulta i risultati →</a>
-                </article>
-
-                <article class="card">
-                    <h3>Lezioni private</h3>
-                    <p>Migliora il tuo gioco con i nostri allenatori.</p>
-                    <a href="lezioni.html">Prenota una lezione →</a>
-                </article>
+            <div class="training-day">
+                <h3>Martedì</h3>
+                <div class="training-hours">
+                    <span class="kids-training">
+                        16:30 – 18:00 <small>Allenamento bambini</small>
+                    </span>
+                    <span>18:00 – 20:00</span>
+                </div>
             </div>
-        </section>
 
-        <section class="section sponsors">
-            <h2>I nostri sponsor</h2>
-            <p>
-                Le aziende e i partner che sostengono
-                il Tennistavolo Cortemaggiore.
-            </p>
-            <a href="sponsor.html">Scopri i nostri partner →</a>
-        </section>
-    </main>
+            <div class="training-day">
+                <h3>Mercoledì</h3>
+                <div class="training-hours">
+                    <span class="kids-training">
+                        16:30 – 18:00 <small>Allenamento bambini</small>
+                    </span>
+                    <span>18:00 – 20:00</span>
+                </div>
+            </div>
+
+            <div class="training-day">
+                <h3>Giovedì</h3>
+                <div class="training-hours">
+                    <span>17:00 – 18:30</span>
+                    <span>18:00 – 20:00</span>
+                </div>
+            </div>
+
+            <div class="training-day">
+                <h3>Venerdì</h3>
+                <div class="training-hours">
+                    <span class="kids-training">
+                        16:30 – 18:00 <small>Allenamento bambini</small>
+                    </span>
+                    <span>18:00 – 20:00</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- IL NOSTRO MONDO -->
+    <section class="section">
+
+        <h2>Il nostro mondo</h2>
+
+        <div class="cards">
+
+            <article class="card">
+
+                <img class="world-card-image"
+                     data-foto-pagina="mondo-squadre"
+                     alt="Le squadre del Tennistavolo Cortemaggiore"
+                     loading="lazy"
+                     hidden>
+
+                <h3>Le squadre</h3>
+
+                <p>Scopri le formazioni e i giocatori della società.</p>
+
+                <a href="squadre.html">Scopri di più →</a>
+
+            </article>
+
+            <article class="card">
+
+                <img class="world-card-image"
+                     data-foto-pagina="mondo-risultati"
+                     alt="Risultati del Tennistavolo Cortemaggiore"
+                     loading="lazy"
+                     hidden>
+
+                <h3>Risultati</h3>
+
+                <p>Segui campionati, partite e tornei.</p>
+
+                <a href="risultati.html">Consulta i risultati →</a>
+
+            </article>
+
+            <article class="card">
+
+                <img class="world-card-image"
+                     data-foto-pagina="mondo-lezioni"
+                     alt="Lezioni private di tennistavolo"
+                     loading="lazy"
+                     hidden>
+
+                <h3>Lezioni private</h3>
+
+                <p>Migliora il tuo gioco con i nostri allenatori.</p>
+
+                <a href="lezioni.html">Prenota una lezione →</a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SPONSOR -->
+    <section class="section sponsors">
+
+        <h2>I nostri sponsor</h2>
+
+        <p>
+            Le aziende e i partner che sostengono
+            il Tennistavolo Cortemaggiore.
+        </p>
+
+        <a href="sponsor.html">Scopri i nostri partner →</a>
+
+    </section>
+
+</main>
+
+<!-- SUPABASE E CARICAMENTO IMMAGINI HOMEPAGE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+
+    const SUPABASE_URL = "https://jjktajcbtxmyagyexxbj.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_iuOOYxZ6xQKyddY2SALzLg__pPAayjK";
+
+    const supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+    const carousel = document.querySelector(".hero-carousel");
+
+    if (!carousel) return;
+
+    const track = carousel.querySelector(".hero-carousel-track");
+    const dotsContainer = carousel.querySelector(".carousel-dots");
+    const prev = carousel.querySelector(".prev");
+    const next = carousel.querySelector(".next");
+
+    let slides = [];
+    let dots = [];
+    let current = 0;
+    let timer = null;
 
 
+    // CREA I PALLINI DEL CAROUSEL
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const carousel = document.querySelector(".hero-carousel");
+    function creaPallini() {
 
-            if (!carousel) return;
+        dotsContainer.innerHTML = "";
 
-            const slides = Array.from(
-                carousel.querySelectorAll(".hero-slide")
-            );
-            const dots = Array.from(
-                carousel.querySelectorAll(".carousel-dot")
-            );
-            const prev = carousel.querySelector(".prev");
-            const next = carousel.querySelector(".next");
+        slides.forEach(function (_, index) {
 
-            if (slides.length === 0) return;
+            const dot = document.createElement("button");
 
-            let current = 0;
-            let timer;
+            dot.type = "button";
+            dot.className = "carousel-dot";
+            dot.setAttribute("aria-label", "Foto " + (index + 1));
 
-            function showSlide(index) {
-                current = (index + slides.length) % slides.length;
-
-                slides.forEach(function (slide, i) {
-                    slide.classList.toggle("active", i === current);
-                });
-
-                dots.forEach(function (dot, i) {
-                    dot.classList.toggle("active", i === current);
-                });
-            }
-
-            function restartTimer() {
-                clearInterval(timer);
-                timer = setInterval(function () {
-                    showSlide(current + 1);
-                }, 5000);
-            }
-
-            prev.addEventListener("click", function () {
-                showSlide(current - 1);
+            dot.addEventListener("click", function () {
+                showSlide(index);
                 restartTimer();
             });
 
-            next.addEventListener("click", function () {
-                showSlide(current + 1);
-                restartTimer();
-            });
+            dotsContainer.appendChild(dot);
 
-            dots.forEach(function (dot, i) {
-                dot.addEventListener("click", function () {
-                    showSlide(i);
-                    restartTimer();
-                });
-            });
-
-            showSlide(0);
-            restartTimer();
         });
-    </script>
-    
 
+        dots = Array.from(
+            dotsContainer.querySelectorAll(".carousel-dot")
+        );
+
+    }
+
+
+    // MOSTRA UNA FOTOGRAFIA DEL CAROUSEL
+
+    function showSlide(index) {
+
+        if (slides.length === 0) return;
+
+        current = (index + slides.length) % slides.length;
+
+        slides.forEach(function (slide, i) {
+            slide.classList.toggle("active", i === current);
+        });
+
+        dots.forEach(function (dot, i) {
+            dot.classList.toggle("active", i === current);
+        });
+
+        const mostraControlli = slides.length > 1;
+
+        prev.hidden = !mostraControlli;
+        next.hidden = !mostraControlli;
+        dotsContainer.hidden = !mostraControlli;
+
+    }
+
+
+    // RIAVVIA LA ROTAZIONE AUTOMATICA
+
+    function restartTimer() {
+
+        clearInterval(timer);
+
+        if (slides.length > 1) {
+
+            timer = setInterval(function () {
+                showSlide(current + 1);
+            }, 5000);
+
+        }
+
+    }
+
+
+    // AGGIORNA IL CAROUSEL
+
+    function aggiornaCarousel(immagini) {
+
+        if (!immagini || immagini.length === 0) {
+
+            // Se non ci sono immagini nel database,
+            // restano visibili quelle già presenti nell'HTML.
+
+            slides = Array.from(
+                track.querySelectorAll(".hero-slide")
+            );
+
+        } else {
+
+            track.innerHTML = "";
+
+            immagini.forEach(function (foto, index) {
+
+                const immagine = document.createElement("img");
+
+                immagine.src = supabaseClient.storage
+                    .from("foto-sito")
+                    .getPublicUrl(foto.percorso).data.publicUrl;
+
+                immagine.alt = foto.testo_alternativo ||
+                    "Fotografia del Tennistavolo Cortemaggiore";
+
+                immagine.className =
+                    "hero-slide" + (index === 0 ? " active" : "");
+
+                immagine.loading = index === 0 ? "eager" : "lazy";
+
+                track.appendChild(immagine);
+
+            });
+
+            slides = Array.from(
+                track.querySelectorAll(".hero-slide")
+            );
+
+        }
+
+        creaPallini();
+        showSlide(0);
+        restartTimer();
+
+    }
+
+
+    // CONTROLLI DEL CAROUSEL
+
+
+prev.addEventListener("click", function () {
+    showSlide(current - 1);
+    restartTimer();
+});
+
+next.addEventListener("click", function () {
+    showSlide(current + 1);
+    restartTimer();
+});
+
+// Avvia subito il carousel con le immagini HTML.
+// In seguito verrà aggiornato con quelle di Supabase.
+aggiornaCarousel([]);
+
+
+try {
+
+        // RECUPERA TUTTE LE IMMAGINI DELLA HOMEPAGE
+
+        const { data: foto, error } = await supabaseClient
+            .from("foto_sito")
+            .select("elemento_id, percorso, testo_alternativo")
+            .eq("tipo", "pagina");
+
+        if (error) throw error;
+
+
+        // CAROUSEL HOMEPAGE
+
+        const immaginiCarousel = (foto || [])
+            .filter(function (elemento) {
+
+                return /^homepage-carousel-\d+$/.test(
+                    elemento.elemento_id
+                );
+
+            })
+            .sort(function (a, b) {
+
+                return a.elemento_id.localeCompare(b.elemento_id);
+
+            });
+
+        aggiornaCarousel(immaginiCarousel);
+
+
+        // IMMAGINE PRINCIPALE HOMEPAGE
+
+        const immaginePrincipale = (foto || []).find(
+            function (elemento) {
+                return elemento.elemento_id === "homepage-banner";
+            }
+        );
+
+        const banner = document.querySelector(
+            '[data-foto-pagina="homepage-banner"]'
+        );
+
+        if (
+            banner &&
+            immaginePrincipale &&
+            immaginePrincipale.percorso
+        ) {
+
+            banner.src = supabaseClient.storage
+                .from("foto-sito")
+                .getPublicUrl(immaginePrincipale.percorso).data.publicUrl;
+
+            banner.alt = immaginePrincipale.testo_alternativo ||
+                "Tennistavolo Cortemaggiore";
+
+            banner.hidden = false;
+
+        }
+
+
+        // IMMAGINI DELLE TRE SCHEDE "IL NOSTRO MONDO"
+
+        const immaginiMondo = {
+            "mondo-squadre": null,
+            "mondo-risultati": null,
+            "mondo-lezioni": null
+        };
+
+        (foto || []).forEach(function (elemento) {
+
+            if (
+                Object.prototype.hasOwnProperty.call(
+                    immaginiMondo,
+                    elemento.elemento_id
+                )
+            ) {
+
+                immaginiMondo[elemento.elemento_id] = elemento;
+
+            }
+
+        });
+
+
+        // ASSOCIA OGNI IMMAGINE ALLA PROPRIA SCHEDA
+
+        document.querySelectorAll("[data-foto-pagina]").forEach(
+            function (img) {
+
+                const id = img.getAttribute("data-foto-pagina");
+
+                // Il banner viene gestito separatamente.
+                if (id === "homepage-banner") return;
+
+                const elemento = immaginiMondo[id];
+
+                if (elemento && elemento.percorso) {
+
+                    img.src = supabaseClient.storage
+                        .from("foto-sito")
+                        .getPublicUrl(elemento.percorso).data.publicUrl;
+
+                    if (elemento.testo_alternativo) {
+                        img.alt = elemento.testo_alternativo;
+                    }
+
+                    img.hidden = false;
+
+                }
+
+            }
+        );
+
+
+    } catch (errore) {
+
+        console.error(
+            "Errore nel caricamento delle immagini della homepage:",
+            errore
+        );
+
+        // In caso di errore Supabase,
+        // il carousel mantiene le immagini originali.
+
+        aggiornaCarousel([]);
+
+    }
+
+});
+</script>
+
+
+<!-- FOOTER -->
 <footer class="site-footer">
 
     <div class="footer-sponsors">
+
         <p class="footer-sponsors-title">I nostri sponsor</p>
 
         <div class="footer-sponsors-logos">
+
             <a href="https://www.metronottevigilanza.it/"
                target="_blank" rel="noopener noreferrer"
                aria-label="Metronotte">
@@ -375,7 +788,9 @@
                aria-label="Corteauto">
                 <img src="img/sponsor/corteauto.svg" alt="Corteauto" loading="lazy">
             </a>
+
         </div>
+
     </div>
 
     <p>© 2026 Tennistavolo Cortemaggiore SSD a r.l.</p>
@@ -391,28 +806,40 @@
 </footer>
 
 
+<!-- MENU MOBILE -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
     const button = document.querySelector(".mobile-menu-toggle");
     const menu = document.querySelector("#site-menu");
 
     if (!button || !menu) return;
 
     button.addEventListener("click", function () {
+
         const isOpen = menu.classList.toggle("is-open");
 
         button.setAttribute("aria-expanded", String(isOpen));
+
         button.querySelector("span").textContent =
             isOpen ? "Chiudi menu" : "Menu";
+
     });
 
     menu.querySelectorAll("a").forEach(function (link) {
+
         link.addEventListener("click", function () {
+
             menu.classList.remove("is-open");
+
             button.setAttribute("aria-expanded", "false");
+
             button.querySelector("span").textContent = "Menu";
+
         });
+
     });
+
 });
 </script>
 

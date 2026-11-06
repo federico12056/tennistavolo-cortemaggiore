@@ -942,3 +942,265 @@ footer.site-footer p a {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+.training-location {
+    background: var(--card, #f5f5f5);
+    padding: 22px;
+    border-radius: 14px;
+    margin: 25px 0;
+    border-left: 4px solid var(--accent, #d71920);
+}
+
+.location-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0.65;
+}
+
+.training-location h3 {
+    margin: 8px 0 5px;
+    font-size: 21px;
+}
+
+.training-location p {
+    margin: 0;
+    opacity: 0.75;
+}
+
+.training-schedule {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.training-day {
+    padding: 18px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 12px;
+    background: var(--card, #fff);
+}
+
+.training-day h3 {
+    margin: 0 0 14px;
+    font-size: 18px;
+}
+
+.training-hours {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.training-hours span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.training-hours .kids-training {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.kids-training small {
+    font-size: 11px;
+    font-weight: 500;
+    opacity: 0.65;
+}
+
+@media (max-width: 600px) {
+    .training-schedule {
+        grid-template-columns: 1fr;
+    }
+}
+.training-header {
+    margin-bottom: 30px;
+}
+
+.training-kicker {
+    display: inline-block;
+    color: var(--accent, #d71920);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.training-header h2 {
+    font-size: clamp(30px, 5vw, 42px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin: 0 0 10px;
+}
+
+.training-header p {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.7;
+    margin: 0;
+}
+/* MIGLIORAMENTO ORARI ALLENAMENTI SU SMARTPHONE */
+
+.training-schedule {
+    width: 100%;
+    min-width: 0;
+}
+
+.training-day {
+    min-width: 0;
+    padding: 20px;
+    overflow-wrap: break-word;
+}
+
+.training-day h3 {
+    color: #173c70;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.training-hours {
+    gap: 12px;
+}
+
+.training-hours span {
+    display: block;
+    color: #26354b;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.training-hours .kids-training {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.training-hours .kids-training small {
+    display: inline-block;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+
+    .section:has(.training-schedule) {
+        padding: 38px 5%;
+    }
+
+    .training-header {
+        margin-bottom: 22px;
+    }
+
+    .training-header h2 {
+        font-size: 29px;
+        line-height: 1.2;
+    }
+
+    .training-header p {
+        font-size: 14px;
+    }
+
+    .training-location {
+        padding: 17px;
+        margin: 20px 0;
+    }
+
+    .training-location h3 {
+        font-size: 19px;
+    }
+
+    .training-schedule {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .training-day {
+        padding: 15px 12px;
+        border-radius: 10px;
+    }
+
+    .training-day h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .training-hours span {
+        font-size: 13px;
+    }
+
+    .training-hours .kids-training small {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .training-schedule {
+        grid-template-columns: 1fr;
+    }
+}
+.societa-foto {
+    width: min(1100px, calc(100% - 40px));
+    margin: 40px auto;
+}
+
+.societa-foto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+.risultati-sfondo {
+    background: transparent;
+}
+
+.risultati-banner {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 230px;
+    padding: 55px 30px;
+    margin-bottom: 30px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.risultati-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image: var(--sfondo-risultati);
+    background-size: cover;
+    background-position: center;
+}
+
+.risultati-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(10, 30, 55, 0.55);
+}
+
+.risultati-banner h1 {
+    color: white;
+    margin-bottom: 12px;
+}
+
+.risultati-banner p {
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .risultati-banner {
+        min-height: 180px;
+        padding: 35px 18px;
+    }
+}
