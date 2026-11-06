@@ -622,10 +622,10 @@
             <label>Cognome
                 <input type="text" id="player-last-name" placeholder="Cognome" maxlength="100" required>
             </label>
-            <label>Link FITeT
-                <input type="url" id="team-fitet" placeholder="https://portale.fitet.org/...">
-            </label>
-
+            <label>Link al profilo individuale FITeT
+    <input type="url" id="player-fitet"
+        placeholder="https://portale.fitet.org/...">
+</label>
             <div>
                 <strong>Squadre di appartenenza</strong>
                 <p class="admin-help">Seleziona tutte le squadre in cui milita l'atleta.</p>
@@ -722,6 +722,7 @@ const playerDbId = document.getElementById("player-db-id");
 const playerCode = document.getElementById("player-code");
 const playerFirstName = document.getElementById("player-first-name");
 const playerLastName = document.getElementById("player-last-name");
+const playerFitet = document.getElementById("player-fitet");
 const playerTeamChecks = document.getElementById("player-team-checks");
 const playerSubmitButton = document.getElementById("player-submit-button");
 const playerCancelButton = document.getElementById("player-cancel-button");
@@ -2208,6 +2209,7 @@ async function modificaGiocatore(giocatore) {
     playerCode.disabled = true;
     playerFirstName.value = giocatore.nome || "";
     playerLastName.value = giocatore.cognome || "";
+    playerFitet.value = giocatore.fitet || "";
 
     playerFormTitle.textContent = "Modifica giocatore";
     playerSubmitButton.textContent = "Salva modifiche";
@@ -2294,10 +2296,12 @@ playerForm.addEventListener("submit", async event => {
 
     const codice = playerCode.value.trim();
 
-    const dati = {
-        nome: playerFirstName.value.trim(),
-        cognome: playerLastName.value.trim()
-    };
+   const dati = {
+    nome: playerFirstName.value.trim(),
+    cognome: playerLastName.value.trim(),
+    fitet: playerFitet.value.trim() || null
+};
+
 
     if (!codice || !dati.nome || !dati.cognome) {
         mostraMessaggio("Compila codice, nome e cognome del giocatore.");
