@@ -207,8 +207,8 @@ async function caricaSquadreEGiocatori() {
                 const link = document.createElement("a");
 
                 link.href =
-                    "giocatori.html#" +
-                    encodeURIComponent(giocatore.codice);
+    "squadre.html#giocatore-" +
+    encodeURIComponent(giocatore.codice);
 
                 link.textContent =
                     giocatore.nome + " " + giocatore.cognome;
@@ -243,6 +243,7 @@ async function caricaSquadreEGiocatori() {
         giocatoriUnici.forEach(function(giocatore) {
             const scheda = document.createElement("article");
             scheda.className = "card";
+            scheda.id = "giocatore-" + giocatore.codice;
 
             // Fotografia del giocatore.
             const fotoGiocatore = mappaFotoGiocatori.get(
