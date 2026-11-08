@@ -462,6 +462,10 @@
                 <input type="checkbox" id="news-published" checked>
                 Pubblica immediatamente la notizia
             </label>
+            <label class="news-checkbox">
+    <input type="checkbox" id="news-featured">
+    Mostra nella homepage (notizia in evidenza)
+</label>
 
             <button type="submit" id="news-submit-button">Pubblica notizia</button>
 
@@ -566,9 +570,7 @@
                 <textarea id="team-description" placeholder="Descrizione della squadra"></textarea>
             </label>
 
-            <label>Link FITeT
-                <input type="url" id="team-fitet" placeholder="https://portale.fitet.org/...">
-            </label>
+            
 
             <label>Ordine di visualizzazione
                 <input type="number" id="team-order" min="0" step="1" value="0">
@@ -682,6 +684,7 @@ const newsDescription = document.getElementById("news-description");
 const newsLink = document.getElementById("news-link");
 const newsImage = document.getElementById("news-image");
 const newsPublished = document.getElementById("news-published");
+const newsFeatured = document.getElementById("news-featured");
 const newsSubmitButton = document.getElementById("news-submit-button");
 const newsCancelButton = document.getElementById("news-cancel-button");
 const newsFormTitle = document.getElementById("news-form-title");
@@ -1591,8 +1594,15 @@ async function caricaNotizieAdmin() {
         description.textContent = notizia.descrizione || "";
 
         const status = document.createElement("span");
-        status.className = "news-status";
-        status.textContent = notizia.pubblicata ? "Pubblicata" : "Bozza";
+status.className = "news-status";
+
+status.textContent = notizia.pubblicata
+    ? "Pubblicata"
+    : "Bozza";
+
+if (notizia.in_evidenza) {
+    status.textContent += " · ★ In evidenza homepage";
+}
 
         content.append(title, category, description, status);
 
@@ -1685,15 +1695,15 @@ newsForm.addEventListener("submit", async event => {
             immagine = nuovaImmagine;
         }
 
-        const datiNotizia = {
-            titolo: titolo,
-            categoria: categoria || null,
-            descrizione: descrizione,
-            link: link || null,
-            immagine: immagine,
-            pubblicata: newsPublished.checked
-        };
-
+       const datiNotizia = {
+    titolo: titolo,
+    categoria: categoria || null,
+    descrizione: descrizione,
+    link: link || null,
+    immagine: immagine,
+    pubblicata: newsPublished.checked,
+    in_evidenza: newsFeatured.checked
+};
         let error;
 
         if (notiziaInModifica) {
@@ -1745,6 +1755,7 @@ function modificaNotizia(notizia) {
     newsDescription.value = notizia.descrizione || "";
     newsLink.value = notizia.link || "";
     newsPublished.checked = Boolean(notizia.pubblicata);
+    newsFeatured.checked = Boolean(notizia.in_evidenza);
     newsImage.value = "";
 
     newsFormTitle.textContent = "Modifica notizia";
@@ -1762,6 +1773,7 @@ function resetNewsForm() {
 
     notiziaInModifica = null;
     newsPublished.checked = true;
+newsFeatured.checked = false;
 
     newsFormTitle.textContent = "Aggiungi una nuova notizia";
     newsSubmitButton.textContent = "Pubblica notizia";

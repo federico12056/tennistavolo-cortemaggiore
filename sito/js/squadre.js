@@ -273,28 +273,8 @@ async function caricaSquadreEGiocatori() {
 
             scheda.append(nome, appartenenza);
 
-            // Collegamento FITeT del giocatore.
-            if (giocatore.fitet) {
-                const linkFitet = document.createElement("a");
+           
 
-                linkFitet.href = giocatore.fitet;
-                linkFitet.textContent = "Scheda FITeT →";
-                linkFitet.target = "_blank";
-                linkFitet.rel = "noopener noreferrer";
-
-                scheda.appendChild(linkFitet);
-            }
-
-            // Collegamento alla scheda individuale.
-            const link = document.createElement("a");
-
-            link.href =
-                "giocatori.html#" +
-                encodeURIComponent(giocatore.codice);
-
-            link.textContent = "Scheda giocatore →";
-
-            scheda.appendChild(link);
             contenitoreGiocatori.appendChild(scheda);
         });
 

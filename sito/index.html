@@ -143,23 +143,87 @@
         }
 
         /* IMMAGINE PRINCIPALE HOMEPAGE */
+/* HERO HOMEPAGE CON IMMAGINE DINAMICA */
 
-        .homepage-main-image-section {
-            width: 100%;
-            margin: 48px 0;
-        }
+.homepage-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
 
-        .homepage-main-image {
-            display: block;
-            width: 100%;
-            height: clamp(220px, 35vw, 480px);
-            object-fit: cover;
-        }
+    min-height: clamp(420px, 48vw, 620px);
+    padding: 100px 8%;
 
-        .homepage-main-image[hidden] {
-            display: none;
-        }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
+    color: white;
+    background: #123c69;
+}
+
+.homepage-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background-image: var(--homepage-banner);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.homepage-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: rgba(10, 30, 55, 0.60);
+}
+
+.homepage-hero .eyebrow,
+.homepage-hero h1,
+.homepage-hero .intro,
+.homepage-hero .button {
+    position: relative;
+    z-index: 1;
+}
+
+.homepage-hero h1 {
+    max-width: 720px;
+    color: white;
+}
+
+.homepage-hero .intro {
+    color: white;
+}
+
+.homepage-hero .eyebrow {
+    color: #f4b9bd;
+}
+
+/* CAROUSEL SOTTO IL BANNER */
+
+.homepage-carousel-section {
+    padding: 38px 8% 50px;
+    background: #f5f7fa;
+}
+
+.homepage-carousel-section .hero-carousel {
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .homepage-hero {
+        min-height: 400px;
+        padding: 65px 7%;
+    }
+
+    .homepage-carousel-section {
+        padding: 28px 5% 35px;
+    }
+}
         /* IMMAGINI SCHEDE IL NOSTRO MONDO */
 
         .world-card-image {
@@ -174,6 +238,271 @@
         .world-card-image[hidden] {
             display: none;
         }
+        /* =========================================
+   CAROUSEL NOTIZIE HOMEPAGE
+========================================= */
+
+.homepage-news-section {
+    padding: 55px 8% 65px;
+    background: #f5f7fa;
+    text-align: center;
+}
+
+.homepage-news-header {
+    max-width: 750px;
+    margin: 0 auto 28px;
+}
+
+.homepage-news-header .news-kicker {
+    display: block;
+    margin-bottom: 10px;
+    color: #a51f35;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.homepage-news-header h2 {
+    margin: 0 0 12px;
+    color: #123c69;
+    font-size: clamp(27px, 3vw, 36px);
+}
+
+.homepage-news-header p {
+    margin: 0;
+    color: #5d6875;
+}
+
+/* Contenitore */
+
+.news-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1050px;
+    min-height: 300px;
+    margin: 0 auto;
+}
+
+.news-carousel[hidden] {
+    display: none;
+}
+
+.news-carousel-track {
+    position: relative;
+    width: 100%;
+}
+
+/* Singola notizia */
+
+.news-carousel-slide {
+    display: none;
+    grid-template-columns: 38% 1fr;
+    min-height: 300px;
+    overflow: hidden;
+    background: white;
+    border-radius: 16px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+.news-carousel-slide.active {
+    display: grid;
+    animation: newsFadeIn 0.45s ease;
+}
+
+@keyframes newsFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Immagine */
+
+.news-carousel-image {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    background: #e5eaf0;
+}
+
+.news-carousel-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    background: #123c69;
+    color: white;
+    font-size: 42px;
+}
+
+/* Contenuto */
+
+.news-carousel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 35px 45px;
+}
+
+.news-carousel-category {
+    margin-bottom: 12px;
+    color: #a51f35;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.news-carousel-content h3 {
+    margin: 0 0 16px;
+    color: #123c69;
+    font-size: clamp(22px, 2.5vw, 30px);
+    line-height: 1.25;
+}
+
+.news-carousel-description {
+    margin: 0 0 22px;
+    color: #536171;
+    line-height: 1.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-carousel-link {
+    display: inline-block;
+    margin-top: 5px;
+    color: #a51f35;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.news-carousel-link:hover {
+    text-decoration: underline;
+}
+
+/* Frecce */
+
+.news-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #123c69;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+.news-carousel-arrow:hover {
+    background: #a51f35;
+}
+
+.news-carousel-arrow.prev {
+    left: -20px;
+}
+
+.news-carousel-arrow.next {
+    right: -20px;
+}
+
+.news-carousel button[hidden] {
+    display: none;
+}
+
+/* Indicatori */
+
+.news-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 20px;
+}
+
+.news-carousel-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #b9c2cd;
+    cursor: pointer;
+}
+
+.news-carousel-dot.active {
+    background: #a51f35;
+    transform: scale(1.2);
+}
+
+/* Collegamento a tutte le notizie */
+
+.news-all-link {
+    display: inline-block;
+    margin-top: 28px;
+    color: #123c69;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.news-all-link:hover {
+    color: #a51f35;
+}
+
+.news-carousel-empty {
+    color: #687586;
+}
+
+/* Smartphone */
+
+@media (max-width: 700px) {
+
+    .homepage-news-section {
+        padding: 40px 7% 48px;
+    }
+
+    .news-carousel {
+        min-height: 0;
+    }
+
+    .news-carousel-slide {
+        grid-template-columns: 1fr;
+    }
+
+    .news-carousel-image,
+    .news-carousel-image-placeholder {
+        height: 190px;
+        min-height: 190px;
+    }
+
+    .news-carousel-content {
+        padding: 25px 24px 30px;
+    }
+
+    .news-carousel-content h3 {
+        font-size: 23px;
+    }
+
+    .news-carousel-arrow.prev {
+        left: -13px;
+    }
+
+    .news-carousel-arrow.next {
+        right: -13px;
+    }
+
+}
     </style>
 </head>
 
@@ -207,70 +536,98 @@
 
 <main>
 
-    <!-- PRESENTAZIONE E CAROUSEL -->
+<!-- HERO PRINCIPALE -->
 
-    <section class="hero">
+<section class="hero homepage-hero">
 
-        <p class="eyebrow">PASSIONE · SPORT · SQUADRA</p>
+    <p class="eyebrow">PASSIONE · SPORT · SQUADRA</p>
 
-        <h1>La passione per il tennistavolo.</h1>
+    <h1>La passione per il tennistavolo.</h1>
 
-        <p class="intro">
-            Scopri il Tennistavolo Cortemaggiore:
-            le nostre squadre, i nostri atleti e i risultati
-            di una società che vive di sport dal 1989.
-        </p>
+    <p class="intro">
+        Scopri il Tennistavolo Cortemaggiore:
+        le nostre squadre, i nostri atleti e i risultati
+        di una società che vive di sport dal 1989.
+    </p>
 
-        <a class="button" href="squadre.html">
-            Scopri le squadre
-        </a>
+    <a class="button" href="squadre.html">
+        Scopri le squadre
+    </a>
 
-        <!--
-            Il carousel viene popolato esclusivamente
-            con le immagini caricate dall'amministrazione
-            attraverso Supabase.
-        -->
-
-        <div class="hero-carousel"
-             aria-label="Galleria fotografica"
-             hidden>
-
-            <div class="hero-carousel-track"></div>
-
-            <button type="button"
-                    class="carousel-arrow prev"
-                    aria-label="Foto precedente"
-                    hidden>
-                ‹
-            </button>
-
-            <button type="button"
-                    class="carousel-arrow next"
-                    aria-label="Foto successiva"
-                    hidden>
-                ›
-            </button>
-
-            <div class="carousel-dots" hidden></div>
-
-        </div>
-
-    </section>
+</section>
 
 
-    <!-- IMMAGINE PRINCIPALE HOMEPAGE -->
+<!-- CAROUSEL FOTOGRAFICO -->
 
-    <section class="homepage-main-image-section"
-             aria-label="Immagine principale della società">
+<section class="homepage-carousel-section"
+         aria-label="Galleria fotografica della società">
 
-        <img class="homepage-main-image"
-             data-foto-pagina="homepage-banner"
-             alt="Tennistavolo Cortemaggiore"
-             loading="lazy"
-             hidden>
+    <div class="hero-carousel"
+         aria-label="Galleria fotografica"
+         hidden>
 
-    </section>
+        <div class="hero-carousel-track"></div>
 
+        <button type="button"
+                class="carousel-arrow prev"
+                aria-label="Foto precedente"
+                hidden>
+            ‹
+        </button>
+
+        <button type="button"
+                class="carousel-arrow next"
+                aria-label="Foto successiva"
+                hidden>
+            ›
+        </button>
+
+        <div class="carousel-dots" hidden></div>
+
+    </div>
+
+</section>
+
+<!-- CAROUSEL ULTIME NOTIZIE -->
+<section class="homepage-news-section">
+
+    <div class="homepage-news-header">
+        <span class="news-kicker">DAL TENNISTAVOLO CORTEMAGGIORE</span>
+        <h2>Ultime notizie</h2>
+        <p>Scopri le ultime novità, i risultati e gli appuntamenti della società.</p>
+    </div>
+
+    <div class="news-carousel" hidden>
+
+        <div class="news-carousel-track"></div>
+
+        <button type="button"
+                class="news-carousel-arrow prev"
+                aria-label="Notizia precedente"
+                hidden>
+            ‹
+        </button>
+
+        <button type="button"
+                class="news-carousel-arrow next"
+                aria-label="Notizia successiva"
+                hidden>
+            ›
+        </button>
+
+        <div class="news-carousel-dots" hidden></div>
+
+    </div>
+
+    <p class="news-carousel-empty" hidden>
+        Non ci sono ancora notizie pubblicate.
+    </p>
+
+    <a href="notizie.html" class="news-all-link">
+        Tutte le notizie →
+    </a>
+
+</section>
 
     <!-- ALLENAMENTI -->
 
@@ -722,38 +1079,33 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         /* BANNER PRINCIPALE */
 
-        const immaginePrincipale = immagini.find(
-            function (elemento) {
+        /* BANNER PRINCIPALE HOMEPAGE */
 
-                return elemento.elemento_id === "homepage-banner";
+const immaginePrincipale = immagini.find(
+    function (elemento) {
+        return elemento.elemento_id === "homepage-banner";
+    }
+);
 
-            }
-        );
+const hero = document.querySelector(".homepage-hero");
 
+if (
+    hero &&
+    immaginePrincipale &&
+    immaginePrincipale.percorso
+) {
 
-        const banner = document.querySelector(
-            '[data-foto-pagina="homepage-banner"]'
-        );
+    const bannerUrl = supabaseClient.storage
+        .from("foto-sito")
+        .getPublicUrl(immaginePrincipale.percorso)
+        .data.publicUrl;
 
+    hero.style.setProperty(
+        "--homepage-banner",
+        'url("' + bannerUrl + '")'
+    );
 
-        if (
-            banner &&
-            immaginePrincipale &&
-            immaginePrincipale.percorso
-        ) {
-
-            banner.src = supabaseClient.storage
-                .from("foto-sito")
-                .getPublicUrl(immaginePrincipale.percorso)
-                .data.publicUrl;
-
-            banner.alt = immaginePrincipale.testo_alternativo ||
-                "Tennistavolo Cortemaggiore";
-
-            banner.hidden = false;
-
-        }
-
+}
 
         /* IMMAGINI DELLE SCHEDE IL NOSTRO MONDO */
 
@@ -989,6 +1341,180 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
 
+    const SUPABASE_URL = "https://jjktajcbtxmyagyexxbj.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_iuOOYxZ6xQKyddY2SALzLg__pPAayjK";
+
+    const supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+    const carousel = document.querySelector(".news-carousel");
+
+    if (!carousel) return;
+
+    const track = carousel.querySelector(".news-carousel-track");
+    const prev = carousel.querySelector(".news-carousel-arrow.prev");
+    const next = carousel.querySelector(".news-carousel-arrow.next");
+    const dotsContainer = carousel.querySelector(".news-carousel-dots");
+    const emptyMessage = document.querySelector(".news-carousel-empty");
+
+    // Recupera tutte le notizie pubblicate
+    const { data: notizie, error } = await supabaseClient
+        .from("notizie")
+        .select("*")
+        .eq("pubblicata", true)
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error("Errore caricamento notizie homepage:", error);
+        emptyMessage.textContent = "Impossibile caricare le notizie.";
+        emptyMessage.hidden = false;
+        return;
+    }
+
+    // Seleziona prima le notizie fissate.
+    // A parità di condizione, mantiene l'ordine dalla più recente.
+    const fissate = (notizie || []).filter(n => n.in_evidenza);
+
+    const nonFissate = (notizie || []).filter(n => !n.in_evidenza);
+
+    const selezionate = [
+        ...fissate,
+        ...nonFissate
+    ].slice(0, 4);
+
+    if (selezionate.length === 0) {
+        emptyMessage.hidden = false;
+        return;
+    }
+
+    emptyMessage.hidden = true;
+    carousel.hidden = false;
+
+    let indiceCorrente = 0;
+    const slides = [];
+    const dots = [];
+
+    // Crea le schede delle notizie
+    selezionate.forEach(function (notizia, indice) {
+
+        const slide = document.createElement("article");
+        slide.className = "news-carousel-slide";
+
+        if (indice === 0) {
+            slide.classList.add("active");
+        }
+
+        // Immagine
+        const imageContainer = document.createElement("div");
+
+        if (notizia.immagine) {
+
+            const { data: publicData } = supabaseClient
+                .storage
+                .from("notizie")
+                .getPublicUrl(notizia.immagine);
+
+            const img = document.createElement("img");
+            img.className = "news-carousel-image";
+            img.src = publicData.publicUrl;
+            img.alt = notizia.titolo || "Notizia";
+            img.loading = indice === 0 ? "eager" : "lazy";
+
+            imageContainer.appendChild(img);
+
+        } else {
+
+            imageContainer.className = "news-carousel-image-placeholder";
+            imageContainer.textContent = "Tennistavolo Cortemaggiore";
+
+        }
+
+        // Contenuto
+        const content = document.createElement("div");
+        content.className = "news-carousel-content";
+
+        const category = document.createElement("span");
+        category.className = "news-carousel-category";
+        category.textContent = notizia.categoria || "Notizie";
+
+        const title = document.createElement("h3");
+        title.textContent = notizia.titolo;
+
+        const description = document.createElement("p");
+        description.textContent = notizia.descrizione || "";
+
+        const link = document.createElement("a");
+        link.className = "news-carousel-link";
+        link.href = notizia.link || "notizie.html";
+        link.textContent = "Leggi la notizia →";
+
+        if (notizia.link) {
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+        }
+
+        content.append(category, title, description, link);
+
+        slide.append(imageContainer, content);
+        track.appendChild(slide);
+
+        slides.push(slide);
+
+        // Pallino di navigazione
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "news-carousel-dot";
+
+        if (indice === 0) {
+            dot.classList.add("active");
+        }
+
+        dot.setAttribute("aria-label", "Vai alla notizia " + (indice + 1));
+
+        dot.addEventListener("click", function () {
+            mostraNotizia(indice);
+        });
+
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
+
+    });
+
+    // Mostra la notizia selezionata
+    function mostraNotizia(indice) {
+
+        slides[indiceCorrente].classList.remove("active");
+        dots[indiceCorrente].classList.remove("active");
+
+        indiceCorrente = (indice + slides.length) % slides.length;
+
+        slides[indiceCorrente].classList.add("active");
+        dots[indiceCorrente].classList.add("active");
+
+    }
+
+    // Frecce
+    prev.addEventListener("click", function () {
+        mostraNotizia(indiceCorrente - 1);
+    });
+
+    next.addEventListener("click", function () {
+        mostraNotizia(indiceCorrente + 1);
+    });
+
+    // Le frecce e i pallini servono solo se ci sono più notizie
+    if (slides.length > 1) {
+        prev.hidden = false;
+        next.hidden = false;
+        dotsContainer.hidden = false;
+    }
+
+});
+</script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -10,6 +9,64 @@
     <meta name="description" content="La storia del Tennistavolo Cortemaggiore dal 1989: le origini all'Oratorio don Bosco, i valori della società e l'albo storico degli allenatori.">
 
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    .societa-hero {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 22px;
+        color: white;
+        text-align: center;
+    }
+
+    .societa-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background-image: var(--sfondo-societa);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .societa-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: rgba(10, 30, 55, .72);
+    }
+
+    .societa-hero-content {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .societa-hero h1,
+    .societa-hero h2,
+    .societa-hero .eyebrow,
+    .societa-hero .intro {
+        color: white;
+    }
+
+    .societa-hero .intro {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        opacity: 1;
+    }
+
+    @media (max-width: 700px) {
+        .societa-hero {
+            min-height: 380px;
+            padding: 45px 22px;
+        }
+    }
+</style>
 </head>
 
 <body>
@@ -32,7 +89,7 @@
         <a href="societa.html">Società</a>
         <a href="squadre.html">Squadre e giocatori</a>
         <a href="risultati.html">Risultati</a>
- <a href="notizie.html">News e annunci</a>
+        <a href="notizie.html">News e annunci</a>
         <a href="galleria.html">Galleria</a>
         <a href="lezioni.html">Lezioni</a>
         <a href="contatti.html">Contatti</a>
@@ -43,26 +100,20 @@
     <main id="chi-siamo">
 
         <!-- INTRODUZIONE -->
-        <section class="hero">
-            <p class="eyebrow">DAL 1989 · STORIA · PASSIONE</p>
-
-            <h1>Una storia che nasce all'Oratorio.</h1>
-
-            <p class="intro">
-                Il Tennistavolo Cortemaggiore nasce nel 1989
-                all'interno dell'Oratorio don Bosco. Una storia
-                costruita da persone, volontariato e passione,
-                cresciuta nel tempo senza perdere il legame
-                con le proprie origini.
-            </p>
+        <section class="societa-hero" id="foto-societa-principale">
+            <div class="societa-hero-content">
+                <p class="eyebrow">DAL 1989 · STORIA · PASSIONE</p>
+                <h1>Una storia che nasce all'Oratorio.</h1>
+                <p class="intro">
+                    Il Tennistavolo Cortemaggiore nasce nel 1989
+                    all'interno dell'Oratorio don Bosco. Una storia
+                    costruita da persone, volontariato e passione,
+                    cresciuta nel tempo senza perdere il legame
+                    con le proprie origini.
+                </p>
+            </div>
         </section>
 
-        </section>
-
-        <!-- FOTO SOCIETÀ PRINCIPALE -->
-        <div class="societa-foto" id="foto-societa-principale"></div>
-
-        <!-- LE ORIGINI -->
         <!-- LE ORIGINI -->
         <section class="section">
             <h2>Le nostre radici: l'Oratorio don Bosco</h2>
@@ -165,28 +216,24 @@
         </section>
 
         <!-- I VALORI -->
-        <section class="section sponsors">
-            <p class="eyebrow">IL NOSTRO MOTTO</p>
-
-            <h2>Con i giovani per i giovani</h2>
-
-            <p>
-                <strong>
-                    CON I GIOVANI PER I GIOVANI, UNA VERA SOCIETÀ
-                    SPORTIVA MA SEMPRE LEGATA ALLA TRADIZIONE INIZIALE.
-                </strong>
-            </p>
-
-            <p>
-                Passo dopo passo, senza fare mai il passo più lungo
-                della gamba. Con la voglia di confrontarsi e collaborare
-                con tutti e per tutti, conservando quei valori storici
-                che appartenevano all'Oratorio di allora.
-            </p>
+        <section class="societa-hero" id="foto-societa-giovani">
+            <div class="societa-hero-content">
+                <p class="eyebrow">IL NOSTRO MOTTO</p>
+                <h2>Con i giovani per i giovani</h2>
+                <p class="intro">
+                    <strong>
+                        CON I GIOVANI PER I GIOVANI, UNA VERA SOCIETÀ
+                        SPORTIVA MA SEMPRE LEGATA ALLA TRADIZIONE INIZIALE.
+                    </strong>
+                </p>
+                <p class="intro">
+                    Passo dopo passo, senza fare mai il passo più lungo
+                    della gamba. Con la voglia di confrontarsi e collaborare
+                    con tutti e per tutti, conservando quei valori storici
+                    che appartenevano all'Oratorio di allora.
+                </p>
+            </div>
         </section>
-
-                <!-- FOTO SOCIETÀ CON I GIOVANI -->
-        <div class="societa-foto" id="foto-societa-giovani"></div>
 
         <!-- ALBO ALLENATORI -->
         <section class="section">
@@ -300,35 +347,31 @@
         </section>
 
         <!-- CONCLUSIONE -->
-        <section class="section">
-            <h2>Una storia che continua</h2>
+        <section class="societa-hero" id="foto-societa-storia">
+            <div class="societa-hero-content">
+                <h2>Una storia che continua</h2>
 
-            <p>
-                Dal primo tavolo nella sala giochi alle competizioni
-                di alto livello, il percorso del Tennistavolo
-                Cortemaggiore è fatto di persone che hanno dedicato
-                tempo, energie e passione alla società.
-            </p>
+                <p class="intro">
+                    Dal primo tavolo nella sala giochi alle competizioni
+                    di alto livello, il percorso del Tennistavolo
+                    Cortemaggiore è fatto di persone che hanno dedicato
+                    tempo, energie e passione alla società.
+                </p>
 
-            <p>
-                Le origini restano un punto di riferimento:
-                una tradizione costruita insieme ai giovani,
-                attraverso lo sport, il volontariato e la voglia
-                di crescere senza dimenticare da dove tutto è iniziato.
-            </p>
+                <p class="intro">
+                    Le origini restano un punto di riferimento:
+                    una tradizione costruita insieme ai giovani,
+                    attraverso lo sport, il volontariato e la voglia
+                    di crescere senza dimenticare da dove tutto è iniziato.
+                </p>
 
-            <a class="button" href="squadre.html">Scopri le nostre squadre</a>
+                <br>
+                <a class="button" href="squadre.html" style="position: relative; z-index: 2;">Scopri le nostre squadre</a>
+            </div>
         </section>
 
     </main>
 
-            </section>
-
-        <!-- FOTO UNA STORIA CHE CONTINUA -->
-        <div class="societa-foto" id="foto-societa-storia"></div>
-
-    
-    
 <footer class="site-footer">
 
     <div class="footer-sponsors">
@@ -417,40 +460,74 @@ const supabaseClient = window.supabase.createClient(
     SUPABASE_KEY
 );
 
-// Caricamento delle fotografie della pagina Società
+// Caricamento fotografie della pagina Società
 async function caricaFotoSocieta(elementoId, contenitoreId, descrizione) {
+
     const contenitore = document.getElementById(contenitoreId);
 
     if (!contenitore) return;
 
-    const { data, error } = await supabaseClient
-        .from("foto_sito")
-        .select("percorso, testo_alternativo")
-        .eq("tipo", "pagina")
-        .eq("elemento_id", elementoId)
-        .maybeSingle();
+    try {
 
-    if (error) {
-        console.error("Errore caricamento foto:", error);
-        return;
+        const { data, error } = await supabaseClient
+            .from("foto_sito")
+            .select("percorso, testo_alternativo")
+            .eq("tipo", "pagina")
+            .eq("elemento_id", elementoId)
+            .maybeSingle();
+
+        if (error) {
+            console.error("Errore caricamento foto:", error);
+            return;
+        }
+
+        if (!data || !data.percorso) {
+            console.warn("Nessuna fotografia trovata:", elementoId);
+            return;
+        }
+
+        const { data: publicData } = supabaseClient
+            .storage
+            .from("foto-sito")
+            .getPublicUrl(data.percorso);
+
+        if (!publicData || !publicData.publicUrl) {
+            console.error("URL fotografia non disponibile:", elementoId);
+            return;
+        }
+
+        // Se il contenitore ha la classe 'societa-hero', l'immagine diventa sfondo
+        if (contenitore.classList.contains("societa-hero")) {
+
+            contenitore.style.setProperty(
+                "--sfondo-societa",
+                `url("${publicData.publicUrl}")`
+            );
+
+            contenitore.setAttribute(
+                "aria-label",
+                data.testo_alternativo || descrizione
+            );
+
+        } else {
+
+            // Altre fotografie (se presenti in futuro): vengono inserite normalmente
+            const immagine = document.createElement("img");
+
+            immagine.src = publicData.publicUrl;
+            immagine.alt = data.testo_alternativo || descrizione;
+            immagine.loading = "lazy";
+
+            contenitore.appendChild(immagine);
+        }
+
+    } catch (error) {
+        console.error("Errore imprevisto caricamento fotografia:", error);
     }
-
-    if (!data || !data.percorso) return;
-
-    const { data: publicData } = supabaseClient
-        .storage
-        .from("foto-sito")
-        .getPublicUrl(data.percorso);
-
-    const immagine = document.createElement("img");
-
-    immagine.src = publicData.publicUrl;
-    immagine.alt = data.testo_alternativo || descrizione;
-    immagine.loading = "lazy";
-
-    contenitore.appendChild(immagine);
 }
 
+
+// Caricamento pagina
 document.addEventListener("DOMContentLoaded", function () {
 
     // MENU MOBILE
@@ -458,22 +535,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const menu = document.querySelector("#site-menu");
 
     if (button && menu) {
+
         button.addEventListener("click", function () {
+
             const isOpen = menu.classList.toggle("is-open");
 
             button.setAttribute("aria-expanded", String(isOpen));
+
             button.querySelector("span").textContent =
                 isOpen ? "Chiudi menu" : "Menu";
         });
 
         menu.querySelectorAll("a").forEach(function (link) {
+
             link.addEventListener("click", function () {
+
                 menu.classList.remove("is-open");
+
                 button.setAttribute("aria-expanded", "false");
+
                 button.querySelector("span").textContent = "Menu";
             });
         });
     }
+
 
     // FOTO SOCIETÀ
     caricaFotoSocieta(
